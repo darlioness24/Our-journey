@@ -5,50 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daria’s Journey — Dubai · Ras Al Khaimah · Kuala Lumpur</title>
 
-  <!-- PWA & Mobile Icons -->
+  <!-- PWA & Мобильные настройки -->
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#181716">
+  <meta name="theme-color" content="#F6F1E8">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Daria’s Journey">
   
-  <!-- Шрифты Google: Итальянский люксовый глянец + чистая геометрия -->
+  <!-- Шрифты Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Reenie+Beanie&display=swap" rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------
-       DESIGN SYSTEM: Editorial Luxury Travel Diary & After Hours Noir
+       DESIGN SYSTEM: Editorial Scrapbook & Mediterranean Travel Diary
+       (Эстетика Pinterest / Anthropologie / The Late Checkout)
        ------------------------------------------------------------- */
     :root {
-      --bg-editorial: #F9F7F2;
-      --bg-surface: #FFFFFF;
-      --bg-accent-soft: #F1ECE3;
-      --text-primary: #191817;
-      --text-secondary: #6E6A63;
-      --text-muted: #9E998F;
+      --bg-paper: #F6F1E8;
+      --bg-card: #FFFFFF;
+      --bg-polaroid: #FCFAF7;
+      --bg-warm-sand: #EDE3D4;
       
-      --lux-terracotta: #B85334;
-      --lux-gold: #C5A059;
-      --lux-gold-light: #E8D5AC;
-      --lux-olive: #4E5940;
-      --lux-border: rgba(25, 24, 23, 0.08);
-      --lux-border-strong: rgba(25, 24, 23, 0.16);
+      --ink-primary: #1C1A17;
+      --ink-secondary: #5A544C;
+      --ink-muted: #8C8477;
       
-      /* The Weeknd Noir Tokens */
-      --noir-bg: #070709;
-      --noir-surface: #111015;
-      --noir-card: rgba(24, 22, 30, 0.7);
+      --script-red: #D93829;
+      --terracotta: #C85635;
+      --olive-sage: #526043;
+      --vintage-gold: #C29F55;
+      
+      --washi-tape: rgba(235, 218, 187, 0.75);
+      --border-craft: rgba(28, 26, 23, 0.12);
+      
+      /* The Weeknd Midnight Tokens */
+      --noir-bg: #09080C;
+      --noir-card: rgba(22, 18, 28, 0.9);
       --noir-red: #E11D38;
-      --noir-red-glow: rgba(225, 29, 56, 0.35);
+      --noir-red-glow: rgba(225, 29, 56, 0.4);
       --noir-gold: #ECC877;
-      --noir-text: #F3EEF8;
-      --noir-muted: #8E8798;
+      --noir-text: #F6F2FA;
       
       --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --ease-lux: cubic-bezier(0.19, 1, 0.22, 1);
+      --font-hand: 'Caveat', cursive;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     *, *::before, *::after {
@@ -56,40 +58,67 @@
       margin: 0;
       padding: 0;
     }
-    html {
-      background-color: var(--bg-editorial);
-      color: var(--text-primary);
-    }
     body {
-      font-family: var(--font-ui);
+      background-color: var(--bg-paper);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
       line-height: 1.65;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(rgba(0,0,0,0.025) 1px, transparent 0);
+      background-size: 24px 24px;
     }
     h1, h2, h3, .font-serif {
       font-family: var(--font-display);
       font-weight: 400;
-      letter-spacing: -0.02em;
     }
     em {
       font-family: var(--font-display);
       font-style: italic;
     }
+    .red-script {
+      font-family: var(--font-hand);
+      color: var(--script-red);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
     a {
       color: inherit;
       text-decoration: none;
     }
-
-    :focus-visible {
-      outline: 1.5px solid var(--lux-terracotta);
-      outline-offset: 3px;
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
     }
 
     .container {
       width: 100%;
       max-width: 1140px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 24px;
+    }
+
+    /* Скотч (Washi Tape) */
+    .washi-tape {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 26px;
+      background: var(--washi-tape);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      z-index: 5;
+      opacity: 0.85;
+      border-left: 2px dashed rgba(0,0,0,0.08);
+      border-right: 2px dashed rgba(0,0,0,0.08);
     }
 
     /* Навигация */
@@ -97,722 +126,700 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(249, 247, 242, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--lux-border);
+      background: rgba(246, 241, 232, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-craft);
     }
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 76px;
+      height: 72px;
     }
-    .brand-logo {
+    .brand-title {
       font-family: var(--font-display);
-      font-size: 1.75rem;
-      font-weight: 600;
+      font-size: 1.7rem;
       letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-weight: 600;
     }
-    .brand-logo span {
-      font-size: 1rem;
-      color: var(--lux-terracotta);
-      vertical-align: super;
+    .brand-title span {
+      font-family: var(--font-hand);
+      font-size: 1.1rem;
+      color: var(--script-red);
       margin-left: 4px;
     }
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 28px;
       list-style: none;
       align-items: center;
     }
     .nav-link {
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: color 0.3s var(--ease-lux);
+      font-weight: 700;
+      color: var(--ink-secondary);
+      transition: color 0.2s;
     }
     .nav-link:hover, .nav-link.active {
-      color: var(--lux-terracotta);
+      color: var(--script-red);
     }
     .nav-link-weeknd {
+      background: #111;
       color: #FFF !important;
-      background: #000;
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.75rem !important;
-      letter-spacing: 0.1em;
-      transition: transform 0.3s var(--ease-lux);
+      transition: all 0.2s;
     }
     .nav-link-weeknd:hover {
-      transform: scale(1.05);
       background: var(--noir-red);
+      transform: scale(1.05);
     }
     .mobile-menu-btn {
       display: none;
-      padding: 8px;
       flex-direction: column;
       gap: 5px;
-      border: none;
-      background: none;
-      cursor: pointer;
+      padding: 6px;
     }
     .mobile-menu-btn span {
-      width: 26px;
-      height: 1.5px;
-      background: var(--text-primary);
-      transition: 0.3s;
+      width: 24px;
+      height: 2px;
+      background: var(--ink-primary);
     }
 
     /* Главный экран */
     .hero {
-      padding: 90px 0 110px;
+      padding: 50px 0 80px;
       text-align: center;
       position: relative;
     }
-    .hero-meta-tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
+    .hero-pretitle {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--lux-olive);
-      font-weight: 600;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--lux-gold-light);
-      padding-bottom: 4px;
+      color: var(--olive-sage);
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: block;
     }
     .hero h1 {
-      font-size: clamp(3.4rem, 8vw, 6.4rem);
-      line-height: 0.95;
-      margin-bottom: 18px;
-      font-weight: 300;
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      line-height: 1;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
     }
-    .hero-sub {
+    .hero-subtitle {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--lux-terracotta);
+      font-size: clamp(1.3rem, 2.8vw, 1.8rem);
       font-style: italic;
+      color: var(--terracotta);
       margin-bottom: 24px;
     }
-    .hero-manifesto {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 580px;
-      margin: 0 auto 40px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-    .travelers-strip {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 50px;
-    }
-    .traveler-tag {
-      font-size: 0.82rem;
-      letter-spacing: 0.05em;
-      color: var(--text-primary);
-      padding: 6px 16px;
-      background: var(--bg-surface);
-      border: 1px solid var(--lux-border);
-      border-radius: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    }
 
-    /* Маршрутная лента */
-    .route-bar {
-      background: var(--bg-surface);
-      border: 1px solid var(--lux-border);
-      border-radius: 16px;
-      padding: 36px 30px;
-      margin-bottom: 40px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.02);
-    }
-    .route-steps-line {
+    /* Полароид путешественниц */
+    .travelers-scrapbook-block {
+      max-width: 820px;
+      margin: 20px auto 40px;
       position: relative;
-      margin-bottom: 20px;
     }
-    .route-svg {
+    .travelers-script-divider {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 16px;
+      display: inline-block;
+      transform: rotate(-1.5deg);
+    }
+    .travelers-polaroid-frame {
+      background: var(--bg-polaroid);
+      padding: 16px 16px 28px 16px;
+      border-radius: 8px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.08);
+      position: relative;
+      transform: rotate(-0.8deg);
+      transition: transform 0.3s ease;
+    }
+    .travelers-polaroid-frame:hover {
+      transform: rotate(0deg) scale(1.01);
+    }
+    .travelers-photo {
       width: 100%;
-      height: 40px;
-      overflow: visible;
+      height: auto;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
     }
-    .route-cities-grid {
+    .travelers-caption-row {
+      margin-top: 18px;
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
+      text-align: center;
+      border-top: 1px dashed rgba(0,0,0,0.12);
+      padding-top: 14px;
     }
-    .city-iata {
-      font-family: monospace;
-      font-size: 1rem;
+    .person-tag {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .person-arrow {
+      font-family: var(--font-hand);
+      color: var(--script-red);
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .person-name {
+      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--text-primary);
+      color: var(--ink-primary);
+      line-height: 1.2;
     }
-    .city-name {
-      font-size: 0.75rem;
-      color: var(--text-muted);
+    .person-desc {
+      font-family: var(--font-hand);
+      color: var(--script-red);
+      font-size: 1.05rem;
+      line-height: 1.1;
       margin-top: 2px;
     }
 
-    .btn-lux-primary {
+    /* Анимация линии полёта самолёта */
+    .flight-tracker-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-craft);
+      border-radius: 20px;
+      padding: 28px 20px 22px;
+      margin: 30px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      position: relative;
+    }
+    .tracker-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--terracotta);
+      margin-bottom: 20px;
+    }
+    .flight-svg {
+      width: 100%;
+      height: 50px;
+      overflow: visible;
+    }
+    .pulse-node {
+      animation: pulseRadar 2s ease-out infinite;
+    }
+    @keyframes pulseRadar {
+      0% { r: 5; opacity: 0.9; }
+      100% { r: 16; opacity: 0; }
+    }
+    .tracker-stops {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      gap: 4px;
+      margin-top: 10px;
+    }
+    .stop-code {
+      font-family: monospace;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--ink-primary);
+    }
+    .stop-label {
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+    }
+
+    /* Кнопки */
+    .btn-action {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: var(--text-primary);
+      gap: 10px;
+      background: var(--script-red);
       color: #FFF;
-      padding: 16px 36px;
+      padding: 14px 32px;
       border-radius: 40px;
       font-size: 0.85rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-weight: 600;
-      transition: all 0.35s var(--ease-lux);
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(217, 56, 41, 0.28);
+      transition: all 0.25s ease;
     }
-    .btn-lux-primary:hover {
-      background: var(--lux-terracotta);
+    .btn-action:hover {
+      background: #B82C1F;
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(184, 83, 52, 0.25);
     }
-    .btn-lux-subtle {
+    .btn-craft {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 18px;
-      border: 1px solid var(--lux-border-strong);
-      border-radius: 30px;
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
+      gap: 6px;
+      border: 1px solid var(--border-craft);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      font-weight: 600;
-      background: transparent;
-      color: var(--text-primary);
-      transition: all 0.3s var(--ease-lux);
+      font-weight: 700;
+      background: var(--bg-card);
+      transition: all 0.2s;
     }
-    .btn-lux-subtle:hover {
-      border-color: var(--lux-terracotta);
-      color: var(--lux-terracotta);
-      background: var(--bg-surface);
+    .btn-craft:hover {
+      border-color: var(--script-red);
+      color: var(--script-red);
     }
 
     /* Секции */
     .section-wrap {
-      padding: 90px 0;
+      padding: 80px 0;
     }
-    .section-heading {
+    .section-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 46px;
     }
     .section-eyebrow {
-      display: block;
-      font-size: 0.76rem;
-      letter-spacing: 0.25em;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--lux-terracotta);
-      margin-bottom: 12px;
-      font-weight: 600;
+      color: var(--olive-sage);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
     }
-    .section-main-title {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      line-height: 1.08;
-      font-weight: 300;
+    .section-title {
+      font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+      line-height: 1.05;
     }
 
-    /* Карточки авиабилетов / Boarding Passes */
-    .boarding-timeline {
+    .ticket-stack {
       display: flex;
       flex-direction: column;
-      gap: 36px;
+      gap: 32px;
     }
-    .boarding-pass {
-      background: var(--bg-surface);
-      border: 1px solid var(--lux-border);
+    .travel-ticket {
+      background: #FFFFFF;
+      border: 1px solid var(--border-craft);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-      transition: box-shadow 0.35s var(--ease-lux);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+      position: relative;
     }
-    .boarding-pass:hover {
-      box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-    }
-    .pass-header {
-      background: var(--bg-accent-soft);
-      padding: 18px 32px;
+    .ticket-top {
+      background: var(--bg-warm-sand);
+      padding: 14px 26px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px dashed var(--lux-border-strong);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
+      border-bottom: 1px dashed rgba(0,0,0,0.18);
+      font-size: 0.8rem;
       text-transform: uppercase;
-    }
-    .pass-flight-badge {
+      letter-spacing: 0.08em;
       font-weight: 700;
-      color: var(--lux-terracotta);
     }
-    .pass-body {
-      padding: 32px;
+    .ticket-body {
+      padding: 28px;
     }
-    .flight-route-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .flight-nodes {
+    .ticket-nodes-title {
       font-family: var(--font-display);
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 400;
+      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+      margin-bottom: 16px;
     }
-    .flight-timing-strip {
+    .specs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      background: var(--bg-editorial);
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      background: var(--bg-paper);
+      padding: 16px;
       border-radius: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
-    .timing-unit small {
+    .spec-item small {
       display: block;
       font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+    .spec-item strong {
+      font-size: 1.05rem;
+      color: var(--ink-primary);
+    }
+
+    /* Анимация дороги в Рас-эль-Хайму */
+    .road-anim-box {
+      background: #EFE4D2;
+      border: 1px solid var(--border-craft);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 18px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .road-track-line {
+      position: relative;
+      height: 24px;
+      border-bottom: 2px dashed #B8A185;
+      margin-top: 8px;
+    }
+    .road-moving-car {
+      position: absolute;
+      bottom: -4px;
+      animation: moveCar 8s linear infinite;
+    }
+    @keyframes moveCar {
+      0% { left: -30px; }
+      100% { left: calc(100% + 30px); }
+    }
+
+    /* Анимация перелёта в KL с башнями Petronas */
+    .kl-flight-radar-stage {
+      background: #111422;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 20px;
+      color: #FFF;
+      margin: 18px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .radar-plane {
+      position: absolute;
+      top: 18px;
+      animation: radarPlaneFly 9s ease-in-out infinite;
+    }
+    @keyframes radarPlaneFly {
+      0% { left: -40px; transform: scale(0.9); }
+      70% { left: 70%; transform: scale(1); }
+      100% { left: 105%; transform: scale(0.9); }
+    }
+    .petronas-neon {
+      position: absolute;
+      right: 18px;
+      bottom: 0;
+      animation: neonGlowPetronas 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes neonGlowPetronas {
+      0% { opacity: 0.6; filter: drop-shadow(0 0 5px rgba(80, 200, 255, 0.4)); }
+      100% { opacity: 1; filter: drop-shadow(0 0 14px rgba(80, 200, 255, 0.9)); }
+    }
+
+    /* Багажный блок */
+    .baggage-note-box {
+      border: 1px dashed var(--terracotta);
+      background: rgba(200, 86, 53, 0.04);
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+    .baggage-note-title {
+      font-size: 0.75rem;
+      font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 4px;
+      color: var(--terracotta);
+      margin-bottom: 8px;
     }
-    .timing-unit strong {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    /* Багажная сетка */
-    .baggage-dossier {
-      border: 1px solid var(--lux-border);
-      background: rgba(241, 236, 227, 0.4);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 24px;
-    }
-    .baggage-dossier-title {
-      font-size: 0.76rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--lux-terracotta);
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .baggage-specs-row {
+    .baggage-columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
       font-size: 0.88rem;
     }
-    .baggage-specs-row div {
-      padding-left: 14px;
-      border-left: 2px solid var(--lux-gold);
+    .baggage-columns div {
+      padding-left: 10px;
+      border-left: 2px solid var(--vintage-gold);
     }
 
-    /* СЕКЦИЯ RAS AL KHAIMAH (Desert Rose Edition) */
-    .rak-editorial-block {
-      background: #F4EFE6;
-      border-top: 1px solid var(--lux-border);
-      border-bottom: 1px solid var(--lux-border);
-      padding: 100px 0;
-    }
-    .rak-quote-manifesto {
-      font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      font-style: italic;
-      color: var(--lux-terracotta);
-      text-align: center;
-      line-height: 1.1;
-      margin: 10px 0 30px;
-    }
-    .rak-card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      background: var(--bg-surface);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--lux-border);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.03);
-    }
-    .rak-hero-image-pane {
-      background: linear-gradient(135deg, #2E2721 0%, #6E533E 50%, #C49F7B 100%);
-      color: #FFF;
-      padding: 50px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    /* Ras Al Khaimah */
+    .rak-section {
+      background: #F2EBE0;
+      border-top: 1px solid var(--border-craft);
+      border-bottom: 1px solid var(--border-craft);
+      padding: 85px 0 105px;
       position: relative;
     }
-    .rak-hero-image-pane::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at bottom, rgba(184,83,52,0.3) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .rak-content-pane {
-      padding: 50px 44px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    /* Плеер Desert Rose (Sting) */
-    .player-card-desert {
-      background: var(--bg-editorial);
-      border: 1px solid var(--lux-gold-light);
-      border-radius: 12px;
-      padding: 20px;
-      margin: 28px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .player-track-info {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .player-disc {
-      width: 44px;
-      height: 44px;
-      background: var(--text-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--lux-gold);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      animation: spinDisc 12s linear infinite;
-    }
-    @keyframes spinDisc {
-      100% { transform: rotate(360deg); }
-    }
-    .player-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      line-height: 1.2;
-    }
-    .player-artist {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-    }
-    .btn-spotify {
-      background: #1DB954;
-      color: #FFF;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 10px 18px;
-      border-radius: 30px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s;
-    }
-    .btn-spotify:hover {
-      transform: scale(1.04);
-    }
-
-    /* СЕКЦИЯ KUALA LUMPUR */
-    .kl-section {
-      padding: 100px 0;
-    }
-    .condo-dossier {
-      background: var(--bg-surface);
-      border: 1px solid var(--lux-border);
-      border-radius: 16px;
-      padding: 44px;
-      margin-bottom: 50px;
-    }
-    .condo-amenities-grid {
+    .rak-scrapbook-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin: 30px 0;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
     }
-    .amenity-card {
-      background: var(--bg-editorial);
-      padding: 24px;
-      border-radius: 10px;
-      border: 1px solid var(--lux-border);
+    .scrapbook-photos-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      position: relative;
     }
-    .amenity-card h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--lux-olive);
+    .scrapbook-polaroid {
+      background: #FFF;
+      padding: 12px 12px 22px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      position: relative;
     }
-    .amenity-card p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
+    .scrapbook-polaroid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 4px;
+      display: block;
     }
-    .filter-tabs {
+    .polaroid-hand-label {
+      font-family: var(--font-hand);
+      color: var(--script-red);
+      font-size: 1.15rem;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.1;
+      display: block;
+    }
+
+    .ocean-waves-wrapper {
+      width: 100%;
+      height: 38px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+    }
+    .waves-motion {
+      animation: waveFlow 10s linear infinite;
+    }
+    @keyframes waveFlow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Kuala Lumpur */
+    .kl-section {
+      padding: 85px 0;
+    }
+    .condo-scrapbook-box {
+      background: #FFF;
+      border: 1px solid var(--border-craft);
+      border-radius: 20px;
+      padding: 36px;
+      margin-bottom: 46px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    }
+    .condo-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .condo-photo-tile {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid var(--border-craft);
+    }
+    .condo-photo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .condo-photo-tile:hover img {
+      transform: scale(1.05);
+    }
+    .condo-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(28, 26, 23, 0.85);
+      color: #FFF;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+    }
+    .filter-pills-row {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin: 30px 0 40px;
+      gap: 8px;
+      margin: 26px 0 36px;
     }
-    .filter-tab {
-      padding: 8px 20px;
-      border: 1px solid var(--lux-border);
-      background: var(--bg-surface);
-      border-radius: 30px;
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
+    .filter-btn {
+      padding: 8px 18px;
+      background: #FFF;
+      border: 1px solid var(--border-craft);
+      border-radius: 25px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s var(--ease-lux);
+      transition: all 0.2s;
     }
-    .filter-tab.active, .filter-tab:hover {
-      background: var(--lux-olive);
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--olive-sage);
       color: #FFF;
-      border-color: var(--lux-olive);
+      border-color: var(--olive-sage);
     }
-    .curated-places-grid {
+    .city-spots-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 22px;
     }
-    .curated-place-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--lux-border);
+    .spot-card {
+      background: #FFF;
+      border: 1px solid var(--border-craft);
       border-radius: 14px;
-      padding: 28px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s var(--ease-lux);
+      transition: all 0.25s;
     }
-    .curated-place-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.04);
+    .spot-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
     }
 
-    /* =============================================================
-       СЕКЦИЯ THE WEEKND — AFTER HOURS TIL DAWN SHOW
-       ============================================================= */
-    .weeknd-noir-universe {
-      background: var(--noir-bg);
+    /* The Weeknd */
+    .weeknd-night-universe {
+      background-color: var(--noir-bg);
       color: var(--noir-text);
-      padding: 130px 0 150px;
+      padding: 110px 0 130px;
       position: relative;
       overflow: hidden;
-      border-top: 1px solid rgba(225, 29, 56, 0.4);
+      border-top: 3px solid var(--noir-red);
     }
-    .weeknd-noir-universe::before {
-      content: '';
+    .weeknd-glow-spot {
       position: absolute;
-      top: 0;
+      top: -80px;
       left: 50%;
       transform: translateX(-50%);
-      width: 800px;
+      width: 700px;
       height: 700px;
-      background: radial-gradient(circle, var(--noir-red-glow) 0%, rgba(7, 7, 9, 0) 70%);
+      background: radial-gradient(circle, var(--noir-red-glow) 0%, rgba(9, 8, 12, 0) 70%);
       pointer-events: none;
-      animation: neonPulse 7s ease-in-out infinite alternate;
+      animation: glowFade 6s ease-in-out infinite alternate;
     }
-    @keyframes neonPulse {
+    @keyframes glowFade {
       0% { opacity: 0.35; transform: translateX(-50%) scale(0.95); }
-      100% { opacity: 0.8; transform: translateX(-50%) scale(1.2); }
+      100% { opacity: 0.8; transform: translateX(-50%) scale(1.15); }
     }
     .weeknd-inner {
       position: relative;
       z-index: 2;
     }
-    .weeknd-title-lead {
+    .weeknd-poster-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 36px;
     }
-    .weeknd-eyebrow {
+    .weeknd-tour-badge {
       font-family: monospace;
       color: var(--noir-red);
       font-size: 0.85rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
+      font-weight: 700;
       margin-bottom: 14px;
       display: block;
     }
-    .weeknd-h2 {
+    .weeknd-headline {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-size: clamp(3.8rem, 10vw, 7.8rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
       color: #FFF;
-      font-weight: 400;
-      line-height: 1;
-      text-shadow: 0 0 40px rgba(225, 29, 56, 0.5);
+      text-transform: uppercase;
+      text-shadow: 0 0 40px rgba(225, 29, 56, 0.45);
     }
-
-    /* Плеер After Hours */
-    .player-card-afterhours {
-      max-width: 540px;
-      margin: 0 auto 50px;
-      background: rgba(24, 22, 30, 0.85);
+    .weeknd-subline {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.2vw, 2.3rem);
+      font-style: italic;
+      color: var(--noir-gold);
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .weeknd-stage-visual {
+      max-width: 860px;
+      margin: 28px auto 38px;
+      border-radius: 16px;
+      overflow: hidden;
       border: 1px solid rgba(236, 200, 119, 0.25);
-      border-radius: 40px;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      position: relative;
     }
-    .afterhours-pulse-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--noir-red);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--noir-red);
-      animation: redBlink 1.5s infinite;
-    }
-    @keyframes redBlink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* Золотой робот-андроид Hajime Sorayama */
-    .sorayama-monolith-stage {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 20px 0 70px;
-    }
-    .sorayama-statue {
+    .weeknd-stage-visual img {
       width: 100%;
-      max-width: 420px;
-      height: auto;
-      filter: drop-shadow(0 0 35px rgba(236, 200, 119, 0.3)) drop-shadow(0 30px 60px rgba(225, 29, 56, 0.4));
-      transition: transform 0.6s var(--ease-lux);
+      height: 380px;
+      object-fit: cover;
+      display: block;
     }
-    .sorayama-statue:hover {
-      transform: scale(1.02);
-    }
-    .stage-atmospheric-fog {
-      width: 100%;
-      max-width: 650px;
-      height: 35px;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.2) 0%, rgba(225,29,56,0.35) 40%, transparent 75%);
-      margin-top: -20px;
-      filter: blur(10px);
-    }
-    .statue-legend {
-      font-family: monospace;
-      font-size: 0.76rem;
-      letter-spacing: 0.2em;
+    .stage-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 24px;
+      background: rgba(9, 8, 12, 0.85);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--noir-gold);
-      margin-top: 20px;
     }
-
-    .weeknd-dossier-card {
+    .weeknd-card {
       background: var(--noir-card);
-      border: 1px solid rgba(236, 200, 119, 0.18);
+      border: 1px solid rgba(236, 200, 119, 0.15);
       border-radius: 16px;
-      padding: 36px;
-      margin-bottom: 28px;
+      padding: 32px;
+      margin-bottom: 24px;
       backdrop-filter: blur(12px);
     }
-    .transit-pathways-grid {
+    .transit-cols-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
     }
-    .pathway-cell {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 24px;
+    .transit-cell {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px;
       border-radius: 12px;
     }
-    .pathway-cell h5 {
+    .transit-cell h5 {
       color: var(--noir-gold);
-      font-size: 1.05rem;
-      margin-bottom: 8px;
+      font-size: 1rem;
+      margin-bottom: 6px;
       display: flex;
       justify-content: space-between;
-    }
-
-    /* Практический раздел */
-    .practical-section {
-      padding: 100px 0;
-      background: var(--bg-editorial);
-    }
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
-    .tip-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--lux-border);
-      border-radius: 12px;
-      padding: 28px;
-    }
-    .tip-card h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--lux-terracotta);
-      margin-bottom: 10px;
-    }
-
-    /* Быстрые ссылки */
-    .links-shelf {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-      gap: 16px;
-      margin-top: 30px;
-    }
-    .shelf-link {
-      background: var(--bg-surface);
-      border: 1px solid var(--lux-border);
-      padding: 20px;
-      border-radius: 10px;
-      transition: all 0.3s var(--ease-lux);
-    }
-    .shelf-link:hover {
-      border-color: var(--lux-terracotta);
-      transform: translateY(-2px);
     }
 
     /* Футер */
     footer {
-      background: #121110;
+      background: #141210;
       color: #FFF;
-      padding: 70px 0;
+      padding: 65px 0 45px;
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .footer-quote {
+    .footer-phrase {
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-style: italic;
-      color: var(--lux-gold);
-      margin-bottom: 12px;
+      color: var(--vintage-gold);
+      margin-bottom: 10px;
     }
 
     @media (max-width: 860px) {
-      .rak-card-grid {
+      .rak-scrapbook-grid {
         grid-template-columns: 1fr;
       }
       .nav-links {
@@ -825,17 +832,25 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 76px;
+        top: 72px;
         left: 0;
         width: 100%;
-        background: var(--bg-editorial);
-        border-bottom: 1px solid var(--lux-border);
-        padding: 30px;
-        gap: 20px;
+        background: var(--bg-paper);
+        border-bottom: 1px solid var(--border-craft);
+        padding: 24px;
+        gap: 18px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.06);
       }
-      .route-cities-grid {
+      .travelers-caption-row {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 14px;
+      }
+      .tracker-stops {
         grid-template-columns: repeat(4, 1fr);
-        row-gap: 16px;
+        row-gap: 12px;
+      }
+      .weeknd-stage-visual img {
+        height: 240px;
       }
     }
   </style>
@@ -846,8 +861,8 @@
   <!-- Навигация -->
   <header class="nav-bar">
     <div class="container nav-inner">
-      <a href="#hero" class="brand-logo">Daria’s Journey<span>2026</span></a>
-      <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Меню навигации">
+      <a href="#hero" class="brand-title">Daria’s Journey<span>‘26</span></a>
+      <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Открыть меню">
         <span></span>
         <span></span>
         <span></span>
@@ -869,274 +884,313 @@
     <!-- Главный экран -->
     <section class="hero" id="hero">
       <div class="container">
-        <span class="hero-meta-tag">28 октября — 7 ноября 2026</span>
+        <span class="hero-pretitle">28 октября — 7 ноября 2026</span>
         <h1>Three Destinations.<br><em>One Unforgettable Journey.</em></h1>
-        <p class="hero-sub">Dubai · Ras Al Khaimah · Kuala Lumpur</p>
-        <p class="hero-manifesto">
-          Личный маршрутный дневник и путевой ассистент четырёх путешественников.
-        </p>
+        <p class="hero-subtitle">Dubai · Ras Al Khaimah · Kuala Lumpur</p>
 
-        <!-- Путешественники -->
-        <div class="travelers-strip">
-          <span class="traveler-tag">✦ Daria Kudriashova</span>
-          <span class="traveler-tag">✦ Elena Kudriashova</span>
-          <span class="traveler-tag">✦ Elena Kurenkova</span>
-          <span class="traveler-tag">✦ Olga Kosterina</span>
-        </div>
+        <!-- БЛОК ПУТЕШЕСТВЕННИЦ (ФОТО 3) -->
+        <div class="travelers-scrapbook-block">
+          <div class="travelers-script-divider red-script">who we vibe with ❦</div>
 
-        <!-- Маршрутная лента -->
-        <div class="route-bar">
-          <div class="route-steps-line">
-            <svg class="route-svg" viewBox="0 0 900 36" fill="none">
-              <path d="M 30 18 L 870 18" stroke="#E1D9CC" stroke-width="1.5" stroke-dasharray="6 6"/>
-              <g>
-                <animateTransform attributeName="transform" type="translate" from="30 0" to="870 0" dur="10s" repeatCount="indefinite"/>
-                <circle cx="0" cy="18" r="6" fill="#B85334"/>
-                <path d="M -3 15 L 3 18 L -3 21 Z" fill="#FFF"/>
-              </g>
-              <circle cx="30" cy="18" r="5" fill="#B85334" />
-              <circle cx="170" cy="18" r="4" fill="#C5A059" />
-              <circle cx="310" cy="18" r="4" fill="#4E5940" />
-              <circle cx="450" cy="18" r="4" fill="#B85334" />
-              <circle cx="590" cy="18" r="6" fill="#E11D38" />
-              <circle cx="730" cy="18" r="4" fill="#C5A059" />
-              <circle cx="870" cy="18" r="5" fill="#B85334" />
-            </svg>
-          </div>
-          <div class="route-cities-grid">
-            <div><div class="city-iata">VKO</div><div class="city-name">Москва</div></div>
-            <div><div class="city-iata">DWC</div><div class="city-name">Dubai</div></div>
-            <div><div class="city-iata">RAK</div><div class="city-name">Al Marjan</div></div>
-            <div><div class="city-iata">SHJ</div><div class="city-name">Sharjah</div></div>
-            <div><div class="city-iata">KUL</div><div class="city-name">Kuala Lumpur</div></div>
-            <div><div class="city-iata">DXB</div><div class="city-name">Dubai</div></div>
-            <div><div class="city-iata">DME</div><div class="city-name">Москва</div></div>
+          <div class="travelers-polaroid-frame">
+            <div class="washi-tape"></div>
+            <!-- Точное имя файла с вашего скриншота -->
+            <img 
+              src="travelers.jpg.JPG" 
+              alt="Elena Kurenkova, Elena Kudriashova, Daria Kudriashova, Olga Kosterina" 
+              class="travelers-photo"
+              onerror="this.src='travelers.jpg'"
+            />
+            
+            <div class="travelers-caption-row">
+              <div class="person-tag">
+                <span class="person-arrow">↓</span>
+                <span class="person-name">Elena Kurenkova</span>
+                <span class="person-desc">голубой костюм</span>
+              </div>
+              <div class="person-tag">
+                <span class="person-arrow">↓</span>
+                <span class="person-name">Elena Kudriashova</span>
+                <span class="person-desc">розовый топ</span>
+              </div>
+              <div class="person-tag">
+                <span class="person-arrow">↓</span>
+                <span class="person-name">Daria Kudriashova</span>
+                <span class="person-desc">кудрявые волосы</span>
+              </div>
+              <div class="person-tag">
+                <span class="person-arrow">↓</span>
+                <span class="person-name">Olga Kosterina</span>
+                <span class="person-desc">голубое платье</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <a href="#itinerary" class="btn-lux-primary">Открыть маршрут ↓</a>
+        <!-- ИНТЕРАКТИВНАЯ КАРТА ПОЛЁТА С САМОЛЁТОМ -->
+        <div class="flight-tracker-box">
+          <div class="tracker-heading">
+            <span>Flight Monitor</span>
+            <span>Live Interactive Route</span>
+          </div>
+
+          <svg class="flight-svg" viewBox="0 0 940 50" fill="none">
+            <path d="M 40 25 L 900 25" stroke="#DFD4C2" stroke-width="2.5" stroke-dasharray="8 8"/>
+            
+            <circle cx="40" cy="25" r="6" fill="#C85635"/>
+            <circle class="pulse-node" cx="40" cy="25" r="5" stroke="#C85635" stroke-width="2" fill="none"/>
+            <circle cx="183" cy="25" r="5" fill="#526043"/>
+            <circle cx="326" cy="25" r="5" fill="#C29F55"/>
+            <circle cx="470" cy="25" r="5" fill="#C85635"/>
+            <circle cx="613" cy="25" r="6" fill="#E11D38"/>
+            <circle class="pulse-node" cx="613" cy="25" r="5" stroke="#E11D38" stroke-width="2" fill="none"/>
+            <circle cx="756" cy="25" r="5" fill="#526043"/>
+            <circle cx="900" cy="25" r="6" fill="#C85635"/>
+
+            <g>
+              <animateTransform 
+                attributeName="transform" 
+                type="translate" 
+                from="40 0" 
+                to="900 0" 
+                dur="8.5s" 
+                repeatCount="indefinite"
+              />
+              <line x1="-30" y1="25" x2="-5" y2="25" stroke="#C85635" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+              <path d="M 0 25 L 14 20 L 10 25 L 14 30 Z" fill="#C85635"/>
+              <path d="M 4 25 L -4 12 L 2 12 L 8 25 L 2 38 L -4 38 Z" fill="#A13E22"/>
+              <circle cx="14" cy="25" r="2" fill="#FFF"/>
+            </g>
+          </svg>
+
+          <div class="tracker-stops">
+            <div><div class="stop-code">VKO</div><div class="stop-label">Москва</div></div>
+            <div><div class="stop-code">DWC</div><div class="stop-label">Dubai</div></div>
+            <div><div class="stop-code">RAK</div><div class="stop-label">Al Marjan</div></div>
+            <div><div class="stop-code">SHJ</div><div class="stop-label">Sharjah</div></div>
+            <div><div class="stop-code">KUL</div><div class="stop-label">Kuala Lumpur</div></div>
+            <div><div class="stop-code">DXB</div><div class="stop-label">Dubai</div></div>
+            <div><div class="stop-code">DME</div><div class="stop-label">Москва</div></div>
+          </div>
+        </div>
+
+        <a href="#itinerary" class="btn-action">Открыть полный маршрут ↓</a>
       </div>
     </section>
 
-    <!-- СТРАНИЦА «НАШ МАРШРУТ» -->
+    <!-- СТРАНИЦА НАШ МАРШРУТ -->
     <section class="section-wrap container" id="itinerary">
-      <div class="section-heading">
-        <span class="section-eyebrow">Хронологический гид</span>
-        <h2 class="section-main-title">Таймлайн путешествия</h2>
+      <div class="section-header">
+        <span class="section-eyebrow">Таймлайн путешествия</span>
+        <h2 class="section-title">Наш полный маршрут</h2>
       </div>
 
-      <div class="boarding-timeline">
+      <div class="ticket-stack">
         
         <!-- ЭТАП 1: Москва -> Дубай -> RAK -->
-        <article class="boarding-pass">
-          <div class="pass-header">
+        <article class="travel-ticket">
+          <div class="ticket-top">
             <span>Этап 01 · 28 октября 2026</span>
-            <span class="pass-flight-badge">Победа · DP991</span>
+            <span style="color:var(--terracotta);">Победа · DP991</span>
           </div>
-          <div class="pass-body">
-            <div class="flight-route-header">
-              <div class="flight-nodes">Москва (VKO) → Дубай (DWC)</div>
-              <span class="btn-lux-subtle">Трансфер в RAK забронирован</span>
-            </div>
+          <div class="ticket-body">
+            <div class="ticket-nodes-title">Москва (VKO) → Dubai (DWC) → Ras Al Khaimah</div>
             
-            <div class="flight-timing-strip">
-              <div class="timing-unit">
-                <small>Вылет (VKO, Москва)</small>
-                <strong>28.10 · 07:45</strong>
-              </div>
-              <div class="timing-unit">
-                <small>Прибытие (DWC, Дубай)</small>
-                <strong>28.10 · 14:20</strong>
-              </div>
-              <div class="timing-unit">
-                <small>Переезд на побережье</small>
-                <strong>DWC → Rove Al Marjan (~1ч 20м)</strong>
-              </div>
+            <div class="specs-grid">
+              <div class="spec-item"><small>Вылет (Внуково)</small><strong>28.10 · 07:45</strong></div>
+              <div class="spec-item"><small>Прилёт (Dubai DWC)</small><strong>28.10 · 14:20</strong></div>
+              <div class="spec-item"><small>Трансфер</small><strong>DWC → Rove Al Marjan</strong></div>
             </div>
 
             <!-- Багаж Победа строго по фото 1 -->
-            <div class="baggage-dossier">
-              <div class="baggage-dossier-title">
-                Нормы провоза багажа (Победа DP991)
+            <div class="baggage-note-box">
+              <div class="baggage-note-title">Нормы багажа Победы (DP991)</div>
+              <div class="baggage-columns">
+                <div><strong>Ручная кладь:</strong> до <strong>36 × 30 × 27 см</strong> (без весового ценза, свободная калибровка).</div>
+                <div><strong>Багаж:</strong> 1 место <strong>до 20 кг</strong> (по сумме трёх измерений до <strong>203 см</strong>).</div>
               </div>
-              <div class="baggage-specs-row">
-                <div>
-                  <strong>Ручная кладь:</strong> габариты строго до <strong>36 × 30 × 27 см</strong> (без весового ценза, свободное закрытие калибратора).
-                </div>
-                <div>
-                  <strong>Зарегистрированный багаж:</strong> 1 место <strong>до 20 кг</strong>, сумма трёх измерений <strong>до 203 см</strong>.
+            </div>
+
+            <!-- Анимация трансфера по шоссе -->
+            <div class="road-anim-box">
+              <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:#785A3A; display:flex; justify-content:space-between;">
+                <span>Пустынное шоссе DWC ➔ Rove Al Marjan Island</span>
+                <span>~1 час 20 минут в пути</span>
+              </div>
+              <div class="road-track-line">
+                <div class="road-moving-car">
+                  <svg width="40" height="20" viewBox="0 0 40 20" fill="none">
+                    <rect x="2" y="7" width="34" height="9" rx="3" fill="#C85635"/>
+                    <path d="M 8 7 L 14 2 L 26 2 L 30 7 Z" fill="#99381E"/>
+                    <circle cx="10" cy="16" r="3.5" fill="#222"/>
+                    <circle cx="28" cy="16" r="3.5" fill="#222"/>
+                    <circle cx="34" cy="10" r="1.5" fill="#FFE58F"/>
+                  </svg>
                 </div>
               </div>
             </div>
 
-            <div style="display:flex; gap:12px; flex-wrap:wrap;">
-              <a href="https://pobeda.aero" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">Сайт Победы ↗</a>
-              <a href="https://maps.google.com/?q=DWC+Airport+to+Rove+Al+Marjan+Island" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">Карта трансфера в отель ↗</a>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a href="https://pobeda.aero" target="_blank" rel="noopener noreferrer" class="btn-craft">Сайт Победы ↗</a>
+              <a href="https://maps.google.com/?q=DWC+Airport+to+Rove+Al+Marjan+Island" target="_blank" rel="noopener noreferrer" class="btn-craft">Карта трансфера в отель ↗</a>
             </div>
           </div>
         </article>
 
         <!-- ЭТАП 2: Ras Al Khaimah -->
-        <article class="boarding-pass">
-          <div class="pass-header">
+        <article class="travel-ticket">
+          <div class="ticket-top">
             <span>Этап 02 · 28.10 — 02.11.2026</span>
-            <span class="pass-flight-badge" style="color:var(--lux-olive);">5 ночей релакса</span>
+            <span style="color:var(--olive-sage);">5 ночей на море</span>
           </div>
-          <div class="pass-body">
-            <div class="flight-route-header">
-              <div class="flight-nodes">Ras Al Khaimah · Rove Al Marjan</div>
-              <a href="#rak" class="btn-lux-subtle">Подробнее об отеле ↓</a>
+          <div class="ticket-body">
+            <div class="ticket-nodes-title">Ras Al Khaimah · Rove Al Marjan Island</div>
+            <div class="specs-grid">
+              <div class="spec-item"><small>Размещение</small><strong>2 номера (4 гостя)</strong></div>
+              <div class="spec-item"><small>Питание</small><strong>Полупансион (Half Board)</strong></div>
+              <div class="spec-item"><small>Формат</small><strong>Пляжный релакс</strong></div>
             </div>
-            
-            <div class="flight-timing-strip">
-              <div class="timing-unit"><small>Размещение</small><strong>2 номера · 4 гостя</strong></div>
-              <div class="timing-unit"><small>План питания</small><strong>Полупансион (Half Board)</strong></div>
-              <div class="timing-unit"><small>Локация</small><strong>Al Marjan Island</strong></div>
-            </div>
-
-            <p style="font-size:0.9rem; color:var(--text-secondary);">
-              Собственный пляж, золотые пески Персидского залива, умиротворение и подготовка к энергичному Куала-Лумпуру.
-            </p>
+            <a href="#rak" class="btn-craft">Перейти к разделу отеля и саундтреку ↓</a>
           </div>
         </article>
 
-        <!-- ЭТАП 3: Трансфер RAK -> SHJ -->
-        <article class="boarding-pass">
-          <div class="pass-header" style="background:#FAF0ED;">
+        <!-- ЭТАП 3: RAK -> SHJ -->
+        <article class="travel-ticket">
+          <div class="ticket-top" style="background:#F6E9E5;">
             <span>Этап 03 · 02 ноября 2026</span>
-            <span class="pass-flight-badge" style="color:#A3361E;">Внимание: Вылет из SHJ (Шарджа)</span>
+            <span style="color:#B3361E;">Вылет из SHJ (Шарджа)</span>
           </div>
-          <div class="pass-body">
-            <div class="flight-route-header">
-              <div class="flight-nodes">Rove Al Marjan → Sharjah Airport (SHJ)</div>
-            </div>
-            <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:18px;">
-              <strong>Важный нюанс:</strong> Вылет происходит из терминала <strong>Sharjah International Airport (SHJ)</strong>, а не из Дубая (DXB). Дорога занимает около 55–65 минут. Рекомендуемый выезд из отеля — в 11:30.
+          <div class="ticket-body">
+            <div class="ticket-nodes-title">Rove Al Marjan → Sharjah Airport (SHJ)</div>
+            <p style="font-size:0.92rem; color:var(--ink-secondary); margin-bottom:16px;">
+              <strong>Важно:</strong> Вылет осуществляется из <strong>Sharjah International Airport (SHJ)</strong>, а не из Дубая (DXB). Время в пути от отеля — около 55–65 минут. Рекомендуемый выезд из Rove Al Marjan — не позднее 11:30.
             </p>
-            <a href="https://maps.google.com/?q=Rove+Al+Marjan+to+Sharjah+International+Airport" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">Маршрут в аэропорт SHJ ↗</a>
+            <a href="https://maps.google.com/?q=Rove+Al+Marjan+to+Sharjah+International+Airport" target="_blank" rel="noopener noreferrer" class="btn-craft">Маршрут трансфера в аэропорт SHJ ↗</a>
           </div>
         </article>
 
-        <!-- ЭТАП 4: Перелет Air Arabia -->
-        <article class="boarding-pass">
-          <div class="pass-header">
+        <!-- ЭТАП 4: SHJ -> KUL -->
+        <article class="travel-ticket">
+          <div class="ticket-top">
             <span>Этап 04 · 02 — 03 ноября 2026</span>
-            <span class="pass-flight-badge">Air Arabia · G9802</span>
+            <span style="color:var(--terracotta);">Air Arabia · G9802</span>
           </div>
-          <div class="pass-body">
-            <div class="flight-route-header">
-              <div class="flight-nodes">Шарджа (SHJ) → Куала-Лумпур (KUL)</div>
-            </div>
+          <div class="ticket-body">
+            <div class="ticket-nodes-title">Шарджа (SHJ) → Куала-Лумпур (KUL)</div>
             
-            <div class="flight-timing-strip">
-              <div class="timing-unit"><small>Вылет (SHJ)</small><strong>02.11 · 15:00</strong></div>
-              <div class="timing-unit"><small>Прилёт (KUL, ночь)</small><strong>03.11 · 02:15</strong></div>
-              <div class="timing-unit"><small>Трансфер в центр</small><strong>Забронирован (~50 мин)</strong></div>
+            <div class="specs-grid">
+              <div class="spec-item"><small>Вылет (SHJ)</small><strong>02.11 · 15:00</strong></div>
+              <div class="spec-item"><small>Прилёт (KUL, ночь)</small><strong>03.11 · 02:15</strong></div>
+              <div class="spec-item"><small>Трансфер из KUL</small><strong>Забронирован (~50 мин)</strong></div>
+            </div>
+
+            <!-- Анимация перелёта в KL с башнями Petronas -->
+            <div class="kl-flight-radar-stage">
+              <div style="font-size:0.72rem; letter-spacing:0.15em; color:var(--vintage-gold); text-transform:uppercase; margin-bottom:10px; display:flex; justify-content:space-between;">
+                <span>Night Flight Segment</span>
+                <span>Approaching Kuala Lumpur</span>
+              </div>
+              <div style="position:relative; height:70px;">
+                <div class="radar-plane">
+                  <svg width="40" height="22" viewBox="0 0 44 24" fill="none">
+                    <path d="M 0 12 L 32 7 L 28 12 L 32 17 Z" fill="#FFF"/>
+                    <path d="M 12 12 L 4 0 L 10 0 L 20 12 L 10 24 L 4 24 Z" fill="#ECC877"/>
+                    <circle cx="32" cy="12" r="2" fill="#E11D38"/>
+                  </svg>
+                </div>
+                <div class="petronas-neon">
+                  <svg width="65" height="70" viewBox="0 0 70 75" fill="none">
+                    <rect x="12" y="20" width="16" height="55" fill="#36455D"/>
+                    <polygon points="12,20 20,2 28,20" fill="#586E95"/>
+                    <rect x="42" y="20" width="16" height="55" fill="#36455D"/>
+                    <polygon points="42,20 50,2 58,20" fill="#586E95"/>
+                    <rect x="24" y="42" width="22" height="4" fill="#88A5D6"/>
+                  </svg>
+                </div>
+              </div>
             </div>
 
             <!-- Багаж Air Arabia строго по фото 9 -->
-            <div class="baggage-dossier">
-              <div class="baggage-dossier-title">
-                Багажный регламент Air Arabia (по бронированию)
-              </div>
-              <div class="baggage-specs-row">
-                <div>
-                  <strong>Личная вещь:</strong> 1 шт. <strong>до 3 кг</strong> (до <strong>25 × 33 × 20 см</strong> под кресло).
-                </div>
-                <div>
-                  <strong>Ручная кладь:</strong> 1 место <strong>до 7 кг</strong> (габариты <strong>55 × 40 × 20 см</strong>).
-                </div>
-                <div>
-                  <strong>Багаж:</strong> 1 место <strong>до 20 кг</strong> (по сумме трёх сторон до <strong>158 см</strong>).
-                </div>
+            <div class="baggage-note-box">
+              <div class="baggage-note-title">Багажные нормы Air Arabia (по бронированию)</div>
+              <div class="baggage-columns">
+                <div><strong>Личная вещь:</strong> 1 шт. <strong>до 3 кг</strong> (до <strong>25 × 33 × 20 см</strong> под кресло).</div>
+                <div><strong>Ручная кладь:</strong> 1 место <strong>до 7 кг</strong> (до <strong>55 × 40 × 20 см</strong>).</div>
+                <div><strong>Багаж:</strong> 1 место <strong>до 20 кг</strong> (по сумме 3-х измерений до <strong>158 см</strong>).</div>
               </div>
             </div>
 
-            <div style="background:#FAF8F4; border-left:3px solid var(--lux-gold); padding:14px 18px; border-radius:4px; font-size:0.88rem;">
-              <strong>Ночной чекин:</strong> Фактическое прибытие 3 ноября в 02:15 ночи. Проходим контроль, забираем багаж, садимся в забронированный трансфер, заселяемся в Agile Bukit Bintang около 03:40 утра и отдыхаем перед знакомством с мегаполисом.
-            </div>
-          </div>
-        </article>
-
-        <!-- ЭТАП 5: Куала-Лумпур -->
-        <article class="boarding-pass">
-          <div class="pass-header">
-            <span>Этап 05 · 03 — 06 ноября 2026</span>
-            <span class="pass-flight-badge" style="color:var(--lux-olive);">Сердце города</span>
-          </div>
-          <div class="pass-body">
-            <div class="flight-route-header">
-              <div class="flight-nodes">Agile Bukit Bintang by Avery at KLCC</div>
-              <a href="#kl" class="btn-lux-subtle">Гид по городу ↓</a>
-            </div>
-            
-            <div class="flight-timing-strip">
-              <div class="timing-unit"><small>Тип номера</small><strong>2BR Unit (2 спальни)</strong></div>
-              <div class="timing-unit"><small>Инфраструктура</small><strong>Бассейн, сад на крыше, TRX view</strong></div>
-              <div class="timing-unit"><small>Пешком до Pavilion</small><strong>5–7 минут</strong></div>
-            </div>
-            <p style="font-size:0.9rem; color:var(--text-secondary);">
-              Оплачено со 2 по 6 ноября для мгновенного ночного заезда 3 ноября без ожидания полудня.
+            <p style="background:#FAF8F4; border-left:3px solid var(--vintage-gold); padding:12px 16px; border-radius:4px; font-size:0.88rem;">
+              <strong>Ночной прилёт 3 ноября:</strong> Посадка в 02:15 ночи $\to$ Паспортный контроль и багаж $\to$ Встреча с водителем трансфера $\to$ Заселение в Agile Bukit Bintang около 03:40 утра $\to$ Отдых и сон!
             </p>
           </div>
         </article>
 
-        <!-- ЭТАП 6: KUL -> DXB (Emirates) -->
-        <article class="boarding-pass">
-          <div class="pass-header">
-            <span>Этап 06 · 06 ноября 2026</span>
-            <span class="pass-flight-badge">Emirates · EK347</span>
+        <!-- ЭТАП 5: Куала-Лумпур жильё -->
+        <article class="travel-ticket">
+          <div class="ticket-top">
+            <span>Этап 05 · 03 — 06 ноября 2026</span>
+            <span style="color:var(--olive-sage);">Agile Bukit Bintang</span>
           </div>
-          <div class="pass-body">
-            <div class="flight-route-header">
-              <div class="flight-nodes">Kuala Lumpur (KUL) → Dubai (DXB)</div>
-              <span class="btn-lux-subtle">Dubai Connect подключён</span>
+          <div class="ticket-body">
+            <div class="ticket-nodes-title">Agile Bukit Bintang by Avery at KLCC</div>
+            <div class="specs-grid">
+              <div class="spec-item"><small>Бронирование</small><strong>02.11 — 06.11.2026</strong></div>
+              <div class="spec-item"><small>Апартаменты</small><strong>2BR Unit (2 спальни)</strong></div>
+              <div class="spec-item"><small>Локация</small><strong>5 мин до Pavilion & TRX</strong></div>
             </div>
+            <a href="#kl" class="btn-craft">Посмотреть галерею апартаментов и гид ↓</a>
+          </div>
+        </article>
+
+        <!-- ЭТАП 6: KUL -> DXB -->
+        <article class="travel-ticket">
+          <div class="ticket-top">
+            <span>Этап 06 · 06 ноября 2026</span>
+            <span style="color:var(--terracotta);">Emirates · EK347</span>
+          </div>
+          <div class="ticket-body">
+            <div class="ticket-nodes-title">Куала-Лумпур (KUL) → Dubai (DXB)</div>
             
-            <div class="flight-timing-strip">
-              <div class="timing-unit"><small>Вылет (KUL Terminal 1)</small><strong>06.11 · 18:25</strong></div>
-              <div class="timing-unit"><small>Прилёт (DXB Terminal 3)</small><strong>06.11 · 21:45</strong></div>
-              <div class="timing-unit"><small>Стыковка в Дубае</small><strong>11 ч 35 мин (ночь)</strong></div>
+            <div class="specs-grid">
+              <div class="spec-item"><small>Вылет (KUL T1)</small><strong>06.11 · 18:25</strong></div>
+              <div class="spec-item"><small>Прилёт (DXB T3)</small><strong>06.11 · 21:45</strong></div>
+              <div class="spec-item"><small>Ночной транзит</small><strong>11 часов 35 минут</strong></div>
             </div>
 
             <!-- Багаж Emirates строго по фото 10 -->
-            <div class="baggage-dossier">
-              <div class="baggage-dossier-title">
-                Нормы Emirates (KUL → DXB → DME)
-              </div>
-              <div class="baggage-specs-row">
-                <div>
-                  <strong>Ручная кладь:</strong> 1 место <strong>до 7 кг</strong> (габариты <strong>55 × 38 × 22 см</strong>, сумма до 115 см).
-                </div>
-                <div>
-                  <strong>Зарегистрированный багаж:</strong> <strong>до 30 кг</strong> (по сумме трёх сторон до <strong>203 см</strong>).
-                </div>
+            <div class="baggage-note-box">
+              <div class="baggage-note-title">Нормы Emirates (KUL → DXB → DME)</div>
+              <div class="baggage-columns">
+                <div><strong>Ручная кладь:</strong> 1 место <strong>до 7 кг</strong> (габариты <strong>55 × 38 × 22 см</strong>, сумма до 115 см).</div>
+                <div><strong>Багаж:</strong> <strong>до 30 кг</strong> (по сумме трёх измерений до <strong>203 см</strong>).</div>
               </div>
             </div>
 
-            <a href="https://www.emirates.com/ru/russian/before-you-fly/dubai-connect/" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">Проверить условия Dubai Connect ↗</a>
+            <p style="font-size:0.88rem; color:var(--ink-secondary); margin-bottom:12px;">
+              <strong>Услуга Dubai Connect подключена:</strong> Предоставляется номер в отеле, трансфер и питание на время ночной стыковки.
+            </p>
+            <a href="https://www.emirates.com/ru/russian/before-you-fly/dubai-connect/" target="_blank" rel="noopener noreferrer" class="btn-craft">Проверить условия Dubai Connect ↗</a>
           </div>
         </article>
 
         <!-- ЭТАП 7: DXB -> Москва -->
-        <article class="boarding-pass">
-          <div class="pass-header">
+        <article class="travel-ticket">
+          <div class="ticket-top">
             <span>Этап 07 · 07 ноября 2026</span>
-            <span class="pass-flight-badge">Emirates · EK133</span>
+            <span style="color:var(--terracotta);">Emirates · EK133</span>
           </div>
-          <div class="pass-body">
-            <div class="flight-route-header">
-              <div class="flight-nodes">Dubai (DXB) → Москва (DME)</div>
+          <div class="ticket-body">
+            <div class="ticket-nodes-title">Dubai (DXB) → Москва (DME)</div>
+            <div class="specs-grid">
+              <div class="spec-item"><small>Вылет (DXB T3)</small><strong>07.11 · 09:20</strong></div>
+              <div class="spec-item"><small>Прилёт (Домодедово)</small><strong>07.11 · 13:55</strong></div>
             </div>
-            <div class="flight-timing-strip">
-              <div class="timing-unit"><small>Вылет (DXB T3)</small><strong>07.11 · 09:20</strong></div>
-              <div class="timing-unit"><small>Прилёт (Домодедово)</small><strong>07.11 · 13:55</strong></div>
-            </div>
-            <div style="text-align:center; padding: 20px 0 6px;">
-              <p style="font-family:var(--font-display); font-size:1.8rem; font-style:italic; color:var(--lux-terracotta);">
+            <div style="text-align:center; padding: 18px 0 6px;">
+              <p style="font-family:var(--font-display); font-size:1.8rem; font-style:italic; color:var(--terracotta);">
                 «Journey complete. But the story has just begun.»
               </p>
-              <p style="font-size:0.85rem; color:var(--text-muted);">
+              <p style="font-size:0.85rem; color:var(--ink-muted);">
                 Путешествие завершено. Но история только начинается.
               </p>
             </div>
@@ -1146,427 +1200,354 @@
       </div>
     </section>
 
-    <!-- СТРАНИЦА RAS AL KHAIMAH (С треком Desert Rose) -->
-    <section class="rak-editorial-block" id="rak">
+    <!-- СТРАНИЦА RAS AL KHAIMAH (ФОТО ROVE + ВЕРБЛЮДЫ + SPOTIFY) -->
+    <section class="rak-section" id="rak">
       <div class="container">
-        <div class="section-heading" style="margin-bottom:20px;">
-          <span class="section-eyebrow">Оазис побережья</span>
-          <h2 class="section-main-title">Ras Al Khaimah</h2>
+        <div class="section-header" style="margin-bottom:30px;">
+          <span class="section-eyebrow">Островное побережье</span>
+          <h2 class="section-title">Ras Al Khaimah</h2>
+          <span class="red-script" style="font-size:2.4rem; display:block; margin-top:8px;">«Здесь мы отдыхаем.»</span>
         </div>
 
-        <p class="rak-quote-manifesto">«Здесь мы отдыхаем.»</p>
+        <div class="rak-scrapbook-grid">
+          <!-- Скрапбук-полароиды: Отель Rove + Верблюды -->
+          <div class="scrapbook-photos-pair">
+            
+            <!-- Полароид 1: Отель Rove (Фото 1) -->
+            <div class="scrapbook-polaroid" style="transform: rotate(-1.5deg);">
+              <div class="washi-tape" style="width:80px;"></div>
+              <!-- Точное имя файла с вашего скриншота -->
+              <img 
+                src="rove.jpg.JPG" 
+                alt="Отель Rove Al Marjan Island" 
+                onerror="this.src='rove.jpg'"
+              />
+              <span class="polaroid-hand-label">Rove Al Marjan 🌴</span>
+            </div>
 
-        <div class="rak-card-grid">
-          <div class="rak-hero-image-pane">
-            <div>
-              <span style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--lux-gold-light);">Островная безмятежность</span>
-              <h3 style="font-size:2.4rem; font-weight:300; margin-top:8px;">Rove Al Marjan Island</h3>
+            <!-- Полароид 2: Дорога и верблюды (Фото 2) -->
+            <div class="scrapbook-polaroid" style="transform: rotate(2deg); margin-top: 20px;">
+              <div class="washi-tape" style="width:80px;"></div>
+              <!-- Точное имя файла с вашего скриншота -->
+              <img 
+                src="camels.jpg.JPG" 
+                alt="Дорога до отеля Rove и верблюды" 
+                onerror="this.src='camels.jpg'"
+              />
+              <span class="polaroid-hand-label">Местные жители 🐪</span>
             </div>
-            <div style="font-size:0.88rem; opacity:0.85; line-height:1.6;">
-              Тёплый Персидский залив, морской бриз и закаты над пустыней.
-            </div>
+
           </div>
 
-          <div class="rak-content-pane">
-            <span class="hero-meta-tag" style="width:fit-content; margin-bottom:14px;">28.10 — 02.11.2026</span>
-            <h4 style="font-size:1.4rem; font-weight:400; margin-bottom:12px;">Детали бронирования</h4>
-            <ul style="list-style:none; font-size:0.92rem; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-              <li>✓ <strong>Размещение:</strong> 2 просторных номера для 4 человек</li>
-              <li>✓ <strong>Питание:</strong> Полупансион (Half Board — завтраки и ужины включены)</li>
-              <li>✓ <strong>Пляж:</strong> Белоснежная береговая линия острова Al Marjan</li>
+          <!-- Описание и встроенный Spotify Desert Rose -->
+          <div style="background:#FFF; padding:34px; border-radius:18px; border:1px solid var(--border-craft); box-shadow:0 10px 30px rgba(0,0,0,0.03);">
+            <span class="section-eyebrow" style="color:var(--terracotta);">28.10 — 02.11.2026</span>
+            <h3 style="font-size:1.9rem; margin-bottom:12px;">Rove Al Marjan Island</h3>
+            <ul style="list-style:none; font-size:0.92rem; color:var(--ink-secondary); display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+              <li>✓ <strong>Номера:</strong> 2 просторных номера для 4 путешественниц</li>
+              <li>✓ <strong>Питание:</strong> Полупансион (завтраки и ужины включены)</li>
+              <li>✓ <strong>Пляж:</strong> Белоснежный песок и тёплый Персидский залив</li>
             </ul>
 
-            <!-- Саундтрек RAK: STING - DESERT ROSE (оригинальный выбор пользователя) -->
-            <div class="player-card-desert">
-              <div class="player-track-info">
-                <div class="player-disc">♫</div>
-                <div>
-                  <div class="player-title">Desert Rose</div>
-                  <div class="player-artist">Sting · Cheb Mami</div>
-                </div>
-              </div>
-              <a href="https://open.spotify.com/track/5lAoCJrfv9CSyNziWLnWsg?si=KbhTvt-SQJ25nu2nvPJFMA" target="_blank" rel="noopener noreferrer" class="btn-spotify">
-                В Spotify ↗
-              </a>
+            <!-- ВСТРОЕННЫЙ СПОТИФАЙ DESERT ROSE -->
+            <div style="margin: 20px 0;">
+              <iframe 
+                style="border-radius:12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);" 
+                src="https://open.spotify.com/embed/track/5lAoCJrfv9CSyNziWLnWsg?utm_source=generator&theme=0" 
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
             </div>
 
-            <a href="https://maps.google.com/?q=Rove+Al+Marjan+Island" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle" style="align-self:flex-start;">
-              Google Maps локация ↗
+            <a href="https://maps.google.com/?q=Rove+Al+Marjan+Island" target="_blank" rel="noopener noreferrer" class="btn-craft">
+              Google Maps отеля ↗
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- Морские волны -->
+      <div class="ocean-waves-wrapper">
+        <svg class="waves-motion" viewBox="0 0 1600 38" fill="none" preserveAspectRatio="none" style="width: 200%; height: 100%;">
+          <path d="M 0 18 Q 200 0 400 18 T 800 18 T 1200 18 T 1600 18 L 1600 38 L 0 38 Z" fill="#F6F1E8" opacity="0.6"/>
+          <path d="M 0 24 Q 200 8 400 24 T 800 24 T 1200 24 T 1600 24 L 1600 38 L 0 38 Z" fill="#F6F1E8"/>
+        </svg>
       </div>
     </section>
 
     <!-- СТРАНИЦА KUALA LUMPUR -->
     <section class="kl-section container" id="kl">
-      <div class="section-heading">
-        <span class="section-eyebrow">Тропический мегаполис</span>
-        <h2 class="section-main-title">Kuala Lumpur</h2>
+      <div class="section-header">
+        <span class="section-eyebrow">Золотой треугольник столицы</span>
+        <h2 class="section-title">Kuala Lumpur</h2>
       </div>
 
-      <!-- Апартаменты Agile Bukit Bintang по фото 3, 5, 6, 7, 8 -->
-      <div class="condo-dossier">
-        <span class="section-eyebrow">Резиденция · 02.11 — 06.11.2026</span>
-        <h3 style="font-size:2rem; font-weight:400; margin:6px 0 16px;">Agile Bukit Bintang by Avery at KLCC</h3>
-        <p style="color:var(--text-secondary); font-size:0.95rem; max-width:820px;">
-          Премиальный кондоминиум в «Золотом треугольнике» Куала-Лумпура. 5 минут пешком до торгового центра Pavilion и делового квартала The Exchange TRX.
+      <div class="condo-scrapbook-box">
+        <span class="section-eyebrow" style="color:var(--terracotta);">Наш дом в городе · 02.11 — 06.11.2026</span>
+        <h3 style="font-size:1.9rem; margin:4px 0 8px;">Agile Bukit Bintang by Avery at KLCC</h3>
+        <p style="color:var(--ink-secondary); font-size:0.92rem; max-width:820px;">
+          Современный кондоминиум: 5 минут пешком до торгового молла Pavilion KL и футуристичного финансового центра The Exchange TRX.
         </p>
 
-        <div class="condo-amenities-grid">
-          <div class="amenity-card">
-            <h4>2BR Cityview Suite</h4>
-            <p>2 отдельные спальни с панорамными окнами на башни, дизайнерская столовая зона на 4 персоны, светлая гостиная.</p>
+        <!-- Галерея апартаментов (по фото 3, 5, 6, 7, 8) -->
+        <div class="condo-gallery-grid">
+          <div class="condo-photo-tile">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="Garden Pool TRX" loading="lazy" />
+            <div class="condo-badge">Garden Pool & TRX View</div>
           </div>
-          <div class="amenity-card">
-            <h4>Оборудованная кухня и ванная</h4>
-            <p>Плита, микроволновая печь, вместительный холодильник, встроенная стиральная машина и санузел с тропическим душем.</p>
+          <div class="condo-photo-tile">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Гостиная 2BR Unit" loading="lazy" />
+            <div class="condo-badge">2BR Suite · Гостиная</div>
           </div>
-          <div class="amenity-card">
-            <h4>Garden Pool & TRX View</h4>
-            <p>Открытый бассейн с панорамой на небоскреб TRX и лаунж-парк на крыше с настоящим газоном и гамаками.</p>
+          <div class="condo-photo-tile">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Кухня и стиральная машина" loading="lazy" />
+            <div class="condo-badge">Кухня & Стиральная машина</div>
+          </div>
+          <div class="condo-photo-tile">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Сад на крыше с гамаками" loading="lazy" />
+            <div class="condo-badge">Sky Garden с гамаками</div>
           </div>
         </div>
 
-        <div style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a href="https://www.trip.com/m/vacation-rentals/w/detail?h-id=130244538&c-in=2026-11-02&c-out=2026-11-06" target="_blank" rel="noopener noreferrer" class="btn-lux-primary">Бронирование на Trip.com ↗</a>
-          <a href="https://maps.google.com/?q=Agile+Bukit+Bintang" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">Маршрут на Google Maps ↗</a>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="https://www.trip.com/m/vacation-rentals/w/detail?h-id=130244538&c-in=2026-11-02&c-out=2026-11-06" target="_blank" rel="noopener noreferrer" class="btn-action">Бронирование на Trip.com ↗</a>
+          <a href="https://maps.google.com/?q=Agile+Bukit+Bintang" target="_blank" rel="noopener noreferrer" class="btn-craft">Маршрут на Google Maps ↗</a>
         </div>
       </div>
 
-      <!-- Фильтр локаций -->
-      <h3 style="font-size:1.8rem; font-weight:400; text-align:center;">Гид по городу и ресторанам</h3>
-      <div class="filter-tabs">
-        <button class="filter-tab active" data-filter="all">Все места</button>
-        <button class="filter-tab" data-filter="must">Обязательно</button>
-        <button class="filter-tab" data-filter="food">Кофе & Еда</button>
-        <button class="filter-tab" data-filter="mall">Шопинг</button>
-        <button class="filter-tab" data-filter="walk">Прогулки</button>
+      <!-- Гид по заведениям -->
+      <h3 style="font-size:1.7rem; text-align:center;">Куда сходить в Куала-Лумпуре</h3>
+      <div class="filter-pills-row">
+        <button class="filter-btn active" data-filter="all">Все локации</button>
+        <button class="filter-btn" data-filter="must">Обязательно</button>
+        <button class="filter-btn" data-filter="food">Еда & Матча</button>
+        <button class="filter-btn" data-filter="mall">Шопинг</button>
+        <button class="filter-btn" data-filter="walk">Прогулки</button>
       </div>
 
-      <div class="curated-places-grid">
-        <!-- Pavilion -->
-        <div class="curated-place-item" data-category="mall must">
+      <div class="city-spots-grid">
+        <div class="spot-card" data-category="mall must">
           <div>
-            <span style="font-size:0.75rem; color:#A3361E; font-weight:700; text-transform:uppercase;">Обязательно · 600 м</span>
+            <span style="font-size:0.75rem; color:var(--terracotta); font-weight:800; text-transform:uppercase;">Обязательно · 600 м</span>
             <h4 style="font-size:1.25rem; margin:6px 0;">Pavilion Kuala Lumpur</h4>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
-              Главный молл столицы. Премиальные галереи, аутентичный японский квартал Tokyo Street и огромный фудкорт Gourmet Emporium.
+            <p style="font-size:0.85rem; color:var(--ink-secondary); margin-bottom:12px;">
+              Главный молл столицы: Tokyo Street на 6 этаже и гигантский фудкорт Gourmet Emporium внизу. 7 минут пешком от апартаментов.
             </p>
           </div>
-          <a href="https://maps.google.com/?q=Pavilion+Kuala+Lumpur" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">На карте ↗</a>
+          <a href="https://maps.google.com/?q=Pavilion+Kuala+Lumpur" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
 
-        <!-- The Exchange TRX -->
-        <div class="curated-place-item" data-category="mall must walk">
+        <div class="spot-card" data-category="mall must walk">
           <div>
-            <span style="font-size:0.75rem; color:#A3361E; font-weight:700; text-transform:uppercase;">Обязательно · 500 м</span>
+            <span style="font-size:0.75rem; color:var(--terracotta); font-weight:800; text-transform:uppercase;">Обязательно · 500 м</span>
             <h4 style="font-size:1.25rem; margin:6px 0;">The Exchange TRX & Rooftop Park</h4>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
-              Новейший лайфстайл-центр с роскошным городским парком на крыше. 5 минут прогулочным шагом от наших апартаментов.
+            <p style="font-size:0.85rem; color:var(--ink-secondary); margin-bottom:12px;">
+              Ультрасовременный центр с парком на крыше. Красивые водоемы, газоны и кофейни. 5 минут пешком от дома.
             </p>
           </div>
-          <a href="https://maps.google.com/?q=The+Exchange+TRX" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">На карте ↗</a>
+          <a href="https://maps.google.com/?q=The+Exchange+TRX" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
 
-        <!-- Petronas Towers -->
-        <div class="curated-place-item" data-category="walk must">
+        <div class="spot-card" data-category="walk must">
           <div>
-            <span style="font-size:0.75rem; color:#A3361E; font-weight:700; text-transform:uppercase;">Обязательно · Символ</span>
+            <span style="font-size:0.75rem; color:var(--terracotta); font-weight:800; text-transform:uppercase;">Обязательно · Символ</span>
             <h4 style="font-size:1.25rem; margin:6px 0;">Petronas Twin Towers & KLCC Park</h4>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
-              Культовые башни, тропический сад вокруг и вечернее шоу поющих светомузыкальных фонтанов Lake Symphony в 20:00.
+            <p style="font-size:0.85rem; color:var(--ink-secondary); margin-bottom:12px;">
+              Культовые башни-близнецы и вечернее шоу поющих светомузыкальных фонтанов Lake Symphony в парке KLCC в 20:00.
             </p>
           </div>
-          <a href="https://maps.google.com/?q=Petronas+Twin+Towers" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">На карте ↗</a>
+          <a href="https://maps.google.com/?q=Petronas+Twin+Towers" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
 
-        <!-- Jalan Alor -->
-        <div class="curated-place-item" data-category="food">
+        <div class="spot-card" data-category="food">
           <div>
-            <span style="font-size:0.75rem; color:var(--lux-olive); font-weight:700; text-transform:uppercase;">Вечерний стритфуд</span>
+            <span style="font-size:0.75rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Стритфуд</span>
             <h4 style="font-size:1.25rem; margin:6px 0;">Jalan Alor Night Food Street</h4>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
-              Легендарная кулинарная артерия: свежие манго, морепродукты вок, малайские шашлычки сатай и димсамы (15 мин пешком).
+            <p style="font-size:0.85rem; color:var(--ink-secondary); margin-bottom:12px;">
+              Улица ночной еды: морепродукты на воке, манго, сатай и димсамы (15 минут пешком).
             </p>
           </div>
-          <a href="https://maps.google.com/?q=Jalan+Alor+Street+Food" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">На карте ↗</a>
+          <a href="https://maps.google.com/?q=Jalan+Alor+Street+Food" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
 
-        <!-- Niko Neko Matcha -->
-        <div class="curated-place-item" data-category="food">
+        <div class="spot-card" data-category="food">
           <div>
-            <span style="font-size:0.75rem; color:var(--lux-olive); font-weight:700; text-transform:uppercase;">Арт & Матча</span>
+            <span style="font-size:0.75rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Арт & Матча</span>
             <h4 style="font-size:1.25rem; margin:6px 0;">Niko Neko Matcha (Chinatown)</h4>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
-              Главный концептуальный матча-бар Малайзии в духе современной галереи искусств. Превосходные японские десерты.
+            <p style="font-size:0.85rem; color:var(--ink-secondary); margin-bottom:12px;">
+              Культовое минималистичное пространство с церемониальной японской матчей и десертами. 10 минут на Grab.
             </p>
           </div>
-          <a href="https://maps.google.com/?q=Niko+Neko+Matcha+Chinatown" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">На карте ↗</a>
+          <a href="https://maps.google.com/?q=Niko+Neko+Matcha+Chinatown" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
 
-        <!-- VCR Cafe -->
-        <div class="curated-place-item" data-category="food">
+        <div class="spot-card" data-category="food">
           <div>
-            <span style="font-size:0.75rem; color:var(--lux-olive); font-weight:700; text-transform:uppercase;">Завтрак & Кофе</span>
+            <span style="font-size:0.75rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Завтрак & Кофе</span>
             <h4 style="font-size:1.25rem; margin:6px 0;">VCR Cafe Bukit Bintang</h4>
-            <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:12px;">
-              Знаковое кофейное пространство в аутентичном историческом таунхаусе: авокадо-тосты, яйца бенедикт и спешелти кофе.
+            <p style="font-size:0.85rem; color:var(--ink-secondary); margin-bottom:12px;">
+              Кофейня в историческом таунхаусе: авокадо-тосты, яйца бенедикт на бриоши и качественная арабика.
             </p>
           </div>
-          <a href="https://maps.google.com/?q=VCR+Bukit+Bintang" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle">На карте ↗</a>
+          <a href="https://maps.google.com/?q=VCR+Bukit+Bintang" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
       </div>
     </section>
 
-    <!-- =============================================================
-         СТРАНИЦА THE WEEKND — AFTER HOURS TIL DAWN SHOW
-         (Расположена строго после раздела Kuala Lumpur)
-         ============================================================= -->
-    <section class="weeknd-noir-universe" id="the-weeknd">
+    <!-- СТРАНИЦА THE WEEKND (ЧИСТЫЙ КОНЦЕРТНЫЙ ПОСТЕР, БЕЗ ЗОЛОТОЙ ФИГУРЫ) -->
+    <section class="weeknd-night-universe" id="the-weeknd">
+      <div class="weeknd-glow-spot"></div>
       <div class="container weeknd-inner">
-        <div class="weeknd-title-lead">
-          <span class="weeknd-eyebrow">Stadium Tour · 04 ноября 2026</span>
-          <h2 class="weeknd-h2">The Weeknd — Kuala Lumpur</h2>
+        
+        <div class="weeknd-poster-header">
+          <span class="weeknd-tour-badge">04.11.2026 · Kuala Lumpur Stadium Show</span>
+          <h2 class="weeknd-headline">THE WEEKND</h2>
+          <p class="weeknd-subline">After Hours Til Dawn Tour</p>
+          <span class="red-script" style="color:var(--noir-gold); font-size:1.9rem; display:block; margin-top:8px;">«Главное событие нашего путешествия!»</span>
         </div>
 
-        <!-- Саундтрек After Hours The Weeknd -->
-        <div class="player-card-afterhours">
-          <div style="display:flex; align-items:center; gap:12px;">
-            <div class="afterhours-pulse-dot"></div>
+        <!-- ВСТРОЕННЫЙ СПОТИФАЙ AFTER HOURS (Играет прямо на сайте!) -->
+        <div style="max-width:650px; margin:0 auto 36px;">
+          <iframe 
+            style="border-radius:12px; box-shadow: 0 10px 30px rgba(225, 29, 56, 0.35);" 
+            src="https://open.spotify.com/embed/track/2YWlVGHS884UFQnTtUtYfr?utm_source=generator&theme=0" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <!-- Сцена стадиона -->
+        <div class="weeknd-stage-visual">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80" alt="Сцена стадионного шоу The Weeknd" loading="lazy" />
+          <div class="stage-badge">National Stadium Bukit Jalil · Live Experience</div>
+        </div>
+
+        <div class="weeknd-card">
+          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; align-items:center;">
             <div>
-              <div style="font-size:0.9rem; font-weight:700; color:#FFF;">After Hours</div>
-              <div style="font-size:0.72rem; color:var(--noir-muted);">The Weeknd</div>
-            </div>
-          </div>
-          <a href="https://open.spotify.com/track/2YWlVGHS884UFQnTtUtYfr" target="_blank" rel="noopener noreferrer" class="btn-spotify" style="padding:7px 16px; font-size:0.7rem;">
-            Слушать в Spotify ↗
-          </a>
-        </div>
-
-        <!-- Золотой андроид Хадзимэ Сораямы со сцены тура (по фото 2 и 4) -->
-        <div class="sorayama-monolith-stage">
-          <svg class="sorayama-statue" viewBox="0 0 400 680" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Золотая хромированная скульптура Hajime Sorayama на сцене The Weeknd">
-            <defs>
-              <linearGradient id="sorayamaGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FFF8DB"/>
-                <stop offset="20%" stop-color="#ECC877"/>
-                <stop offset="45%" stop-color="#8B6922"/>
-                <stop offset="70%" stop-color="#FDEEB3"/>
-                <stop offset="100%" stop-color="#5E430D"/>
-              </linearGradient>
-              <linearGradient id="sorayamaChrome" x1="0%" y1="50%" x2="100%" y2="50%">
-                <stop offset="0%" stop-color="#D4AF37"/>
-                <stop offset="35%" stop-color="#FFFFFF"/>
-                <stop offset="65%" stop-color="#ECC877"/>
-                <stop offset="100%" stop-color="#4A3409"/>
-              </linearGradient>
-              <filter id="visorGlow">
-                <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-
-            <!-- Прожекторный конус света со стадиона -->
-            <path d="M 60 0 L 200 360 L 340 0 Z" fill="url(#sorayamaGold)" opacity="0.08"/>
-
-            <!-- Голова и светящийся визор шлема -->
-            <ellipse cx="200" cy="85" rx="20" ry="24" fill="url(#sorayamaGold)"/>
-            <path d="M 188 84 Q 200 87 212 84 Q 200 90 188 84 Z" fill="#E11D38" filter="url(#visorGlow)"/>
-            <path d="M 194 70 Q 200 66 206 70" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
-
-            <!-- Шея и ключичный шарнир -->
-            <path d="M 194 108 L 206 108 L 204 122 L 196 122 Z" fill="url(#sorayamaGold)"/>
-            <path d="M 174 125 C 190 120 210 120 226 125 L 222 135 C 210 132 190 132 178 135 Z" fill="url(#sorayamaChrome)"/>
-
-            <!-- Торс и анатомический хромированный корсет -->
-            <path d="M 176 135 C 172 165 174 195 180 225 C 185 228 215 228 220 225 C 226 195 228 165 224 135 Z" fill="url(#sorayamaGold)"/>
-            <circle cx="188" cy="154" r="14" fill="url(#sorayamaChrome)" stroke="#735414" stroke-width="0.5"/>
-            <circle cx="212" cy="154" r="14" fill="url(#sorayamaChrome)" stroke="#735414" stroke-width="0.5"/>
-            <circle cx="188" cy="154" r="2.5" fill="#FFEAA0"/>
-            <circle cx="212" cy="154" r="2.5" fill="#FFEAA0"/>
-
-            <!-- Сочленения бедер робота -->
-            <path d="M 180 225 C 170 245 168 275 176 295 C 184 300 216 300 224 295 C 232 275 230 245 220 225 Z" fill="url(#sorayamaChrome)"/>
-            
-            <!-- Руки с вытянутыми пальцами -->
-            <path d="M 174 135 Q 160 170 162 215 L 168 215 Q 167 172 178 138 Z" fill="url(#sorayamaGold)"/>
-            <path d="M 162 215 Q 164 250 170 270 L 174 268 Q 169 250 167 215 Z" fill="url(#sorayamaChrome)"/>
-            <path d="M 226 135 Q 240 170 238 215 L 232 215 Q 233 172 222 138 Z" fill="url(#sorayamaGold)"/>
-            <path d="M 238 215 Q 236 250 230 270 L 226 268 Q 231 250 233 215 Z" fill="url(#sorayamaChrome)"/>
-
-            <!-- Вытянутые роботизированные ноги (Sorayama elongated limbs) -->
-            <path d="M 178 295 C 170 340 170 410 176 465 L 192 465 C 196 410 196 340 194 295 Z" fill="url(#sorayamaGold)"/>
-            <circle cx="184" cy="470" r="7" fill="url(#sorayamaChrome)"/>
-            <path d="M 177 475 C 176 525 180 575 182 620 L 190 620 C 193 575 192 525 189 475 Z" fill="url(#sorayamaGold)"/>
-
-            <path d="M 206 295 C 208 340 215 410 222 465 L 206 465 C 201 410 198 340 196 295 Z" fill="url(#sorayamaChrome)" opacity="0.9"/>
-            <circle cx="214" cy="470" r="7" fill="url(#sorayamaGold)"/>
-            <path d="M 207 475 C 213 525 218 575 222 620 L 214 620 C 209 575 204 525 200 475 Z" fill="url(#sorayamaChrome)" opacity="0.9"/>
-
-            <!-- Хромированные стопы на платформе -->
-            <path d="M 180 620 L 186 642 L 174 642 Z" fill="url(#sorayamaGold)"/>
-            <path d="M 218 620 L 224 642 L 212 642 Z" fill="url(#sorayamaGold)"/>
-            <rect x="140" y="642" width="120" height="6" fill="#292213"/>
-          </svg>
-          <div class="stage-atmospheric-fog"></div>
-          <span class="statue-legend">The Sorayama Chrome Centerpiece · Stadium Scale</span>
-        </div>
-
-        <!-- Досье концерта -->
-        <div class="weeknd-dossier-card">
-          <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; align-items:center;">
-            <div>
-              <span style="color:var(--noir-red); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; font-size:0.8rem;">Тайминг и площадка</span>
-              <h3 style="font-size:2rem; font-weight:400; color:#FFF; margin-top:4px;">04 ноября 2026 · Старт в 20:30</h3>
-              <p style="color:var(--noir-muted); font-size:0.95rem; margin-top:6px;">
+              <span style="color:var(--noir-red); font-weight:800; letter-spacing:0.1em; text-transform:uppercase; font-size:0.8rem;">Дата и арена</span>
+              <h3 style="font-size:1.9rem; color:#FFF; margin-top:4px;">04 ноября 2026 · Старт в 20:30</h3>
+              <p style="color:var(--noir-muted); font-size:0.95rem; margin-top:4px;">
                 <strong>TM Stadium Nasional</strong> (National Stadium Bukit Jalil)<br>
                 Jalan Barat, Bukit Jalil, 57000 Kuala Lumpur
               </p>
             </div>
-            <a href="https://www.livenation.my" target="_blank" rel="noopener noreferrer" class="btn-lux-primary" style="background:var(--noir-red);">
+            <a href="https://www.livenation.my" target="_blank" rel="noopener noreferrer" class="btn-action" style="background:var(--noir-red);">
               Live Nation Malaysia ↗
             </a>
           </div>
         </div>
 
         <!-- Маршруты до стадиона -->
-        <div class="weeknd-dossier-card">
-          <h4 style="font-size:1.5rem; font-weight:400; color:var(--noir-gold); margin-bottom:6px;">
-            Как добраться: Agile Bukit Bintang → Stadium Bukit Jalil
+        <div class="weeknd-card">
+          <h4 style="font-size:1.4rem; color:var(--noir-gold); margin-bottom:6px;">
+            Маршрут: Agile Bukit Bintang → Stadium Bukit Jalil
           </h4>
           <p style="font-size:0.88rem; color:var(--noir-muted);">
-            В день шоу дороги перегружены. Железнодорожный транспорт — самый быстрый способ прибыть вовремя.
+            В день концерта на дорогах к арене образуются огромные пробки. Метро — самый надёжный способ прибыть к началу шоу.
           </p>
 
-          <div class="transit-pathways-grid">
-            <div class="pathway-cell">
+          <div class="transit-cols-grid">
+            <div class="transit-cell">
               <h5>
-                <span>1. Метро LRT (Лучший выбор)</span>
+                <span>1. Метро LRT (Рекомендуем!)</span>
                 <span style="color:var(--noir-red); font-family:monospace;">~35 мин</span>
               </h5>
-              <p style="font-size:0.82rem; color:#A7A0B2; margin:10px 0;">
-                Пешком до станции <strong>Hang Tuah</strong> → Прямая линия <strong>LRT Sri Petaling Line</strong> без пересадок до станции <strong>Bukit Jalil</strong>.
+              <p style="font-size:0.82rem; color:#AFA7BC; margin:8px 0;">
+                Пешком или на такси до станции <strong>Hang Tuah</strong> $\to$ прямая линия <strong>LRT Sri Petaling Line</strong> без пересадок до станции <strong>Bukit Jalil</strong>.
               </p>
-              <span style="font-size:0.75rem; color:var(--noir-gold);">★ Крытый переход со станции прямо на стадион.</span>
+              <span style="font-size:0.75rem; color:var(--noir-gold);">★ Станция соединена крытым мостом прямо со входом на арену.</span>
             </div>
 
-            <div class="pathway-cell">
+            <div class="transit-cell">
               <h5>
                 <span>2. Grab / Такси</span>
                 <span style="color:var(--noir-red); font-family:monospace;">~60–80 мин</span>
               </h5>
-              <p style="font-size:0.82rem; color:#A7A0B2; margin:10px 0;">
+              <p style="font-size:0.82rem; color:#AFA7BC; margin:8px 0;">
                 Поездка от резиденции по шоссе MEX напрямую к стадиону.
               </p>
-              <span style="font-size:0.75rem; color:#FF8A8A;">⚠ Выезжать строго до 17:30 из-за пробок на въезде.</span>
+              <span style="font-size:0.75rem; color:#FF8A8A;">⚠ Выезжать строго до 17:30 во избежание коллапса на въезде.</span>
             </div>
 
-            <div class="pathway-cell">
+            <div class="transit-cell">
               <h5>
                 <span>3. Комбинированный</span>
                 <span style="color:var(--noir-red); font-family:monospace;">~45 мин</span>
               </h5>
-              <p style="font-size:0.82rem; color:#A7A0B2; margin:10px 0;">
+              <p style="font-size:0.82rem; color:#AFA7BC; margin:8px 0;">
                 Grab до южной станции LRT Chan Sow Lin, затем 15 минут на метро до Bukit Jalil.
               </p>
-              <span style="font-size:0.75rem; color:var(--noir-gold);">★ Без очередей в центре.</span>
+              <span style="font-size:0.75rem; color:var(--noir-gold);">★ Посадка в поезд без очередей в центре.</span>
             </div>
           </div>
 
-          <div style="margin-top:24px;">
-            <a href="https://maps.google.com/?q=Agile+Bukit+Bintang+to+National+Stadium+Bukit+Jalil" target="_blank" rel="noopener noreferrer" class="btn-lux-subtle" style="border-color:rgba(255,255,255,0.2); color:#FFF;">
-              Маршрут на карте Google ↗
+          <div style="margin-top:20px;">
+            <a href="https://maps.google.com/?q=Agile+Bukit+Bintang+to+National+Stadium+Bukit+Jalil" target="_blank" rel="noopener noreferrer" class="btn-craft" style="border-color:rgba(255,255,255,0.2); color:#FFF; background:transparent;">
+              Открыть маршрут на карте ↗
             </a>
           </div>
         </div>
 
-        <!-- Чек-лист перед выходом -->
-        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); padding:24px; border-radius:12px;">
-          <span style="font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--noir-gold); display:block; margin-bottom:12px; font-weight:700;">
-            Чек-лист перед шоу:
+        <!-- Чек-лист перед концертом -->
+        <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); padding:22px; border-radius:12px;">
+          <span style="font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--noir-gold); display:block; margin-bottom:10px; font-weight:800;">
+            Чек-лист перед выходом:
           </span>
           <ul style="list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; font-size:0.85rem; color:#CCC;">
-            <li>✓ Билеты скачаны в офлайн-доступ</li>
-            <li>✓ Power Bank (до 20 000 mAh)</li>
-            <li>✓ Компактная сумка (строгий досмотр)</li>
-            <li>✓ Карта Touch 'n Go для метро</li>
-            <li>✓ Удобная обувь для танцев</li>
+            <li>✓ Билеты сохранены в Apple Wallet / офлайн</li>
+            <li>✓ Внешний аккумулятор (Power Bank)</li>
+            <li>✓ Компактная сумка (строгий досмотр на гейтах)</li>
+            <li>✓ Физическая карта Touch 'n Go для турникетов метро</li>
+            <li>✓ Удобная обувь</li>
           </ul>
         </div>
+
       </div>
     </section>
 
     <!-- ПРАКТИЧЕСКАЯ ИНФОРМАЦИЯ -->
-    <section class="practical-section" id="practical">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-eyebrow">Памятка в дорогу</span>
-          <h2 class="section-main-title">Практическая информация</h2>
+    <section class="section-wrap container" id="practical">
+      <div class="section-header">
+        <span class="section-eyebrow">Памятка для четверых</span>
+        <h2 class="section-title">Практическая информация</h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+        <div style="background:#FFF; padding:24px; border-radius:14px; border:1px solid var(--border-craft);">
+          <h4 style="font-size:0.9rem; text-transform:uppercase; color:var(--terracotta); margin-bottom:8px;">Розетки и адаптеры</h4>
+          <p style="font-size:0.88rem; color:var(--ink-secondary);">
+            И в ОАЭ, и в Малайзии используется <strong>британский тип G</strong> (три массивных штыря, 230–240V). Берём 2–3 переходника Type-G на компанию.
+          </p>
         </div>
 
-        <div class="tips-grid">
-          <div class="tip-card">
-            <h4>Розетки и адаптеры</h4>
-            <p style="font-size:0.88rem; color:var(--text-secondary);">
-              И в ОАЭ, и в Малайзии действует <strong>тип G</strong> (британский трёхконтактный разъём, 230–240V). Рекомендуется взять 2–3 переходника Type-G для зарядки всех устройств.
-            </p>
-          </div>
-
-          <div class="tip-card">
-            <h4>Мобильный интернет (eSIM)</h4>
-            <p style="font-size:0.88rem; color:var(--text-secondary);">
-              Удобно установить приложения Airalo или Nomad заранее в Москве. Пакеты eSIM активируются автоматически при приземлении в Дубае и Куала-Лумпуре.
-            </p>
-          </div>
-
-          <div class="tip-card">
-            <h4>Оплата и валюта</h4>
-            <p style="font-size:0.88rem; color:var(--text-secondary);">
-              В ОАЭ — дирхамы (AED), в Малайзии — ринггиты (MYR). Приложение такси <strong>Grab</strong> принимает зарубежные карты и наличные ринггиты. Для метро удобна карта Touch 'n Go.
-            </p>
-          </div>
-
-          <div class="tip-card">
-            <h4>Трансферы</h4>
-            <p style="font-size:0.88rem; color:var(--text-secondary);">
-              Трансферы DWC $\to$ Рас-эль-Хайма и KUL $\to$ Agile Bukit Bintang забронированы. Для поездок по городу вызываем такси через Grab.
-            </p>
-          </div>
+        <div style="background:#FFF; padding:24px; border-radius:14px; border:1px solid var(--border-craft);">
+          <h4 style="font-size:0.9rem; text-transform:uppercase; color:var(--terracotta); margin-bottom:8px;">Мобильный интернет (eSIM)</h4>
+          <p style="font-size:0.88rem; color:var(--ink-secondary);">
+            Приложения Airalo или Nomad. Пакеты eSIM на ОАЭ и Малайзию активируются автоматически по прилёту при включении роуминга.
+          </p>
         </div>
 
-        <!-- Полезные ссылки -->
-        <div style="margin-top:60px;">
-          <h3 style="font-size:1.6rem; font-weight:400; text-align:center; margin-bottom:24px;">Официальные ресурсы</h3>
-          <div class="links-shelf">
-            <a href="https://pobeda.aero" target="_blank" rel="noopener noreferrer" class="shelf-link">
-              <strong style="display:block; font-size:0.9rem;">Победа ↗</strong>
-              <small style="color:var(--text-muted);">Рейс DP991</small>
-            </a>
-            <a href="https://www.airarabia.com" target="_blank" rel="noopener noreferrer" class="shelf-link">
-              <strong style="display:block; font-size:0.9rem;">Air Arabia ↗</strong>
-              <small style="color:var(--text-muted);">Рейс G9802</small>
-            </a>
-            <a href="https://www.emirates.com" target="_blank" rel="noopener noreferrer" class="shelf-link">
-              <strong style="display:block; font-size:0.9rem;">Emirates ↗</strong>
-              <small style="color:var(--text-muted);">Рейсы EK347 / EK133</small>
-            </a>
-            <a href="https://www.trip.com" target="_blank" rel="noopener noreferrer" class="shelf-link">
-              <strong style="display:block; font-size:0.9rem;">Trip.com ↗</strong>
-              <small style="color:var(--text-muted);">Бронь апартаментов</small>
-            </a>
-            <a href="https://www.rovehotels.com" target="_blank" rel="noopener noreferrer" class="shelf-link">
-              <strong style="display:block; font-size:0.9rem;">Rove Hotels ↗</strong>
-              <small style="color:var(--text-muted);">Rove Al Marjan RAK</small>
-            </a>
-            <a href="https://www.theweeknd.com" target="_blank" rel="noopener noreferrer" class="shelf-link">
-              <strong style="display:block; font-size:0.9rem;">The Weeknd Official ↗</strong>
-              <small style="color:var(--text-muted);">Тур After Hours</small>
-            </a>
-          </div>
+        <div style="background:#FFF; padding:24px; border-radius:14px; border:1px solid var(--border-craft);">
+          <h4 style="font-size:0.9rem; text-transform:uppercase; color:var(--terracotta); margin-bottom:8px;">Деньги и оплата</h4>
+          <p style="font-size:0.88rem; color:var(--ink-secondary);">
+            В ОАЭ — дирхам (AED), в Малайзии — ринггит (MYR). Такси <strong>Grab</strong> принимает зарубежные карты и наличные ринггиты.
+          </p>
+        </div>
+
+        <div style="background:#FFF; padding:24px; border-radius:14px; border:1px solid var(--border-craft);">
+          <h4 style="font-size:0.9rem; text-transform:uppercase; color:var(--terracotta); margin-bottom:8px;">Трансферы</h4>
+          <p style="font-size:0.88rem; color:var(--ink-secondary);">
+            Трансферы DWC $\to$ Rove Al Marjan и KUL $\to$ Agile Bukit Bintang забронированы. По городу перемещаемся на Grab.
+          </p>
         </div>
       </div>
     </section>
@@ -1575,8 +1556,8 @@
   <!-- Футер -->
   <footer>
     <div class="container">
-      <p class="footer-quote">«Three destinations. One unforgettable journey.»</p>
-      <p style="font-size:0.85rem; color:#888; margin-bottom:12px;">
+      <p class="footer-phrase">«Three destinations. One unforgettable journey.»</p>
+      <p style="font-size:0.85rem; color:#888; margin-bottom:10px;">
         Daria Kudriashova · Elena Kudriashova · Elena Kurenkova · Olga Kosterina
       </p>
       <p style="font-size:0.75rem; color:#555;">
@@ -1585,10 +1566,9 @@
     </div>
   </footer>
 
-  <!-- Клиентский скрипт -->
+  <!-- Скрипты -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Мобильное меню
       const menuBtn = document.getElementById('mobileMenuToggle');
       const navLinks = document.getElementById('navLinks');
       menuBtn.addEventListener('click', () => {
@@ -1600,28 +1580,26 @@
         });
       });
 
-      // Фильтрация мест в Куала-Лумпуре
-      const filterTabs = document.querySelectorAll('.filter-tab');
-      const placeItems = document.querySelectorAll('.curated-place-item');
-      filterTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          filterTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          const filter = tab.getAttribute('data-filter');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const spotCards = document.querySelectorAll('.spot-card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
 
-          placeItems.forEach(item => {
-            const categories = item.getAttribute('data-category');
+          spotCards.forEach(card => {
+            const categories = card.getAttribute('data-category');
             if (filter === 'all' || categories.includes(filter)) {
-              item.style.display = 'flex';
+              card.style.display = 'flex';
             } else {
-              item.style.display = 'none';
+              card.style.display = 'none';
             }
           });
         });
       });
     });
 
-    // Регистрация офлайн сервис-воркера
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js').catch(() => {});
