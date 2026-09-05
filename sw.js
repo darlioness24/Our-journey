@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trip26-v6';
+const CACHE_NAME = 'trip26-v7';
 
 const ASSETS_TO_CACHE = [
   './',
