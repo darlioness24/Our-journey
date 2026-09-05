@@ -1,10 +1,10 @@
-const CACHE_NAME = 'daria-journey-v1';
+const CACHE_NAME = 'daria-journey-v2';
 
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
-  'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap'
+  'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap'
 ];
 
 self.addEventListener('install', (event) => {
