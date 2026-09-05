@@ -7,14 +7,12 @@
 
   <meta name="referrer" content="no-referrer">
 
-  <!-- PWA Settings -->
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#0E0C12">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Трип ’26">
 
-  <!-- Шрифты Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -69,7 +67,7 @@
     .protected-app { display: none; }
     .protected-app.visible { display: block; }
 
-    /* Удобное верхнее меню переключения шагов */
+    /* Верхняя панель с меню */
     .top-navigator {
       position: sticky; top: 0; z-index: 100; background: rgba(246, 241, 232, 0.97);
       backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-craft); padding: 10px 16px;
@@ -78,9 +76,7 @@
     .brand-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; }
     .brand-title span { font-family: var(--font-hand); color: var(--script-red); font-size: 1.1rem; }
     
-    .steps-menu {
-      display: flex; gap: 6px; overflow-x: auto; max-width: 100%; padding-bottom: 4px;
-    }
+    .steps-menu { display: flex; gap: 6px; overflow-x: auto; max-width: 100%; padding-bottom: 4px; }
     .step-pill {
       font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700;
       color: var(--ink-secondary); background: var(--bg-card); padding: 6px 12px; border-radius: 16px;
@@ -106,7 +102,7 @@
     }
     .btn-craft:hover { border-color: var(--script-red); color: var(--script-red); }
 
-    /* Кинотеатр анимаций с исправленной плавной траекторией */
+    /* Кинотеатр анимаций */
     .cinema-overlay {
       position: fixed; inset: 0; z-index: 999; background: #07080C; color: #FFF; display: none;
       flex-direction: column; align-items: center; justify-content: space-between; padding: 40px 20px 30px; overflow: hidden;
@@ -131,7 +127,6 @@
     .geo-point { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #FFF; box-shadow: 0 0 10px #FFF; }
     .geo-label { font-family: monospace; font-size: 0.7rem; font-weight: 700; position: absolute; color: #FFF; }
 
-    /* Исправленный полёт по чистой дуге */
     .realistic-plane {
       position: absolute; width: 130px; height: auto; z-index: 25; transform-origin: center center;
       animation: correctFlightPath 5.5s cubic-bezier(0.37, 0, 0.63, 1) forwards;
@@ -151,7 +146,28 @@
     .reveal-title { font-family: var(--font-display); font-size: 2.1rem; color: var(--noir-gold); font-style: italic; line-height: 1.1; }
     .reveal-subtitle { font-size: 0.85rem; color: #AAA; margin-top: 4px; }
 
-    /* Гид по местам и магазинам в KL */
+    /* Премиальный аудиоплеер для MP3 из репозитория */
+    .custom-audio-player {
+      background: linear-gradient(135deg, #222 0%, #111 100%);
+      border: 1px solid var(--vintage-gold);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      color: #FFF;
+      margin: 20px 0;
+    }
+    .audio-play-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--vintage-gold); color: #111;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; transition: transform 0.2s;
+    }
+    .audio-play-btn:hover { transform: scale(1.05); }
+
+    /* Гид по местам */
     .filter-pills-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin: 20px 0 28px; }
     .filter-btn {
       padding: 7px 16px; background: #FFF; border: 1px solid var(--border-craft); border-radius: 25px;
@@ -159,13 +175,7 @@
     }
     .filter-btn.active, .filter-btn:hover { background: var(--olive-sage); color: #FFF; border-color: var(--olive-sage); }
     .city-spots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; margin-top: 20px; }
-    .spot-card {
-      background: #FFF; border: 1px solid var(--border-craft); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;
-    }
-
-    /* Документы */
-    .docs-cabinet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; }
-    .doc-card { background: #FFF; border: 1px solid var(--border-craft); border-radius: 14px; padding: 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+    .spot-card { background: #FFF; border: 1px solid var(--border-craft); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
 
     .travelers-polaroid-frame { background: var(--bg-polaroid); padding: 14px 14px 20px; border-radius: 8px; box-shadow: 0 16px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.08); margin: 16px auto 26px; max-width: 780px; }
     .travelers-photo { width: 100%; border-radius: 4px; }
@@ -181,7 +191,7 @@
 
 <body>
 
-  <!-- Экран авторизации (пароль 1234) -->
+  <!-- Авторизация (пароль 1234) -->
   <div class="lock-screen" id="lockScreen">
     <div class="lock-box">
       <span style="font-size:2rem;">🔒</span>
@@ -194,10 +204,9 @@
     </div>
   </div>
 
-  <!-- Приложение -->
   <div class="protected-app" id="protectedApp">
 
-    <!-- Верхняя панель с меню быстрого переключения шагов -->
+    <!-- Верхнее меню шагов -->
     <header class="top-navigator">
       <div class="brand-title">Девчачий трип<span>’26</span></div>
       <div class="steps-menu">
@@ -236,7 +245,7 @@
       </div>
     </section>
 
-    <!-- КИНОТЕАТР АНИМАЦИЙ -->
+    <!-- КИНОТЕАТР АНИМАЦИИ -->
     <div class="cinema-overlay" id="globalCinema">
       <div class="cinema-header">
         <span class="cinema-meta-tag" id="cinemaMeta">Flight DP991</span>
@@ -268,7 +277,7 @@
       </div>
     </section>
 
-    <!-- ЭКРАН 3: RAK & ROVE -->
+    <!-- ЭКРАН 3: RAK & ROVE (С АУДИОПЛЕЕРОМ DESERT ROSE) -->
     <section class="screen-stage" id="screen-rak">
       <div style="text-align:center; margin-bottom:24px;">
         <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Островное побережье · 28.10 — 02.11</span>
@@ -281,17 +290,22 @@
         <div style="background:#FFF; padding:10px 10px 18px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);"><img src="camels.jpg.JPG" alt="Верблюды" style="width:100%; height:220px; object-fit:cover; border-radius:4px;" onerror="this.src='camels.jpg'"><span style="font-family:var(--font-hand); color:var(--script-red); font-size:1.2rem; display:block; text-align:center; margin-top:6px;">Местные жители 🐪</span></div>
       </div>
 
-      <div style="background:#FFF; padding:24px; border-radius:16px; border:1px solid var(--border-craft); margin-bottom:24px;">
-        <h3 style="font-size:1.4rem; font-family:var(--font-display); margin-bottom:8px;">Пляжный саундтрек</h3>
-        <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/5lAoCJrfv9CSyNziWLnWsg?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <!-- Фирменный плеер для Desert Rose.mp3 из репозитория -->
+      <div class="custom-audio-player">
+        <button class="audio-play-btn" id="playDesertRose">▶</button>
+        <div>
+          <div style="font-weight:700; font-size:0.95rem;">Sting - Desert Rose</div>
+          <small style="color:var(--vintage-gold);">Пляжный саундтрек Rove Al Marjan</small>
+        </div>
+        <audio id="audioDesertRose" src="Art_Beatz_Aziza_Qobilova_-_Desert_Rose_(Bib.fm).mp3"></audio>
       </div>
 
-      <div style="text-align:center;">
+      <div style="text-align:center; margin-top:20px;">
         <button class="btn-main" id="btnLaunchAirArabia">Вылет в Куала-Лумпур (Air Arabia) ➔</button>
       </div>
     </section>
 
-    <!-- ЭКРАН 4: ПЕРЕЛЁТ AIR ARABIA (SHJ -> KUL) + МИГРАЦИОННАЯ КАРТА MDAC -->
+    <!-- ЭКРАН 4: ПЕРЕЛЁТ AIR ARABIA + MDAC -->
     <section class="screen-stage" id="screen-flight2">
       <div class="step-detail-card">
         <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Перелёт 2 · Air Arabia G9802</span>
@@ -302,17 +316,11 @@
           <div><small>Багаж</small><strong>20 кг + 7 кг ручная</strong></div>
         </div>
         
-        <!-- Инструкция по миграционной карте Малайзии (MDAC) -->
-        <div style="background: rgba(0, 136, 214, 0.05); border: 1.5px solid var(--pobeda-blue, #0088D6); padding: 18px; border-radius: 14px; margin: 16px 0;">
-          <h4 style="color: #0088D6; font-size: 0.9rem; margin-bottom: 6px; font-weight: 800;">🛂 Обязательно для граждан России: Миграционная карта MDAC</h4>
-          <p style="font-size: 0.88rem; color: var(--ink-secondary); margin-bottom: 12px;">
-            Перед въездом в Малайзию необходимо заполнить электронную миграционную карту Malaysia Digital Arrival Card (MDAC) в течение 3 дней до прибытия.
-          </p>
-          <a href="https://imigresen-online.imi.gov.my/mdac/main" target="_blank" rel="noopener noreferrer" class="btn-craft" style="background: #0088D6; color: #FFF; border-color: #0088D6;">
-            Заполнить MDAC онлайн (Официальный сайт) ↗
-          </a>
+        <div style="background: rgba(0, 136, 214, 0.05); border: 1.5px solid #0088D6; padding: 18px; border-radius: 14px; margin: 16px 0;">
+          <h4 style="color: #0088D6; font-size: 0.9rem; margin-bottom: 6px; font-weight: 800;">🛂 Миграционная карта MDAC (Малайзия)</h4>
+          <p style="font-size: 0.88rem; color: var(--ink-secondary); margin-bottom: 12px;">Обязательно к заполнению онлайн за 3 дня до въезда для граждан РФ.</p>
+          <a href="https://imigresen-online.imi.gov.my/mdac/main" target="_blank" rel="noopener noreferrer" class="btn-craft" style="background: #0088D6; color: #FFF; border-color: #0088D6;">Заполнить MDAC онлайн ↗</a>
         </div>
-
         <a href="https://www.airarabia.com" target="_blank" rel="noopener noreferrer" class="btn-craft" style="margin-top:10px;">Сайт Air Arabia ↗</a>
       </div>
       <div style="text-align:center;">
@@ -320,7 +328,7 @@
       </div>
     </section>
 
-    <!-- ЭКРАН 5: KUALA LUMPUR (АПАРТАМЕНТЫ + ПРОДУКТОВЫЕ МАГАЗИНЫ И ЛОКАЦИИ) -->
+    <!-- ЭКРАН 5: KUALA LUMPUR (ФОТО + ПРОДУКТОВЫЕ МАГАЗИНЫ) -->
     <section class="screen-stage" id="screen-kl">
       <div style="text-align:center; margin-bottom:24px;">
         <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">02.11 — 06.11</span>
@@ -328,77 +336,45 @@
         <p style="color:var(--ink-secondary); font-size:0.92rem; margin-top:4px;">Agile Bukit Bintang by Avery at KLCC</p>
       </div>
 
-      <!-- Фото апартаментов -->
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:24px;">
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8578.png" alt="Терраса" style="width:100%; height:160px; object-fit:cover;"></div>
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8581.png" alt="Бассейн" style="width:100%; height:160px; object-fit:cover;"></div>
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8582.png" alt="Кухня" style="width:100%; height:160px; object-fit:cover;"></div>
-        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8588.png" alt="Гостиная" style="width:100%; height:160px; object-fit:cover;"></div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8578.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8581.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8582.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8588.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
       </div>
 
-      <!-- Гид по локациям и продуктовым магазинам -->
-      <h3 style="font-size:1.5rem; font-family:var(--font-display); text-align:center; margin-top:30px;">Куда сходить и где купить продукты</h3>
+      <h3 style="font-size:1.5rem; font-family:var(--font-display); text-align:center; margin-top:30px;">Продукты и локации рядом</h3>
       <div class="filter-pills-row">
         <button class="filter-btn active" data-filter="all">Все локации</button>
         <button class="filter-btn" data-filter="grocery">🛒 Продукты</button>
         <button class="filter-btn" data-filter="must">⭐ Обязательно</button>
-        <button class="filter-btn" data-filter="food">☕ Кафе & Матча</button>
-        <button class="filter-btn" data-filter="mall">🛍️ Шопинг</button>
+        <button class="filter-btn" data-filter="food">☕ Кафе</button>
       </div>
 
       <div class="city-spots-grid">
         <div class="spot-card" data-category="grocery must">
           <div>
-            <span style="font-size:0.7rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Продуктовый супермаркет · 300 м</span>
-            <h4 style="font-size:1.2rem; margin:6px 0;">Village Grocer (The Exchange TRX)</h4>
-            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Отличный премиальный супермаркет с большим выбором свежих продуктов, сыров и фруктов в 5 минутах ходьбы.</p>
+            <span style="font-size:0.7rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Супермаркет · 300 м</span>
+            <h4 style="font-size:1.2rem; margin:6px 0;">Village Grocer (TRX)</h4>
+            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Премиальный супермаркет с большой гастрономией и свежими продуктами.</p>
           </div>
           <a href="https://maps.google.com/?q=Village+Grocer+The+Exchange+TRX" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
-
         <div class="spot-card" data-category="grocery">
           <div>
             <span style="font-size:0.7rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Супермаркет · 600 м</span>
             <h4 style="font-size:1.2rem; margin:6px 0;">Mercato (Pavilion KL)</h4>
-            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Крупный европейский супермаркет на цокольном этаже молла Pavilion. Удобно закупаться к чаю.</p>
+            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Европейский супермаркет на цокольном этаже молла Pavilion.</p>
           </div>
-          <a href="https://maps.google.com/?q=Mercato+Pavilion+KL" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
+          <a href="https://maps.google.com/?q=Mercato+Pavilion+KL" target="_blank" rel="noopener noreferrer" class="btn-craft">On Map ↗</a>
         </div>
-
-        <div class="spot-card" data-category="grocery">
-          <div>
-            <span style="font-size:0.7rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Продукты 24/7</span>
-            <h4 style="font-size:1.2rem; margin:6px 0;">KK Super Mart / 7-Eleven</h4>
-            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Уголки с базовыми продуктами, водой, снеками и напитками прямо у выхода из комплекса.</p>
-          </div>
-          <a href="https://maps.google.com/?q=KK+Super+Mart+Bukit+Bintang" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
-        </div>
-
-        <div class="spot-card" data-category="mall must">
-          <div>
-            <span style="font-size:0.7rem; color:var(--terracotta); font-weight:800; text-transform:uppercase;">Обязательно · 600 м</span>
-            <h4 style="font-size:1.2rem; margin:6px 0;">Pavilion Kuala Lumpur</h4>
-            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Главный молл столицы: Tokyo Street и фудкорт Gourmet Emporium. 7 мин пешком.</p>
-          </div>
-          <a href="https://maps.google.com/?q=Pavilion+Kuala+Lumpur" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
-        </div>
-
         <div class="spot-card" data-category="must">
           <div>
             <span style="font-size:0.7rem; color:var(--terracotta); font-weight:800; text-transform:uppercase;">Символ города</span>
             <h4 style="font-size:1.2rem; margin:6px 0;">Petronas Twin Towers</h4>
-            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Культовые башни и вечернее шоу фонтанов Lake Symphony в парке KLCC в 20:00.</p>
+            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Культовые башни и вечернее шоу фонтанов в парке KLCC в 20:00.</p>
           </div>
           <a href="https://maps.google.com/?q=Petronas+Twin+Towers" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
-        </div>
-
-        <div class="spot-card" data-category="food">
-          <div>
-            <span style="font-size:0.7rem; color:var(--olive-sage); font-weight:800; text-transform:uppercase;">Арт & Матча</span>
-            <h4 style="font-size:1.2rem; margin:6px 0;">Niko Neko Matcha</h4>
-            <p style="font-size:0.83rem; color:var(--ink-secondary); margin-bottom:12px;">Культовое пространство с японской матчей и десертами. 10 минут на Grab.</p>
-          </div>
-          <a href="https://maps.google.com/?q=Niko+Neko+Matcha+Chinatown" target="_blank" rel="noopener noreferrer" class="btn-craft">На карте ↗</a>
         </div>
       </div>
 
@@ -407,7 +383,7 @@
       </div>
     </section>
 
-    <!-- ЭКРАН 6: THE WEEKND & МАРШРУТ НА МЕТРО ДО СТАДИОНА -->
+    <!-- ЭКРАН 6: THE WEEKND (С АУДИОПЛЕЕРОМ AFTER HOURS) -->
     <section class="screen-stage" id="screen-weeknd" style="background:var(--noir-bg); color:#FFF; border-radius:20px; padding:34px 20px;">
       <div style="text-align:center; margin-bottom:24px;">
         <span style="font-family:monospace; color:var(--noir-red); font-size:0.85rem; letter-spacing:0.3em; text-transform:uppercase; font-weight:700;">04.11.2026 · Stadium Bukit Jalil</span>
@@ -415,26 +391,19 @@
         <p style="font-family:var(--font-display); font-style:italic; color:var(--noir-gold); font-size:1.6rem;">After Hours Til Dawn Tour</p>
       </div>
 
-      <div style="max-width:600px; margin:0 auto 24px;">
-        <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/album/4yP0hdKOZPNshxUOjY0cZj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <!-- Фирменный плеер для After Hours.mp3 из репозитория -->
+      <div class="custom-audio-player" style="border-color:var(--noir-red);">
+        <button class="audio-play-btn" id="playAfterHours" style="background:var(--noir-red); color:#FFF;">▶</button>
+        <div>
+          <div style="font-weight:700; font-size:0.95rem;">The Weeknd - After Hours</div>
+          <small style="color:var(--noir-gold);">Стадионный вайб</small>
+        </div>
+        <audio id="audioAfterHours" src="The Weeknd - After Hours.mp3"></audio>
       </div>
 
-      <!-- Карта и подробный маршрут на метро до стадиона -->
       <div style="background:var(--noir-card); border:1px solid rgba(236, 200, 119, 0.25); border-radius:16px; padding:24px; margin-bottom:24px;">
-        <h3 style="color:var(--noir-gold); font-family:var(--font-display); font-size:1.5rem; margin-bottom:10px;">Как добраться: Апартаменты ➔ Стадион Bukit Jalil</h3>
-        <p style="font-size:0.88rem; color:#CCC; margin-bottom:16px;">В день концерта на дорогах коллапс. Самый надёжный путь — метро.</p>
-        
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom:20px;">
-          <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.08);">
-            <div style="color:var(--noir-gold); font-weight:700; margin-bottom:4px;">🚇 Туда (Метро LRT) ~35 мин</div>
-            <p style="font-size:0.82rem; color:#AFA7BC;">Пешком до станции <strong>Hang Tuah</strong> $\to$ прямая линия <strong>Sri Petaling Line</strong> до <strong>Bukit Jalil</strong>. Станция соединена крытым мостом со входом.</p>
-          </div>
-          <div style="background:rgba(255,255,255,0.03); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.08);">
-            <div style="color:var(--noir-red); font-weight:700; margin-bottom:4px;">🚗 Обратно (После шоу)</div>
-            <p style="font-size:0.82rem; color:#AFA7BC;">Из-за толпы у метро сразу после концерта лучше вызвать <strong>Grab</strong> чуть в стороне от арены или сесть в первый поезд метро до окончания давки (~45-50 мин).</p>
-          </div>
-        </div>
-
+        <h3 style="color:var(--noir-gold); font-family:var(--font-display); font-size:1.5rem; margin-bottom:10px;">Маршрут: Апартаменты ➔ Стадион Bukit Jalil</h3>
+        <p style="font-size:0.88rem; color:#CCC; margin-bottom:16px;">Самый надёжный путь без пробок — метро LRT от станции Hang Tuah до Bukit Jalil (~35 мин).</p>
         <a href="https://maps.google.com/?q=Agile+Bukit+Bintang+to+National+Stadium+Bukit+Jalil" target="_blank" rel="noopener noreferrer" class="btn-craft" style="border-color:rgba(255,255,255,0.2); color:#FFF; background:transparent;">Открыть маршрут в Google Maps ↗</a>
       </div>
 
@@ -443,28 +412,23 @@
       </div>
     </section>
 
-    <!-- ЭКРАН 7: ОБРАТНЫЙ ПУТЬ (КУАЛА-ЛУМПУР ➔ ДУБАЙ ➔ МОСКВА) -->
+    <!-- ЭКРАН 7: ОБРАТНЫЙ ПУТЬ -->
     <section class="screen-stage" id="screen-flight3">
       <div class="step-detail-card">
         <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Возвращение домой · 06 — 07 ноября 2026</span>
         <h2 style="font-family:var(--font-display); font-size:2rem; margin:6px 0 10px;">Kuala Lumpur ➔ Dubai ➔ Москва</h2>
         
         <div class="step-specs-grid">
-          <div><small>Вылет из KUL (T1)</small><strong>06.11 · 18:25 (EK347)</strong></div>
-          <div><small>Стыковка в Дубае</small><strong>11 часов 35 минут (Dubai Connect)</strong></div>
+          <div><small>Вылет из KUL</small><strong>06.11 · 18:25 (EK347)</strong></div>
+          <div><small>Стыковка в DXB</small><strong>11 часов 35 минут (Dubai Connect)</strong></div>
           <div><small>Вылет в DME</small><strong>07.11 · 09:20 (EK133)</strong></div>
         </div>
 
         <div class="baggage-box">
           <h4>Нормы Emirates</h4>
-          <p style="font-size:0.88rem; margin-bottom:4px;"><strong>Ручная кладь:</strong> 1 место до 7 кг (55×38×22 см).</p>
-          <p style="font-size:0.88rem;"><strong>Багаж:</strong> до 30 кг на человека.</p>
+          <p style="font-size:0.88rem;"><strong>Багаж:</strong> до 30 кг + 7 кг ручная кладь.</p>
         </div>
-
-        <p style="font-size:0.88rem; color:var(--ink-secondary); margin-bottom:12px;">
-          <strong>Dubai Connect:</strong> Во время ночной стыковки в Дубае Emirates предоставляет отель, трансфер и питание за счет авиакомпании.
-        </p>
-
+        <p style="font-size:0.88rem; color:var(--ink-secondary); margin-bottom:12px;"><strong>Dubai Connect:</strong> Отель, трансфер и питание на время ночной стыковки включены.</p>
         <a href="https://www.emirates.com" target="_blank" rel="noopener noreferrer" class="btn-craft" style="margin-top:10px;">Сайт Emirates ↗</a>
       </div>
 
@@ -473,14 +437,13 @@
       </div>
     </section>
 
-    <!-- ЭКРАН 8: ЛИЧНЫЙ КАБИНЕТ С GOOGLE ДРИЙВОМ -->
+    <!-- ЭКРАН 8: ЛИЧНЫЙ КАБИНЕТ (GOOGLE DRIVE) -->
     <section class="screen-stage" id="screen-cabinet">
       <div class="step-detail-card" style="text-align:center;">
         <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Secure Travel Vault · 100% Конфиденциально</span>
         <h2 style="font-family:var(--font-display); font-size:2.2rem; margin:6px 0 10px;">Личный кабинет документов</h2>
         <p style="font-size:0.9rem; color:var(--ink-secondary); margin-bottom:20px;">Все общие документы, сканы паспортов и билеты собраны в защищенном облаке.</p>
 
-        <!-- КЛИКАБЕЛЬНАЯ КНОПКА GOOGLE DRIVE -->
         <div style="margin: 24px 0;">
           <a href="https://drive.google.com/drive/folders/1uNHL-ZRgd13dCLlMjKWGEq1GwvKuGRp1" target="_blank" rel="noopener noreferrer" class="btn-main" style="background:#1A73E8; max-width:440px;">
             📁 Посмотреть документы в Google Drive ↗
@@ -513,7 +476,7 @@
 
   </div>
 
-  <!-- Скрипты -->
+  <!-- Скрипты плееров и анимаций -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const lockScreen = document.getElementById('lockScreen');
@@ -541,7 +504,36 @@
         protectedApp.classList.add('visible');
       }
 
-      // Навигация по экранам и кнопкам меню
+      // Аудиоплееры для файлов из репозитория
+      const audioDesertRose = document.getElementById('audioDesertRose');
+      const playDesertRose = document.getElementById('playDesertRose');
+      if (playDesertRose && audioDesertRose) {
+        playDesertRose.addEventListener('click', () => {
+          if (audioDesertRose.paused) {
+            audioDesertRose.play();
+            playDesertRose.innerText = '❚❚';
+          } else {
+            audioDesertRose.pause();
+            playDesertRose.innerText = '▶';
+          }
+        });
+      }
+
+      const audioAfterHours = document.getElementById('audioAfterHours');
+      const playAfterHours = document.getElementById('playAfterHours');
+      if (playAfterHours && audioAfterHours) {
+        playAfterHours.addEventListener('click', () => {
+          if (audioAfterHours.paused) {
+            audioAfterHours.play();
+            playAfterHours.innerText = '❚❚';
+          } else {
+            audioAfterHours.pause();
+            playAfterHours.innerText = '▶';
+          }
+        });
+      }
+
+      // Навигация
       const globalCinema = document.getElementById('globalCinema');
       const cinemaViewport = document.getElementById('cinemaViewport');
       const cinemaMeta = document.getElementById('cinemaMeta');
@@ -560,12 +552,9 @@
       };
 
       function switchScreen(targetScreenId) {
-        Object.keys(screens).forEach(key => {
-          screens[key].classList.remove('active');
-        });
+        Object.keys(screens).forEach(key => screens[key].classList.remove('active'));
         screens[targetScreenId].classList.add('active');
         
-        // Подсветка кнопки в верхнем меню
         document.querySelectorAll('.step-pill').forEach(pill => {
           if (pill.getAttribute('data-target') === targetScreenId) {
             pill.classList.add('active');
@@ -573,17 +562,14 @@
             pill.classList.remove('active');
           }
         });
-
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
       document.querySelectorAll('.step-pill').forEach(pill => {
-        pill.addEventListener('click', () => {
-          switchScreen(pill.getAttribute('data-target'));
-        });
+        pill.addEventListener('click', () => switchScreen(pill.getAttribute('data-target')));
       });
 
-      // Фильтр мест в KL
+      // Фильтр локаций KL
       const filterBtns = document.querySelectorAll('.filter-btn');
       const spotCards = document.querySelectorAll('.spot-card');
       filterBtns.forEach(btn => {
@@ -602,7 +588,7 @@
         });
       });
 
-      // 1. Полет Победы (VKO -> DWC) с правильной дугой
+      // 1. Полет Победы (VKO -> DWC)
       document.getElementById('btnStartJourney').addEventListener('click', () => {
         cinemaMeta.innerText = 'Flight DP991 · Boeing 737-800';
         cinemaTitle.innerText = 'Москва (VKO) ➔ Dubai (DWC)';
