@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trip26-v12';
+const CACHE_NAME = 'trip26-v13';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -11,7 +11,9 @@ const ASSETS_TO_CACHE = [
   './IMG_8578.png',
   './IMG_8581.png',
   './IMG_8582.png',
-  './IMG_8588.png'
+  './IMG_8588.png',
+  './Art_Beatz_Aziza_Qobilova_-_Desert_Rose_(Bib.fm).mp3',
+  './The Weeknd - After Hours.mp3'
 ];
 
 self.addEventListener('install', (event) => {
