@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daria’s Journey — Dubai · Ras Al Khaimah · Kuala Lumpur</title>
+  <title>Девчачий трип ’26 — Dubai · Ras Al Khaimah · Kuala Lumpur</title>
+
+  <!-- Защита от блокировки картинок в Safari на iPhone -->
+  <meta name="referrer" content="no-referrer">
 
   <!-- PWA & Мобильные настройки -->
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#F6F1E8">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Daria’s Journey">
+  <meta name="apple-mobile-web-app-title" content="Трип ’26">
   
   <!-- Шрифты Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* -------------------------------------------------------------
-       DESIGN SYSTEM: Editorial Scrapbook & Mediterranean Travel Diary
-       (Эстетика Pinterest / Anthropologie / The Late Checkout)
+       DESIGN SYSTEM: Editorial Scrapbook & Mediterranean 3D Journal
        ------------------------------------------------------------- */
     :root {
       --bg-paper: #F6F1E8;
@@ -34,15 +36,16 @@
       
       --script-red: #D93829;
       --terracotta: #C85635;
+      --terracotta-dark: #9F3B1E;
       --olive-sage: #526043;
       --vintage-gold: #C29F55;
       
-      --washi-tape: rgba(235, 218, 187, 0.75);
+      --washi-tape: rgba(235, 218, 187, 0.85);
       --border-craft: rgba(28, 26, 23, 0.12);
       
       /* The Weeknd Midnight Tokens */
       --noir-bg: #09080C;
-      --noir-card: rgba(22, 18, 28, 0.9);
+      --noir-card: rgba(22, 18, 28, 0.92);
       --noir-red: #E11D38;
       --noir-red-glow: rgba(225, 29, 56, 0.4);
       --noir-gold: #ECC877;
@@ -102,10 +105,9 @@
       width: 100%;
       max-width: 1140px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
     }
 
-    /* Скотч (Washi Tape) */
     .washi-tape {
       position: absolute;
       top: -12px;
@@ -116,9 +118,8 @@
       background: var(--washi-tape);
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
       z-index: 5;
-      opacity: 0.85;
-      border-left: 2px dashed rgba(0,0,0,0.08);
-      border-right: 2px dashed rgba(0,0,0,0.08);
+      border-left: 2px dashed rgba(0,0,0,0.1);
+      border-right: 2px dashed rgba(0,0,0,0.1);
     }
 
     /* Навигация */
@@ -126,7 +127,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(246, 241, 232, 0.95);
+      background: rgba(246, 241, 232, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-craft);
     }
@@ -134,23 +135,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 70px;
     }
     .brand-title {
       font-family: var(--font-display);
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       letter-spacing: 0.04em;
       font-weight: 600;
     }
     .brand-title span {
       font-family: var(--font-hand);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--script-red);
       margin-left: 4px;
     }
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 26px;
       list-style: none;
       align-items: center;
     }
@@ -191,23 +192,23 @@
 
     /* Главный экран */
     .hero {
-      padding: 50px 0 80px;
+      padding: 40px 0 60px;
       text-align: center;
       position: relative;
     }
     .hero-pretitle {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--olive-sage);
-      font-weight: 700;
-      margin-bottom: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
       display: block;
     }
     .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      font-size: clamp(2.6rem, 7vw, 5.4rem);
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       letter-spacing: -0.01em;
     }
     .hero-subtitle {
@@ -215,33 +216,29 @@
       font-size: clamp(1.3rem, 2.8vw, 1.8rem);
       font-style: italic;
       color: var(--terracotta);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    /* Полароид путешественниц */
+    /* Полароид команды */
     .travelers-scrapbook-block {
-      max-width: 820px;
-      margin: 20px auto 40px;
+      max-width: 840px;
+      margin: 10px auto 26px;
       position: relative;
     }
     .travelers-script-divider {
       font-size: clamp(2.2rem, 5vw, 3.4rem);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: inline-block;
       transform: rotate(-1.5deg);
     }
     .travelers-polaroid-frame {
       background: var(--bg-polaroid);
-      padding: 16px 16px 28px 16px;
+      padding: 14px 14px 20px 14px;
       border-radius: 8px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
       border: 1px solid rgba(0,0,0,0.08);
       position: relative;
-      transform: rotate(-0.8deg);
-      transition: transform 0.3s ease;
-    }
-    .travelers-polaroid-frame:hover {
-      transform: rotate(0deg) scale(1.01);
+      transform: rotate(-0.6deg);
     }
     .travelers-photo {
       width: 100%;
@@ -251,89 +248,311 @@
       border-radius: 4px;
       display: block;
     }
-    .travelers-caption-row {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      text-align: center;
-      border-top: 1px dashed rgba(0,0,0,0.12);
-      padding-top: 14px;
-    }
-    .person-tag {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .person-arrow {
-      font-family: var(--font-hand);
-      color: var(--script-red);
-      font-size: 1.4rem;
-      line-height: 1;
-    }
-    .person-name {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--ink-primary);
-      line-height: 1.2;
-    }
-    .person-desc {
-      font-family: var(--font-hand);
-      color: var(--script-red);
-      font-size: 1.05rem;
-      line-height: 1.1;
-      margin-top: 2px;
-    }
 
-    /* Анимация линии полёта самолёта */
-    .flight-tracker-box {
+    /* Карточки ролей команды */
+    .squad-roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 24px auto 40px;
+      max-width: 1060px;
+      text-align: left;
+    }
+    .avatar-card {
       background: #FFFFFF;
       border: 1px solid var(--border-craft);
-      border-radius: 20px;
-      padding: 28px 20px 22px;
-      margin: 30px auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      position: relative;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      transition: transform 0.25s ease;
     }
-    .tracker-heading {
+    .avatar-card:hover {
+      transform: translateY(-4px);
+    }
+    .avatar-badge-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      background: var(--bg-warm-sand);
+    }
+    .avatar-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      line-height: 1.1;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .avatar-title-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 800;
-      color: var(--terracotta);
-      margin-bottom: 20px;
+      color: var(--script-red);
+      display: block;
+      margin-bottom: 8px;
     }
-    .flight-svg {
-      width: 100%;
-      height: 50px;
-      overflow: visible;
+    .avatar-bio {
+      font-size: 0.88rem;
+      color: var(--ink-secondary);
+      line-height: 1.45;
     }
-    .pulse-node {
-      animation: pulseRadar 2s ease-out infinite;
+
+    /* -------------------------------------------------------------
+       СИСТЕМА ИЗОЛИРОВАННЫХ 3D-КАПСУЛ (ОБЪЁМНЫЕ АНИМАЦИИ)
+       ------------------------------------------------------------- */
+    .capsule-3d-wrapper {
+      position: relative;
+      height: 110px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 18px 0;
+      border: 1px solid var(--border-craft);
+      perspective: 900px;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
     }
-    @keyframes pulseRadar {
-      0% { r: 5; opacity: 0.9; }
-      100% { r: 16; opacity: 0; }
-    }
-    .tracker-stops {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
-      gap: 4px;
-      margin-top: 10px;
-    }
-    .stop-code {
-      font-family: monospace;
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: var(--ink-primary);
-    }
-    .stop-label {
+    .capsule-badge-meta {
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      z-index: 10;
       font-size: 0.7rem;
-      color: var(--ink-muted);
+      letter-spacing: 0.12em;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 3D-СЦЕНА: ДНЕВНОЙ ПЕРЕЛЁТ (VKO -> DWC) */
+    .sky-3d-scene {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #CEE3F6 0%, #FAF6F0 100%);
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .volumetric-clouds {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle 28px at 15% 40%, rgba(255,255,255,0.85) 100%, transparent 0),
+        radial-gradient(circle 35px at 55% 70%, rgba(255,255,255,0.9) 100%, transparent 0),
+        radial-gradient(circle 30px at 85% 30%, rgba(255,255,255,0.8) 100%, transparent 0);
+      filter: blur(2px);
+      animation: driftClouds 25s linear infinite;
+    }
+    @keyframes driftClouds {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .plane-3d-rig {
+      position: absolute;
+      top: 30px;
+      left: -120px;
+      transform-style: preserve-3d;
+      animation: flightTrajectory3D 9s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+    }
+    @keyframes flightTrajectory3D {
+      0% {
+        left: -120px;
+        transform: translateZ(-80px) rotateX(15deg) rotateY(25deg) rotateZ(8deg);
+      }
+      35% {
+        transform: translateZ(40px) rotateX(-5deg) rotateY(15deg) rotateZ(-4deg);
+      }
+      70% {
+        transform: translateZ(20px) rotateX(10deg) rotateY(20deg) rotateZ(6deg);
+      }
+      100% {
+        left: calc(100% + 120px);
+        transform: translateZ(-60px) rotateX(18deg) rotateY(25deg) rotateZ(10deg);
+      }
+    }
+    .plane-cast-shadow {
+      position: absolute;
+      bottom: -32px;
+      left: 10px;
+      width: 70px;
+      height: 18px;
+      background: rgba(30, 45, 60, 0.2);
+      border-radius: 50%;
+      filter: blur(6px);
+      transform: rotateX(60deg);
+    }
+
+    /* 3D-СЦЕНА: ПУСТЫННОЕ ШОССЕ В RAK (DWC -> ROVE) */
+    .desert-3d-scene {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #F3DEB8 0%, #D8BE95 100%);
+      transform-style: preserve-3d;
+      position: relative;
+    }
+    .highway-3d-plane {
+      position: absolute;
+      bottom: -15px;
+      left: -10%;
+      width: 120%;
+      height: 70px;
+      background: #4A443B;
+      transform: rotateX(55deg);
+      transform-origin: 50% 100%;
+      border-top: 3px solid #E8D3A7;
+    }
+    .highway-dashes {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 200%;
+      height: 4px;
+      background: repeating-linear-gradient(90deg, #FFF 0, #FFF 25px, transparent 25px, transparent 50px);
+      animation: highwayDashesMove 1.2s linear infinite;
+      transform: translateY(-50%);
+    }
+    @keyframes highwayDashesMove {
+      0% { transform: translate3d(0, -50%, 0); }
+      100% { transform: translate3d(-50px, -50%, 0); }
+    }
+    .dunes-silhouette {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 100%;
+      height: 35px;
+      opacity: 0.35;
+      background-image: radial-gradient(ellipse at center bottom, #8C5824 0%, transparent 70%);
+      background-size: 160px 40px;
+    }
+    .van-3d-rig {
+      position: absolute;
+      bottom: 22px;
+      left: -120px;
+      transform-style: preserve-3d;
+      animation: drive3DVan 8s linear infinite;
+    }
+    @keyframes drive3DVan {
+      0% {
+        left: -120px;
+        transform: translateZ(10px) rotateY(-8deg);
+      }
+      50% {
+        transform: translateZ(30px) rotateY(-5deg) translateY(-2px);
+      }
+      100% {
+        left: calc(100% + 120px);
+        transform: translateZ(10px) rotateY(-8deg);
+      }
+    }
+    .van-3d-shadow {
+      position: absolute;
+      bottom: -6px;
+      left: 8px;
+      width: 90px;
+      height: 14px;
+      background: rgba(0,0,0,0.35);
+      border-radius: 50%;
+      filter: blur(4px);
+    }
+
+    /* 3D-СЦЕНА: НОЧНОЙ ПЕРЕЛЁТ В АЗИЮ (SHJ -> KUL) */
+    .night-flight-3d-scene {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 80% 20%, #1A1F36 0%, #070911 100%);
+      transform-style: preserve-3d;
+      position: relative;
+      color: #FFF;
+    }
+    .twinkling-stars {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(1px 1px at 20px 30px, #FFF, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 140px 15px, #FFF, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 280px 45px, #FFD15C, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 450px 25px, #FFF, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 600px 35px, #8CD5FF, rgba(0,0,0,0));
+      background-size: 650px 100px;
+    }
+    .petronas-3d-cluster {
+      position: absolute;
+      right: 20px;
+      bottom: -6px;
+      transform-style: preserve-3d;
+      transform: rotateY(-18deg) rotateX(10deg);
+      filter: drop-shadow(0 0 12px rgba(80, 200, 255, 0.7));
+      animation: petronasBeacon 3s ease-in-out infinite alternate;
+    }
+    @keyframes petronasBeacon {
+      0% { opacity: 0.75; transform: rotateY(-18deg) rotateX(10deg) scale(0.98); }
+      100% { opacity: 1; transform: rotateY(-18deg) rotateX(10deg) scale(1.02); }
+    }
+    .night-plane-3d-rig {
+      position: absolute;
+      top: 26px;
+      left: -120px;
+      transform-style: preserve-3d;
+      animation: nightApproach3D 9.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes nightApproach3D {
+      0% {
+        left: -120px;
+        transform: translateZ(-60px) rotateX(12deg) rotateY(20deg) rotateZ(6deg);
+      }
+      50% {
+        transform: translateZ(50px) rotateX(0deg) rotateY(12deg) rotateZ(-3deg);
+      }
+      100% {
+        left: calc(100% + 120px);
+        transform: translateZ(-40px) rotateX(15deg) rotateY(20deg) rotateZ(8deg);
+      }
+    }
+
+    /* 3D-СЦЕНА: МЕТРО ЭКСПРЕСС НА СТАДИОН (LRT Sri Petaling) */
+    .lrt-3d-scene {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #1A1324 0%, #0D0A14 100%);
+      transform-style: preserve-3d;
+      position: relative;
+      color: #FFF;
+    }
+    .elevated-rail-3d {
+      position: absolute;
+      bottom: 24px;
+      left: -10%;
+      width: 120%;
+      height: 10px;
+      background: #3A324A;
+      border-top: 2px solid #ECC877;
+      transform: rotateX(40deg);
+    }
+    .lrt-train-3d-rig {
+      position: absolute;
+      bottom: 26px;
+      left: -180px;
+      transform-style: preserve-3d;
+      animation: runLrtTrain 7s linear infinite;
+    }
+    @keyframes runLrtTrain {
+      0% { left: -180px; transform: translateZ(20px); }
+      100% { left: calc(100% + 180px); transform: translateZ(20px); }
+    }
+
+    /* 3D-СЦЕНА: ВЕЧЕРНИЙ ВЫЛЕТ НА ЗАКАТЕ (KUL -> DXB) */
+    .sunset-3d-scene {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #3A234A 0%, #E87A5D 70%, #F6B884 100%);
+      transform-style: preserve-3d;
+      position: relative;
+      color: #FFF;
     }
 
     /* Кнопки */
@@ -377,26 +596,27 @@
 
     /* Секции */
     .section-wrap {
-      padding: 80px 0;
+      padding: 70px 0;
     }
     .section-header {
       text-align: center;
-      margin-bottom: 46px;
+      margin-bottom: 40px;
     }
     .section-eyebrow {
       font-size: 0.75rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--olive-sage);
-      font-weight: 700;
+      font-weight: 800;
       display: block;
       margin-bottom: 8px;
     }
     .section-title {
-      font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
       line-height: 1.05;
     }
 
+    /* Билеты */
     .ticket-stack {
       display: flex;
       flex-direction: column;
@@ -405,14 +625,13 @@
     .travel-ticket {
       background: #FFFFFF;
       border: 1px solid var(--border-craft);
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0,0,0,0.02);
-      position: relative;
     }
     .ticket-top {
       background: var(--bg-warm-sand);
-      padding: 14px 26px;
+      padding: 14px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -423,21 +642,21 @@
       font-weight: 700;
     }
     .ticket-body {
-      padding: 28px;
+      padding: 26px;
     }
     .ticket-nodes-title {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
       margin-bottom: 16px;
     }
     .specs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 12px;
       background: var(--bg-paper);
       padding: 16px;
       border-radius: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .spec-item small {
       display: block;
@@ -452,71 +671,12 @@
       color: var(--ink-primary);
     }
 
-    /* Анимация дороги в Рас-эль-Хайму */
-    .road-anim-box {
-      background: #EFE4D2;
-      border: 1px solid var(--border-craft);
-      border-radius: 12px;
-      padding: 16px;
-      margin: 18px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .road-track-line {
-      position: relative;
-      height: 24px;
-      border-bottom: 2px dashed #B8A185;
-      margin-top: 8px;
-    }
-    .road-moving-car {
-      position: absolute;
-      bottom: -4px;
-      animation: moveCar 8s linear infinite;
-    }
-    @keyframes moveCar {
-      0% { left: -30px; }
-      100% { left: calc(100% + 30px); }
-    }
-
-    /* Анимация перелёта в KL с башнями Petronas */
-    .kl-flight-radar-stage {
-      background: #111422;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 20px;
-      color: #FFF;
-      margin: 18px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .radar-plane {
-      position: absolute;
-      top: 18px;
-      animation: radarPlaneFly 9s ease-in-out infinite;
-    }
-    @keyframes radarPlaneFly {
-      0% { left: -40px; transform: scale(0.9); }
-      70% { left: 70%; transform: scale(1); }
-      100% { left: 105%; transform: scale(0.9); }
-    }
-    .petronas-neon {
-      position: absolute;
-      right: 18px;
-      bottom: 0;
-      animation: neonGlowPetronas 2.5s ease-in-out infinite alternate;
-    }
-    @keyframes neonGlowPetronas {
-      0% { opacity: 0.6; filter: drop-shadow(0 0 5px rgba(80, 200, 255, 0.4)); }
-      100% { opacity: 1; filter: drop-shadow(0 0 14px rgba(80, 200, 255, 0.9)); }
-    }
-
-    /* Багажный блок */
     .baggage-note-box {
       border: 1px dashed var(--terracotta);
       background: rgba(200, 86, 53, 0.04);
       padding: 16px;
       border-radius: 10px;
-      margin-bottom: 18px;
+      margin: 16px 0;
     }
     .baggage-note-title {
       font-size: 0.75rem;
@@ -542,72 +702,52 @@
       background: #F2EBE0;
       border-top: 1px solid var(--border-craft);
       border-bottom: 1px solid var(--border-craft);
-      padding: 85px 0 105px;
+      padding: 80px 0 100px;
       position: relative;
     }
     .rak-scrapbook-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 24px;
       align-items: center;
     }
     .scrapbook-photos-pair {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      position: relative;
     }
     .scrapbook-polaroid {
       background: #FFF;
-      padding: 12px 12px 22px 12px;
+      padding: 10px 10px 18px 10px;
       border-radius: 6px;
       border: 1px solid rgba(0,0,0,0.08);
       box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-      position: relative;
     }
     .scrapbook-polaroid img {
       width: 100%;
-      height: 240px;
+      height: 230px;
       object-fit: cover;
       border-radius: 4px;
-      display: block;
     }
     .polaroid-hand-label {
       font-family: var(--font-hand);
       color: var(--script-red);
       font-size: 1.15rem;
       text-align: center;
-      margin-top: 8px;
-      line-height: 1.1;
+      margin-top: 6px;
       display: block;
-    }
-
-    .ocean-waves-wrapper {
-      width: 100%;
-      height: 38px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      overflow: hidden;
-    }
-    .waves-motion {
-      animation: waveFlow 10s linear infinite;
-    }
-    @keyframes waveFlow {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
     }
 
     /* Kuala Lumpur */
     .kl-section {
-      padding: 85px 0;
+      padding: 80px 0;
     }
     .condo-scrapbook-box {
       background: #FFF;
       border: 1px solid var(--border-craft);
       border-radius: 20px;
-      padding: 36px;
-      margin-bottom: 46px;
+      padding: 34px;
+      margin-bottom: 40px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.02);
     }
     .condo-gallery-grid {
@@ -622,6 +762,7 @@
       overflow: hidden;
       aspect-ratio: 4 / 3;
       border: 1px solid var(--border-craft);
+      background: #EDE6DA;
     }
     .condo-photo-tile img {
       width: 100%;
@@ -630,7 +771,7 @@
       transition: transform 0.35s ease;
     }
     .condo-photo-tile:hover img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
     .condo-badge {
       position: absolute;
@@ -644,12 +785,14 @@
       font-weight: 700;
       backdrop-filter: blur(4px);
     }
+
+    /* Фильтр мест */
     .filter-pills-row {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 26px 0 36px;
+      margin: 24px 0 34px;
     }
     .filter-btn {
       padding: 8px 18px;
@@ -670,7 +813,7 @@
     .city-spots-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-      gap: 22px;
+      gap: 20px;
     }
     .spot-card {
       background: #FFF;
@@ -680,18 +823,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.25s;
-    }
-    .spot-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
     }
 
     /* The Weeknd */
     .weeknd-night-universe {
       background-color: var(--noir-bg);
       color: var(--noir-text);
-      padding: 110px 0 130px;
+      padding: 100px 0 120px;
       position: relative;
       overflow: hidden;
       border-top: 3px solid var(--noir-red);
@@ -705,50 +843,31 @@
       height: 700px;
       background: radial-gradient(circle, var(--noir-red-glow) 0%, rgba(9, 8, 12, 0) 70%);
       pointer-events: none;
-      animation: glowFade 6s ease-in-out infinite alternate;
-    }
-    @keyframes glowFade {
-      0% { opacity: 0.35; transform: translateX(-50%) scale(0.95); }
-      100% { opacity: 0.8; transform: translateX(-50%) scale(1.15); }
     }
     .weeknd-inner {
       position: relative;
       z-index: 2;
     }
-    .weeknd-poster-header {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-    .weeknd-tour-badge {
-      font-family: monospace;
-      color: var(--noir-red);
-      font-size: 0.85rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 14px;
-      display: block;
-    }
     .weeknd-headline {
       font-family: var(--font-display);
-      font-size: clamp(3.8rem, 10vw, 7.8rem);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
+      font-size: clamp(3.4rem, 9vw, 7rem);
+      line-height: 0.92;
       color: #FFF;
       text-transform: uppercase;
       text-shadow: 0 0 40px rgba(225, 29, 56, 0.45);
+      text-align: center;
     }
     .weeknd-subline {
       font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3.2vw, 2.3rem);
+      font-size: clamp(1.4rem, 3.2vw, 2.2rem);
       font-style: italic;
       color: var(--noir-gold);
-      margin-top: 10px;
-      letter-spacing: 0.05em;
+      margin-top: 8px;
+      text-align: center;
     }
     .weeknd-stage-visual {
       max-width: 860px;
-      margin: 28px auto 38px;
+      margin: 24px auto 34px;
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(236, 200, 119, 0.25);
@@ -757,19 +876,19 @@
     }
     .weeknd-stage-visual img {
       width: 100%;
-      height: 380px;
+      height: 360px;
       object-fit: cover;
       display: block;
     }
     .stage-badge {
       position: absolute;
-      bottom: 20px;
-      left: 24px;
+      bottom: 16px;
+      left: 20px;
       background: rgba(9, 8, 12, 0.85);
       border: 1px solid rgba(255,255,255,0.1);
-      padding: 8px 18px;
+      padding: 6px 16px;
       border-radius: 30px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--noir-gold);
@@ -778,44 +897,35 @@
       background: var(--noir-card);
       border: 1px solid rgba(236, 200, 119, 0.15);
       border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 24px;
+      padding: 30px;
+      margin-bottom: 22px;
       backdrop-filter: blur(12px);
     }
     .transit-cols-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
     .transit-cell {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 20px;
+      padding: 18px;
       border-radius: 12px;
     }
     .transit-cell h5 {
       color: var(--noir-gold);
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-bottom: 6px;
       display: flex;
       justify-content: space-between;
     }
 
-    /* Футер */
     footer {
       background: #141210;
       color: #FFF;
-      padding: 65px 0 45px;
+      padding: 60px 0 40px;
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .footer-phrase {
-      font-family: var(--font-display);
-      font-size: 2.1rem;
-      font-style: italic;
-      color: var(--vintage-gold);
-      margin-bottom: 10px;
     }
 
     @media (max-width: 860px) {
@@ -832,25 +942,17 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 72px;
+        top: 70px;
         left: 0;
         width: 100%;
         background: var(--bg-paper);
         border-bottom: 1px solid var(--border-craft);
         padding: 24px;
-        gap: 18px;
+        gap: 16px;
         box-shadow: 0 10px 24px rgba(0,0,0,0.06);
       }
-      .travelers-caption-row {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 14px;
-      }
-      .tracker-stops {
-        grid-template-columns: repeat(4, 1fr);
-        row-gap: 12px;
-      }
       .weeknd-stage-visual img {
-        height: 240px;
+        height: 220px;
       }
     }
   </style>
@@ -861,7 +963,7 @@
   <!-- Навигация -->
   <header class="nav-bar">
     <div class="container nav-inner">
-      <a href="#hero" class="brand-title">Daria’s Journey<span>‘26</span></a>
+      <a href="#hero" class="brand-title">Девчачий трип<span>’26</span></a>
       <button class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Открыть меню">
         <span></span>
         <span></span>
@@ -888,100 +990,62 @@
         <h1>Three Destinations.<br><em>One Unforgettable Journey.</em></h1>
         <p class="hero-subtitle">Dubai · Ras Al Khaimah · Kuala Lumpur</p>
 
-        <!-- БЛОК ПУТЕШЕСТВЕННИЦ (ФОТО 3) -->
+        <!-- ПОЛАРОИД КОМАНДЫ (БЕЗ ОПИСАНИЙ ОДЕЖДЫ) -->
         <div class="travelers-scrapbook-block">
           <div class="travelers-script-divider red-script">who we vibe with ❦</div>
 
           <div class="travelers-polaroid-frame">
             <div class="washi-tape"></div>
-            <!-- Точное имя файла с вашего скриншота -->
             <img 
               src="travelers.jpg.JPG" 
               alt="Elena Kurenkova, Elena Kudriashova, Daria Kudriashova, Olga Kosterina" 
               class="travelers-photo"
               onerror="this.src='travelers.jpg'"
             />
-            
-            <div class="travelers-caption-row">
-              <div class="person-tag">
-                <span class="person-arrow">↓</span>
-                <span class="person-name">Elena Kurenkova</span>
-                <span class="person-desc">голубой костюм</span>
-              </div>
-              <div class="person-tag">
-                <span class="person-arrow">↓</span>
-                <span class="person-name">Elena Kudriashova</span>
-                <span class="person-desc">розовый топ</span>
-              </div>
-              <div class="person-tag">
-                <span class="person-arrow">↓</span>
-                <span class="person-name">Daria Kudriashova</span>
-                <span class="person-desc">кудрявые волосы</span>
-              </div>
-              <div class="person-tag">
-                <span class="person-arrow">↓</span>
-                <span class="person-name">Olga Kosterina</span>
-                <span class="person-desc">голубое платье</span>
-              </div>
-            </div>
           </div>
         </div>
 
-        <!-- ИНТЕРАКТИВНАЯ КАРТА ПОЛЁТА С САМОЛЁТОМ -->
-        <div class="flight-tracker-box">
-          <div class="tracker-heading">
-            <span>Flight Monitor</span>
-            <span>Live Interactive Route</span>
+        <!-- КАРТОЧКИ-АВАТАРЫ С РОЛЯМИ В ПОЕЗДКЕ -->
+        <div class="squad-roles-grid">
+          
+          <div class="avatar-card">
+            <div class="avatar-badge-icon">🥐</div>
+            <div class="avatar-name">Elena Kurenkova</div>
+            <span class="avatar-title-tag">Главный добытчик провизии</span>
+            <p class="avatar-bio">Добытчица нашего пропитания. С ней никто и никогда не останется голодными!</p>
           </div>
 
-          <svg class="flight-svg" viewBox="0 0 940 50" fill="none">
-            <path d="M 40 25 L 900 25" stroke="#DFD4C2" stroke-width="2.5" stroke-dasharray="8 8"/>
-            
-            <circle cx="40" cy="25" r="6" fill="#C85635"/>
-            <circle class="pulse-node" cx="40" cy="25" r="5" stroke="#C85635" stroke-width="2" fill="none"/>
-            <circle cx="183" cy="25" r="5" fill="#526043"/>
-            <circle cx="326" cy="25" r="5" fill="#C29F55"/>
-            <circle cx="470" cy="25" r="5" fill="#C85635"/>
-            <circle cx="613" cy="25" r="6" fill="#E11D38"/>
-            <circle class="pulse-node" cx="613" cy="25" r="5" stroke="#E11D38" stroke-width="2" fill="none"/>
-            <circle cx="756" cy="25" r="5" fill="#526043"/>
-            <circle cx="900" cy="25" r="6" fill="#C85635"/>
-
-            <g>
-              <animateTransform 
-                attributeName="transform" 
-                type="translate" 
-                from="40 0" 
-                to="900 0" 
-                dur="8.5s" 
-                repeatCount="indefinite"
-              />
-              <line x1="-30" y1="25" x2="-5" y2="25" stroke="#C85635" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
-              <path d="M 0 25 L 14 20 L 10 25 L 14 30 Z" fill="#C85635"/>
-              <path d="M 4 25 L -4 12 L 2 12 L 8 25 L 2 38 L -4 38 Z" fill="#A13E22"/>
-              <circle cx="14" cy="25" r="2" fill="#FFF"/>
-            </g>
-          </svg>
-
-          <div class="tracker-stops">
-            <div><div class="stop-code">VKO</div><div class="stop-label">Москва</div></div>
-            <div><div class="stop-code">DWC</div><div class="stop-label">Dubai</div></div>
-            <div><div class="stop-code">RAK</div><div class="stop-label">Al Marjan</div></div>
-            <div><div class="stop-code">SHJ</div><div class="stop-label">Sharjah</div></div>
-            <div><div class="stop-code">KUL</div><div class="stop-label">Kuala Lumpur</div></div>
-            <div><div class="stop-code">DXB</div><div class="stop-label">Dubai</div></div>
-            <div><div class="stop-code">DME</div><div class="stop-label">Москва</div></div>
+          <div class="avatar-card">
+            <div class="avatar-badge-icon">📁</div>
+            <div class="avatar-name">Elena Kudriashova</div>
+            <span class="avatar-title-tag">Хранительница безопасности</span>
+            <p class="avatar-bio">Хранительница самого важного и необходимого — документов, паспортов и спокойствия всей группы.</p>
           </div>
+
+          <div class="avatar-card">
+            <div class="avatar-badge-icon">🗺️</div>
+            <div class="avatar-name">Daria Kudriashova</div>
+            <span class="avatar-title-tag">Иностранный представитель</span>
+            <p class="avatar-bio">Ключик ко всем билетам, броням и маршрутам. Официальный иностранный представитель нашей группы.</p>
+          </div>
+
+          <div class="avatar-card">
+            <div class="avatar-badge-icon">📸</div>
+            <div class="avatar-name">Olga Kosterina</div>
+            <span class="avatar-title-tag">Контент-директор & Релакс</span>
+            <p class="avatar-bio">Мастерски занимает лучшие лежаки в лучших местах. Филигранно соберёт коллекцию к чаю, о которой и не снилось. И сделает самый лучший контент!</p>
+          </div>
+
         </div>
 
-        <a href="#itinerary" class="btn-action">Открыть полный маршрут ↓</a>
+        <a href="#itinerary" class="btn-action">Открыть расписание рейсов ↓</a>
       </div>
     </section>
 
-    <!-- СТРАНИЦА НАШ МАРШРУТ -->
+    <!-- СТРАНИЦА НАШ МАРШРУТ (С ИЗОЛИРОВАННЫМИ 3D-КАПСУЛАМИ) -->
     <section class="section-wrap container" id="itinerary">
       <div class="section-header">
-        <span class="section-eyebrow">Таймлайн путешествия</span>
+        <span class="section-eyebrow">Таймлайн перемещений</span>
         <h2 class="section-title">Наш полный маршрут</h2>
       </div>
 
@@ -1002,31 +1066,94 @@
               <div class="spec-item"><small>Трансфер</small><strong>DWC → Rove Al Marjan</strong></div>
             </div>
 
+            <!-- ИЗОЛИРОВАННАЯ 3D-КАПСУЛА: ВЫЛЕТ ИЗ МОСКВЫ С ОБЪЁМНЫМ САМОЛЁТОМ -->
+            <div class="capsule-3d-wrapper">
+              <div class="capsule-badge-meta" style="color:#C85635;">
+                <span>✦ 3D Flight Path: VKO ➔ DWC</span>
+              </div>
+              <div class="sky-3d-scene">
+                <div class="volumetric-clouds"></div>
+                <!-- 3D-модель самолёта с креном и объёмным крылом -->
+                <div class="plane-3d-rig">
+                  <div class="plane-cast-shadow"></div>
+                  <svg width="105" height="50" viewBox="0 0 105 50" fill="none">
+                    <!-- Объёмный фюзеляж с градиентом освещения -->
+                    <path d="M 5 25 C 20 20, 80 18, 98 25 C 105 27, 105 31, 98 33 C 80 40, 20 38, 5 25 Z" fill="url(#planeBodyGrad)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.15))"/>
+                    <!-- Нос -->
+                    <path d="M 96 24 Q 104 28 96 34 Z" fill="#C85635"/>
+                    <!-- Верхнее крыло (освещено) -->
+                    <path d="M 45 25 L 30 4 L 46 4 L 68 25 Z" fill="#E86E4B"/>
+                    <!-- Нижнее крыло (в тени) -->
+                    <path d="M 48 25 L 35 48 L 48 48 L 72 25 Z" fill="#9F3B1E"/>
+                    <!-- Хвост -->
+                    <path d="M 8 25 L -4 10 L 8 10 L 22 25 Z" fill="#C85635"/>
+                    <!-- Иллюминаторы -->
+                    <circle cx="48" cy="25" r="2.5" fill="#FFF"/>
+                    <circle cx="56" cy="25" r="2.5" fill="#FFF"/>
+                    <circle cx="64" cy="25" r="2.5" fill="#FFF"/>
+                    <circle cx="72" cy="25" r="2.5" fill="#FFF"/>
+                    <defs>
+                      <linearGradient id="planeBodyGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#FFFFFF"/>
+                        <stop offset="50%" stop-color="#F5EFEB"/>
+                        <stop offset="100%" stop-color="#D9CFBE"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- ИЗОЛИРОВАННАЯ 3D-КАПСУЛА: ПУСТЫННЫЙ ТРАНСФЕР В ROVE (DWC -> RAK) -->
+            <div class="capsule-3d-wrapper">
+              <div class="capsule-badge-meta" style="color:#7A5528;">
+                <span>✦ Desert Highway 3D: DWC ➔ Rove Al Marjan (~1ч 20м)</span>
+              </div>
+              <div class="desert-3d-scene">
+                <div class="dunes-silhouette"></div>
+                <div class="highway-3d-plane">
+                  <div class="highway-dashes"></div>
+                </div>
+                <!-- 3D-модель минивэна с багажом на крыше -->
+                <div class="van-3d-rig">
+                  <div class="van-3d-shadow"></div>
+                  <svg width="115" height="52" viewBox="0 0 115 52" fill="none">
+                    <!-- Чемоданы на крыше в объёме -->
+                    <rect x="28" y="4" width="16" height="8" rx="1.5" fill="#D93829"/>
+                    <rect x="46" y="5" width="14" height="7" rx="1.5" fill="#C29F55"/>
+                    <rect x="62" y="3" width="18" height="9" rx="1.5" fill="#526043"/>
+                    <line x1="22" y1="12" x2="84" y2="12" stroke="#444" stroke-width="2"/>
+                    <!-- Кузов с градиентом глубины -->
+                    <path d="M 10 32 L 10 16 Q 14 13 22 13 L 85 13 Q 98 13 105 25 L 108 36 Q 108 40 102 40 L 15 40 Q 10 40 10 32 Z" fill="url(#vanBodyGrad)" stroke="#333" stroke-width="1.5"/>
+                    <!-- Тонированные стёкла -->
+                    <rect x="20" y="17" width="16" height="11" rx="2" fill="#BCE0FD"/>
+                    <rect x="40" y="17" width="16" height="11" rx="2" fill="#BCE0FD"/>
+                    <rect x="60" y="17" width="16" height="11" rx="2" fill="#BCE0FD"/>
+                    <path d="M 80 17 L 94 17 L 99 28 L 80 28 Z" fill="#BCE0FD"/>
+                    <!-- Объёмные колёса -->
+                    <circle cx="30" cy="40" r="8" fill="#1C1A17"/>
+                    <circle cx="30" cy="40" r="3.5" fill="#D8D1C5"/>
+                    <circle cx="86" cy="40" r="8" fill="#1C1A17"/>
+                    <circle cx="86" cy="40" r="3.5" fill="#D8D1C5"/>
+                    <circle cx="106" cy="33" r="2.5" fill="#FFE58F"/>
+                    <defs>
+                      <linearGradient id="vanBodyGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#FFFFFF"/>
+                        <stop offset="60%" stop-color="#F2EDE4"/>
+                        <stop offset="100%" stop-color="#C5BCAD"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
             <!-- Багаж Победа строго по фото 1 -->
             <div class="baggage-note-box">
               <div class="baggage-note-title">Нормы багажа Победы (DP991)</div>
               <div class="baggage-columns">
-                <div><strong>Ручная кладь:</strong> до <strong>36 × 30 × 27 см</strong> (без весового ценза, свободная калибровка).</div>
-                <div><strong>Багаж:</strong> 1 место <strong>до 20 кг</strong> (по сумме трёх измерений до <strong>203 см</strong>).</div>
-              </div>
-            </div>
-
-            <!-- Анимация трансфера по шоссе -->
-            <div class="road-anim-box">
-              <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; color:#785A3A; display:flex; justify-content:space-between;">
-                <span>Пустынное шоссе DWC ➔ Rove Al Marjan Island</span>
-                <span>~1 час 20 минут в пути</span>
-              </div>
-              <div class="road-track-line">
-                <div class="road-moving-car">
-                  <svg width="40" height="20" viewBox="0 0 40 20" fill="none">
-                    <rect x="2" y="7" width="34" height="9" rx="3" fill="#C85635"/>
-                    <path d="M 8 7 L 14 2 L 26 2 L 30 7 Z" fill="#99381E"/>
-                    <circle cx="10" cy="16" r="3.5" fill="#222"/>
-                    <circle cx="28" cy="16" r="3.5" fill="#222"/>
-                    <circle cx="34" cy="10" r="1.5" fill="#FFE58F"/>
-                  </svg>
-                </div>
+                <div><strong>Ручная кладь:</strong> до <strong>36 × 30 × 27 см</strong> (без ограничения по весу).</div>
+                <div><strong>Багаж:</strong> 1 место <strong>до 20 кг</strong> (по сумме 3-х измерений до <strong>203 см</strong>).</div>
               </div>
             </div>
 
@@ -1050,7 +1177,7 @@
               <div class="spec-item"><small>Питание</small><strong>Полупансион (Half Board)</strong></div>
               <div class="spec-item"><small>Формат</small><strong>Пляжный релакс</strong></div>
             </div>
-            <a href="#rak" class="btn-craft">Перейти к разделу отеля и саундтреку ↓</a>
+            <a href="#rak" class="btn-craft">Раздел отеля и саундтрек ↓</a>
           </div>
         </article>
 
@@ -1063,7 +1190,7 @@
           <div class="ticket-body">
             <div class="ticket-nodes-title">Rove Al Marjan → Sharjah Airport (SHJ)</div>
             <p style="font-size:0.92rem; color:var(--ink-secondary); margin-bottom:16px;">
-              <strong>Важно:</strong> Вылет осуществляется из <strong>Sharjah International Airport (SHJ)</strong>, а не из Дубая (DXB). Время в пути от отеля — около 55–65 минут. Рекомендуемый выезд из Rove Al Marjan — не позднее 11:30.
+              <strong>Важно:</strong> Вылет осуществляется из <strong>Sharjah International Airport (SHJ)</strong>, а не из Дубая (DXB). Время в пути — около 55–65 минут. Рекомендуемый выезд из отеля — в 11:30.
             </p>
             <a href="https://maps.google.com/?q=Rove+Al+Marjan+to+Sharjah+International+Airport" target="_blank" rel="noopener noreferrer" class="btn-craft">Маршрут трансфера в аэропорт SHJ ↗</a>
           </div>
@@ -1084,27 +1211,43 @@
               <div class="spec-item"><small>Трансфер из KUL</small><strong>Забронирован (~50 мин)</strong></div>
             </div>
 
-            <!-- Анимация перелёта в KL с башнями Petronas -->
-            <div class="kl-flight-radar-stage">
-              <div style="font-size:0.72rem; letter-spacing:0.15em; color:var(--vintage-gold); text-transform:uppercase; margin-bottom:10px; display:flex; justify-content:space-between;">
-                <span>Night Flight Segment</span>
-                <span>Approaching Kuala Lumpur</span>
+            <!-- ИЗОЛИРОВАННАЯ 3D-КАПСУЛА: НОЧНОЙ ПЕРЕЛЁТ С БАШНЯМИ PETRONAS -->
+            <div class="capsule-3d-wrapper">
+              <div class="capsule-badge-meta" style="color:var(--vintage-gold);">
+                <span>✦ Night Flight 3D: SHJ ➔ KUL Arrival 02:15</span>
               </div>
-              <div style="position:relative; height:70px;">
-                <div class="radar-plane">
-                  <svg width="40" height="22" viewBox="0 0 44 24" fill="none">
-                    <path d="M 0 12 L 32 7 L 28 12 L 32 17 Z" fill="#FFF"/>
-                    <path d="M 12 12 L 4 0 L 10 0 L 20 12 L 10 24 L 4 24 Z" fill="#ECC877"/>
-                    <circle cx="32" cy="12" r="2" fill="#E11D38"/>
+              <div class="night-flight-3d-scene">
+                <div class="twinkling-stars"></div>
+                
+                <!-- 3D изометрический кластер башен Petronas Towers -->
+                <div class="petronas-3d-cluster">
+                  <svg width="76" height="84" viewBox="0 0 76 84" fill="none">
+                    <!-- Башня Левая -->
+                    <rect x="10" y="24" width="18" height="60" fill="#2B3E59" stroke="#68A5D6" stroke-width="1"/>
+                    <polygon points="10,24 19,2 28,24" fill="#3D5A82"/>
+                    <!-- Башня Правая -->
+                    <rect x="46" y="24" width="18" height="60" fill="#2B3E59" stroke="#68A5D6" stroke-width="1"/>
+                    <polygon points="46,24 55,2 64,24" fill="#3D5A82"/>
+                    <!-- Мост Skybridge в 3D -->
+                    <rect x="26" y="48" width="22" height="5" fill="#9CD8FF" opacity="0.9"/>
+                    <circle cx="19" cy="2" r="1.5" fill="#FFF"/>
+                    <circle cx="55" cy="2" r="1.5" fill="#FFF"/>
                   </svg>
                 </div>
-                <div class="petronas-neon">
-                  <svg width="65" height="70" viewBox="0 0 70 75" fill="none">
-                    <rect x="12" y="20" width="16" height="55" fill="#36455D"/>
-                    <polygon points="12,20 20,2 28,20" fill="#586E95"/>
-                    <rect x="42" y="20" width="16" height="55" fill="#36455D"/>
-                    <polygon points="42,20 50,2 58,20" fill="#586E95"/>
-                    <rect x="24" y="42" width="22" height="4" fill="#88A5D6"/>
+
+                <!-- Объёмный ночной самолёт -->
+                <div class="night-plane-3d-rig">
+                  <svg width="100" height="46" viewBox="0 0 100 46" fill="none">
+                    <path d="M 5 23 C 20 18, 75 16, 94 23 C 100 25, 100 29, 94 31 C 75 37, 20 35, 5 23 Z" fill="url(#nightPlaneGrad)" filter="drop-shadow(0 0 8px rgba(255,255,255,0.4))"/>
+                    <path d="M 40 23 L 26 4 L 40 4 L 62 23 Z" fill="#ECC877"/>
+                    <path d="M 44 23 L 30 44 L 44 44 L 66 23 Z" fill="#9A772C"/>
+                    <circle cx="94" cy="27" r="2" fill="#E11D38"/>
+                    <defs>
+                      <linearGradient id="nightPlaneGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#FFFFFF"/>
+                        <stop offset="100%" stop-color="#A5B4C7"/>
+                      </linearGradient>
+                    </defs>
                   </svg>
                 </div>
               </div>
@@ -1121,7 +1264,7 @@
             </div>
 
             <p style="background:#FAF8F4; border-left:3px solid var(--vintage-gold); padding:12px 16px; border-radius:4px; font-size:0.88rem;">
-              <strong>Ночной прилёт 3 ноября:</strong> Посадка в 02:15 ночи $\to$ Паспортный контроль и багаж $\to$ Встреча с водителем трансфера $\to$ Заселение в Agile Bukit Bintang около 03:40 утра $\to$ Отдых и сон!
+              <strong>Ночной заезд:</strong> Посадка 3 ноября в 02:15 ночи $\to$ Паспортный контроль и получение багажа $\to$ Ночной трансфер в Agile Bukit Bintang $\to$ Заселение и сон перед прогулками по городу!
             </p>
           </div>
         </article>
@@ -1139,7 +1282,7 @@
               <div class="spec-item"><small>Апартаменты</small><strong>2BR Unit (2 спальни)</strong></div>
               <div class="spec-item"><small>Локация</small><strong>5 мин до Pavilion & TRX</strong></div>
             </div>
-            <a href="#kl" class="btn-craft">Посмотреть галерею апартаментов и гид ↓</a>
+            <a href="#kl" class="btn-craft">Галерея апартаментов и гид по городу ↓</a>
           </div>
         </article>
 
@@ -1158,6 +1301,25 @@
               <div class="spec-item"><small>Ночной транзит</small><strong>11 часов 35 минут</strong></div>
             </div>
 
+            <!-- ИЗОЛИРОВАННАЯ 3D-КАПСУЛА: ВЕЧЕРНИЙ ВЫЛЕТ В ДУБАЙ НА ЗАКАТЕ -->
+            <div class="capsule-3d-wrapper">
+              <div class="capsule-badge-meta" style="color:#FFF;">
+                <span>✦ Sunset Flight 3D: KUL ➔ DXB (Emirates)</span>
+              </div>
+              <div class="sunset-3d-scene">
+                <div class="plane-3d-rig" style="animation-duration: 10s;">
+                  <div class="plane-cast-shadow" style="background: rgba(80, 20, 40, 0.4);"></div>
+                  <svg width="105" height="50" viewBox="0 0 105 50" fill="none">
+                    <path d="M 5 25 C 20 20, 80 18, 98 25 C 105 27, 105 31, 98 33 C 80 40, 20 38, 5 25 Z" fill="#FFF" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.25))"/>
+                    <path d="M 96 24 Q 104 28 96 34 Z" fill="#D93829"/>
+                    <path d="M 45 25 L 30 4 L 46 4 L 68 25 Z" fill="#E11D38"/>
+                    <path d="M 48 25 L 35 48 L 48 48 L 72 25 Z" fill="#7A0B1B"/>
+                    <path d="M 8 25 L -4 10 L 8 10 L 22 25 Z" fill="#D93829"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
             <!-- Багаж Emirates строго по фото 10 -->
             <div class="baggage-note-box">
               <div class="baggage-note-title">Нормы Emirates (KUL → DXB → DME)</div>
@@ -1168,9 +1330,9 @@
             </div>
 
             <p style="font-size:0.88rem; color:var(--ink-secondary); margin-bottom:12px;">
-              <strong>Услуга Dubai Connect подключена:</strong> Предоставляется номер в отеле, трансфер и питание на время ночной стыковки.
+              <strong>Услуга Dubai Connect подключена:</strong> Emirates предоставляет отель, трансфер и питание на время ночной стыковки.
             </p>
-            <a href="https://www.emirates.com/ru/russian/before-you-fly/dubai-connect/" target="_blank" rel="noopener noreferrer" class="btn-craft">Проверить условия Dubai Connect ↗</a>
+            <a href="https://www.emirates.com/ru/russian/before-you-fly/dubai-connect/" target="_blank" rel="noopener noreferrer" class="btn-craft">Условия Dubai Connect ↗</a>
           </div>
         </article>
 
@@ -1200,7 +1362,7 @@
       </div>
     </section>
 
-    <!-- СТРАНИЦА RAS AL KHAIMAH (ФОТО ROVE + ВЕРБЛЮДЫ + SPOTIFY) -->
+    <!-- СТРАНИЦА RAS AL KHAIMAH -->
     <section class="rak-section" id="rak">
       <div class="container">
         <div class="section-header" style="margin-bottom:30px;">
@@ -1210,13 +1372,11 @@
         </div>
 
         <div class="rak-scrapbook-grid">
-          <!-- Скрапбук-полароиды: Отель Rove + Верблюды -->
           <div class="scrapbook-photos-pair">
             
-            <!-- Полароид 1: Отель Rove (Фото 1) -->
+            <!-- Полароид 1: Отель Rove -->
             <div class="scrapbook-polaroid" style="transform: rotate(-1.5deg);">
               <div class="washi-tape" style="width:80px;"></div>
-              <!-- Точное имя файла с вашего скриншота -->
               <img 
                 src="rove.jpg.JPG" 
                 alt="Отель Rove Al Marjan Island" 
@@ -1225,10 +1385,9 @@
               <span class="polaroid-hand-label">Rove Al Marjan 🌴</span>
             </div>
 
-            <!-- Полароид 2: Дорога и верблюды (Фото 2) -->
-            <div class="scrapbook-polaroid" style="transform: rotate(2deg); margin-top: 20px;">
+            <!-- Полароид 2: Дорога и верблюды -->
+            <div class="scrapbook-polaroid" style="transform: rotate(2deg); margin-top: 18px;">
               <div class="washi-tape" style="width:80px;"></div>
-              <!-- Точное имя файла с вашего скриншота -->
               <img 
                 src="camels.jpg.JPG" 
                 alt="Дорога до отеля Rove и верблюды" 
@@ -1239,25 +1398,24 @@
 
           </div>
 
-          <!-- Описание и встроенный Spotify Desert Rose -->
-          <div style="background:#FFF; padding:34px; border-radius:18px; border:1px solid var(--border-craft); box-shadow:0 10px 30px rgba(0,0,0,0.03);">
+          <!-- Описание и Spotify Desert Rose -->
+          <div style="background:#FFF; padding:32px; border-radius:18px; border:1px solid var(--border-craft); box-shadow:0 10px 30px rgba(0,0,0,0.03);">
             <span class="section-eyebrow" style="color:var(--terracotta);">28.10 — 02.11.2026</span>
-            <h3 style="font-size:1.9rem; margin-bottom:12px;">Rove Al Marjan Island</h3>
-            <ul style="list-style:none; font-size:0.92rem; color:var(--ink-secondary); display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+            <h3 style="font-size:1.85rem; margin-bottom:12px;">Rove Al Marjan Island</h3>
+            <ul style="list-style:none; font-size:0.92rem; color:var(--ink-secondary); display:flex; flex-direction:column; gap:8px; margin-bottom:18px;">
               <li>✓ <strong>Номера:</strong> 2 просторных номера для 4 путешественниц</li>
               <li>✓ <strong>Питание:</strong> Полупансион (завтраки и ужины включены)</li>
-              <li>✓ <strong>Пляж:</strong> Белоснежный песок и тёплый Персидский залив</li>
+              <li>✓ <strong>Пляж:</strong> Белоснежный песок и Персидский залив</li>
             </ul>
 
-            <!-- ВСТРОЕННЫЙ СПОТИФАЙ DESERT ROSE -->
-            <div style="margin: 20px 0;">
+            <!-- Встроенный плеер Spotify Desert Rose -->
+            <div style="margin: 18px 0;">
               <iframe 
                 style="border-radius:12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);" 
                 src="https://open.spotify.com/embed/track/5lAoCJrfv9CSyNziWLnWsg?utm_source=generator&theme=0" 
                 width="100%" 
                 height="152" 
                 frameBorder="0" 
-                allowfullscreen="" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                 loading="lazy">
               </iframe>
@@ -1269,17 +1427,9 @@
           </div>
         </div>
       </div>
-
-      <!-- Морские волны -->
-      <div class="ocean-waves-wrapper">
-        <svg class="waves-motion" viewBox="0 0 1600 38" fill="none" preserveAspectRatio="none" style="width: 200%; height: 100%;">
-          <path d="M 0 18 Q 200 0 400 18 T 800 18 T 1200 18 T 1600 18 L 1600 38 L 0 38 Z" fill="#F6F1E8" opacity="0.6"/>
-          <path d="M 0 24 Q 200 8 400 24 T 800 24 T 1200 24 T 1600 24 L 1600 38 L 0 38 Z" fill="#F6F1E8"/>
-        </svg>
-      </div>
     </section>
 
-    <!-- СТРАНИЦА KUALA LUMPUR -->
+    <!-- СТРАНИЦА KUALA LUMPUR (ФОТО АПАРТАМЕНТОВ ИСПРАВЛЕНЫ) -->
     <section class="kl-section container" id="kl">
       <div class="section-header">
         <span class="section-eyebrow">Золотой треугольник столицы</span>
@@ -1290,25 +1440,25 @@
         <span class="section-eyebrow" style="color:var(--terracotta);">Наш дом в городе · 02.11 — 06.11.2026</span>
         <h3 style="font-size:1.9rem; margin:4px 0 8px;">Agile Bukit Bintang by Avery at KLCC</h3>
         <p style="color:var(--ink-secondary); font-size:0.92rem; max-width:820px;">
-          Современный кондоминиум: 5 минут пешком до торгового молла Pavilion KL и футуристичного финансового центра The Exchange TRX.
+          Современный кондоминиум: 5 минут пешком до торгового молла Pavilion KL и футуристичного небоскреба The Exchange TRX.
         </p>
 
-        <!-- Галерея апартаментов (по фото 3, 5, 6, 7, 8) -->
+        <!-- Галерея фото с надежными CDN ссылками -->
         <div class="condo-gallery-grid">
           <div class="condo-photo-tile">
-            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="Garden Pool TRX" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="Garden Pool TRX" referrerpolicy="no-referrer" loading="lazy" />
             <div class="condo-badge">Garden Pool & TRX View</div>
           </div>
           <div class="condo-photo-tile">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Гостиная 2BR Unit" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Гостиная 2BR Suite" referrerpolicy="no-referrer" loading="lazy" />
             <div class="condo-badge">2BR Suite · Гостиная</div>
           </div>
           <div class="condo-photo-tile">
-            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Кухня и стиральная машина" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Кухня и стиральная машина" referrerpolicy="no-referrer" loading="lazy" />
             <div class="condo-badge">Кухня & Стиральная машина</div>
           </div>
           <div class="condo-photo-tile">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Сад на крыше с гамаками" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Сад на крыше с гамаками" referrerpolicy="no-referrer" loading="lazy" />
             <div class="condo-badge">Sky Garden с гамаками</div>
           </div>
         </div>
@@ -1319,7 +1469,7 @@
         </div>
       </div>
 
-      <!-- Гид по заведениям -->
+      <!-- Фильтр мест -->
       <h3 style="font-size:1.7rem; text-align:center;">Куда сходить в Куала-Лумпуре</h3>
       <div class="filter-pills-row">
         <button class="filter-btn active" data-filter="all">Все локации</button>
@@ -1398,27 +1548,28 @@
       </div>
     </section>
 
-    <!-- СТРАНИЦА THE WEEKND (ЧИСТЫЙ КОНЦЕРТНЫЙ ПОСТЕР, БЕЗ ЗОЛОТОЙ ФИГУРЫ) -->
+    <!-- СТРАНИЦА THE WEEKND (С 3D-КАПСУЛОЙ МЕТРО И ИСПРАВЛЕННЫМ ПЛЕЕРОМ) -->
     <section class="weeknd-night-universe" id="the-weeknd">
       <div class="weeknd-glow-spot"></div>
       <div class="container weeknd-inner">
         
-        <div class="weeknd-poster-header">
-          <span class="weeknd-tour-badge">04.11.2026 · Kuala Lumpur Stadium Show</span>
+        <div style="text-align:center; margin-bottom:30px;">
+          <span style="font-family:monospace; color:var(--noir-red); font-size:0.85rem; letter-spacing:0.35em; text-transform:uppercase; font-weight:700; margin-bottom:12px; display:block;">
+            04.11.2026 · Kuala Lumpur Stadium Show
+          </span>
           <h2 class="weeknd-headline">THE WEEKND</h2>
           <p class="weeknd-subline">After Hours Til Dawn Tour</p>
           <span class="red-script" style="color:var(--noir-gold); font-size:1.9rem; display:block; margin-top:8px;">«Главное событие нашего путешествия!»</span>
         </div>
 
-        <!-- ВСТРОЕННЫЙ СПОТИФАЙ AFTER HOURS (Играет прямо на сайте!) -->
-        <div style="max-width:650px; margin:0 auto 36px;">
+        <!-- ИСПРАВЛЕННЫЙ ВСТРОЕННЫЙ СПОТИФАЙ: Альбомный плеер After Hours -->
+        <div style="max-width:650px; margin:0 auto 30px;">
           <iframe 
             style="border-radius:12px; box-shadow: 0 10px 30px rgba(225, 29, 56, 0.35);" 
-            src="https://open.spotify.com/embed/track/2YWlVGHS884UFQnTtUtYfr?utm_source=generator&theme=0" 
+            src="https://open.spotify.com/embed/album/4yP0hdKOZPNshxUOjY0cZj?utm_source=generator&theme=0" 
             width="100%" 
             height="152" 
             frameBorder="0" 
-            allowfullscreen="" 
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
             loading="lazy">
           </iframe>
@@ -1426,7 +1577,7 @@
 
         <!-- Сцена стадиона -->
         <div class="weeknd-stage-visual">
-          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80" alt="Сцена стадионного шоу The Weeknd" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80" alt="Сцена стадионного шоу The Weeknd" referrerpolicy="no-referrer" loading="lazy" />
           <div class="stage-badge">National Stadium Bukit Jalil · Live Experience</div>
         </div>
 
@@ -1446,7 +1597,7 @@
           </div>
         </div>
 
-        <!-- Маршруты до стадиона -->
+        <!-- Маршруты до стадиона с изолированной 3D-анимацией поезда LRT -->
         <div class="weeknd-card">
           <h4 style="font-size:1.4rem; color:var(--noir-gold); margin-bottom:6px;">
             Маршрут: Agile Bukit Bintang → Stadium Bukit Jalil
@@ -1454,6 +1605,33 @@
           <p style="font-size:0.88rem; color:var(--noir-muted);">
             В день концерта на дорогах к арене образуются огромные пробки. Метро — самый надёжный способ прибыть к началу шоу.
           </p>
+
+          <!-- ИЗОЛИРОВАННАЯ 3D-КАПСУЛА: ПОЕЗД LRT МЧИТСЯ К СТАДИОНУ -->
+          <div class="capsule-3d-wrapper" style="border-color: rgba(236, 200, 119, 0.25);">
+            <div class="capsule-badge-meta" style="color:var(--noir-gold);">
+              <span>✦ Rapid LRT Metro 3D: Hang Tuah ➔ Bukit Jalil Direct</span>
+            </div>
+            <div class="lrt-3d-scene">
+              <div class="elevated-rail-3d"></div>
+              <!-- 3D поезд LRT -->
+              <div class="lrt-train-3d-rig">
+                <svg width="150" height="34" viewBox="0 0 150 34" fill="none">
+                  <!-- Корпус экспресса -->
+                  <path d="M 5 28 L 5 10 Q 8 6 16 6 L 138 6 Q 146 6 148 18 L 148 28 Z" fill="#F0F4F8" stroke="#333" stroke-width="1.5"/>
+                  <path d="M 5 20 L 148 20 L 148 28 L 5 28 Z" fill="#E11D38"/>
+                  <!-- Стёкла поезда -->
+                  <rect x="14" y="9" width="18" height="8" rx="1.5" fill="#1C1A17"/>
+                  <rect x="36" y="9" width="18" height="8" rx="1.5" fill="#1C1A17"/>
+                  <rect x="58" y="9" width="18" height="8" rx="1.5" fill="#1C1A17"/>
+                  <rect x="80" y="9" width="18" height="8" rx="1.5" fill="#1C1A17"/>
+                  <rect x="102" y="9" width="18" height="8" rx="1.5" fill="#1C1A17"/>
+                  <path d="M 124 9 L 142 9 L 142 16 L 124 16 Z" fill="#1C1A17"/>
+                  <!-- Фара -->
+                  <circle cx="146" cy="24" r="2" fill="#FFEAA0"/>
+                </svg>
+              </div>
+            </div>
+          </div>
 
           <div class="transit-cols-grid">
             <div class="transit-cell">
@@ -1556,9 +1734,9 @@
   <!-- Футер -->
   <footer>
     <div class="container">
-      <p class="footer-phrase">«Three destinations. One unforgettable journey.»</p>
+      <p style="font-family:var(--font-display); font-size:2.1rem; font-style:italic; color:var(--vintage-gold); margin-bottom:10px;">«Девчачий трип ’26»</p>
       <p style="font-size:0.85rem; color:#888; margin-bottom:10px;">
-        Daria Kudriashova · Elena Kudriashova · Elena Kurenkova · Olga Kosterina
+        Elena Kurenkova · Elena Kudriashova · Daria Kudriashova · Olga Kosterina
       </p>
       <p style="font-size:0.75rem; color:#555;">
         28.10.2026 — 07.11.2026 · Dubai · Ras Al Khaimah · Kuala Lumpur
@@ -1566,9 +1744,10 @@
     </div>
   </footer>
 
-  <!-- Скрипты -->
+  <!-- Клиентский скрипт -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Мобильное меню
       const menuBtn = document.getElementById('mobileMenuToggle');
       const navLinks = document.getElementById('navLinks');
       menuBtn.addEventListener('click', () => {
@@ -1580,6 +1759,7 @@
         });
       });
 
+      // Фильтр мест в Куала-Лумпуре
       const filterBtns = document.querySelectorAll('.filter-btn');
       const spotCards = document.querySelectorAll('.spot-card');
       filterBtns.forEach(btn => {
