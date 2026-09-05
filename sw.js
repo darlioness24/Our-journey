@@ -1,4 +1,4 @@
-const CACHE_NAME = 'trip26-v4';
+const CACHE_NAME = 'trip26-v6';
 
 const ASSETS_TO_CACHE = [
   './',
@@ -6,7 +6,8 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
   './travelers.jpg.JPG',
   './rove.jpg.JPG',
-  './camels.jpg.JPG'
+  './camels.jpg.JPG',
+  './burj.jpg.JPG'
 ];
 
 self.addEventListener('install', (event) => {
