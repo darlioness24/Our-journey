@@ -56,22 +56,71 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    img {
-      max-width: 100%;
-      display: block;
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* -------------------------------------------------------------
+       ЭКРАН АВТОРИЗАЦИИ (ПАРОЛЬ 1234)
+       ------------------------------------------------------------- */
+    .lock-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #121015;
+      color: #FFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      transition: opacity 0.4s ease;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
+    .lock-screen.unlocked {
+      opacity: 0;
+      pointer-events: none;
     }
-    button {
-      font-family: inherit;
-      cursor: pointer;
-      border: none;
-      background: none;
+    .lock-box {
+      max-width: 380px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 34px 24px;
+      backdrop-filter: blur(10px);
+    }
+    .lock-input {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 14px 20px;
+      color: #FFF;
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.3em;
+      margin: 20px 0 14px;
+      outline: none;
+    }
+    .lock-input:focus {
+      border-color: var(--script-red);
+    }
+    .lock-error {
+      color: var(--noir-red);
+      font-size: 0.82rem;
+      min-height: 20px;
+      margin-top: 8px;
     }
 
-    /* Верхний навигатор */
+    /* Сайт (скрыт до ввода пароля) */
+    .protected-app {
+      display: none;
+    }
+    .protected-app.visible {
+      display: block;
+    }
+
     .top-navigator {
       position: sticky;
       top: 0;
@@ -84,16 +133,8 @@
       justify-content: space-between;
       align-items: center;
     }
-    .brand-title {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .brand-title span {
-      font-family: var(--font-hand);
-      color: var(--script-red);
-      font-size: 1.2rem;
-    }
+    .brand-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; }
+    .brand-title span { font-family: var(--font-hand); color: var(--script-red); font-size: 1.2rem; }
     .step-counter {
       font-size: 0.75rem;
       letter-spacing: 0.12em;
@@ -106,7 +147,6 @@
       border: 1px solid var(--border-craft);
     }
 
-    /* Экраны контента */
     .screen-stage {
       display: none;
       min-height: calc(100vh - 65px);
@@ -115,15 +155,12 @@
       margin: 0 auto;
       animation: fadeInScreen 0.4s ease forwards;
     }
-    .screen-stage.active {
-      display: block;
-    }
+    .screen-stage.active { display: block; }
     @keyframes fadeInScreen {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Кнопки действий */
     .btn-main {
       display: inline-flex;
       align-items: center;
@@ -143,13 +180,8 @@
       max-width: 400px;
       margin: 24px auto 0;
     }
-    .btn-main:active {
-      transform: scale(0.98);
-    }
 
-    /* -------------------------------------------------------------
-       ПОЛНОЭКРАННЫЙ КИНОТЕАТР АНИМАЦИИ (CINEMA OVERLAY)
-       ------------------------------------------------------------- */
+    /* Кинотеатр анимаций */
     .cinema-overlay {
       position: fixed;
       inset: 0;
@@ -163,33 +195,12 @@
       padding: 40px 20px 30px;
       overflow: hidden;
     }
-    .cinema-overlay.active {
-      display: flex;
-      animation: openCinema 0.45s ease forwards;
-    }
-    @keyframes openCinema {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    .cinema-overlay.active { display: flex; animation: openCinema 0.45s ease forwards; }
+    @keyframes openCinema { from { opacity: 0; } to { opacity: 1; } }
 
-    .cinema-header {
-      text-align: center;
-      z-index: 10;
-    }
-    .cinema-meta-tag {
-      font-family: monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--vintage-gold);
-      display: block;
-    }
-    .cinema-main-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      margin-top: 4px;
-    }
+    .cinema-header { text-align: center; z-index: 10; }
+    .cinema-meta-tag { font-family: monospace; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 700; color: var(--vintage-gold); }
+    .cinema-main-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: 4px; }
 
     .cinema-viewport {
       position: relative;
@@ -201,422 +212,302 @@
       justify-content: center;
     }
 
-    /* Круглая 3D-Земля */
     .earth-sphere {
-      width: 250px;
-      height: 250px;
+      width: 270px;
+      height: 270px;
       border-radius: 50%;
       background: radial-gradient(circle at 35% 35%, #1C5485 0%, #0D243F 60%, #050D18 100%);
-      box-shadow: 
-        inset -25px -25px 50px rgba(0,0,0,0.9),
-        0 0 45px rgba(0, 136, 214, 0.4);
+      box-shadow: inset -25px -25px 50px rgba(0,0,0,0.9), 0 0 50px rgba(0, 136, 214, 0.45);
       position: relative;
       overflow: hidden;
     }
     .earth-land {
-      position: absolute;
-      top: 30px;
-      left: 45px;
-      width: 170px;
-      height: 130px;
-      opacity: 0.35;
-      background: #4DAA72;
-      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      position: absolute; top: 30px; left: 45px; width: 170px; height: 130px;
+      opacity: 0.35; background: #4DAA72; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
       filter: blur(4px);
     }
-    .geo-point {
-      position: absolute;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      box-shadow: 0 0 12px currentColor;
+    .geo-point { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #FFF; box-shadow: 0 0 10px #FFF; }
+    .geo-label { font-family: monospace; font-size: 0.7rem; font-weight: 700; position: absolute; color: #FFF; }
+
+    .realistic-plane {
+      position: absolute; width: 140px; height: auto; z-index: 25; transform-origin: center center;
+      animation: smoothFlightPath 6s cubic-bezier(0.37, 0, 0.63, 1) forwards;
     }
-    .geo-label {
-      font-family: monospace;
-      font-size: 0.7rem;
-      font-weight: 700;
-      position: absolute;
-      color: #FFF;
+    @keyframes smoothFlightPath {
+      0% { top: 75px; left: 70px; transform: scale(0.6) rotate(-15deg); }
+      30% { top: 40px; left: 140px; transform: scale(0.9) rotate(5deg); }
+      70% { top: 90px; left: 220px; transform: scale(1.1) rotate(22deg); }
+      100% { top: 165px; left: 265px; transform: scale(0.7) rotate(42deg); opacity: 0; }
     }
 
-    /* Анимированные транспортные средства */
-    .cinema-vehicle {
-      position: absolute;
-      z-index: 20;
-      transform-origin: center center;
-    }
-
-    /* Всплывающая карточка финиша анимации */
     .cinema-reveal-modal {
-      position: absolute;
-      inset: 0;
-      background: rgba(7, 8, 12, 0.94);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s ease;
-      z-index: 30;
-      padding: 20px;
-      text-align: center;
+      position: absolute; inset: 0; background: rgba(7, 8, 12, 0.94);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.8s ease; z-index: 30; padding: 20px; text-align: center;
     }
-    .cinema-reveal-modal.show {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .reveal-photo {
-      height: 240px;
-      width: auto;
-      border-radius: 12px;
-      border: 1px solid rgba(255,215,0,0.3);
-      box-shadow: 0 0 35px rgba(236, 200, 119, 0.35);
-      margin-bottom: 14px;
-    }
-    .reveal-title {
-      font-family: var(--font-display);
-      font-size: 2.1rem;
-      color: var(--noir-gold);
-      font-style: italic;
-      line-height: 1.1;
-    }
-    .reveal-subtitle {
-      font-size: 0.85rem;
-      color: #AAA;
-      margin-top: 4px;
-    }
+    .cinema-reveal-modal.show { opacity: 1; pointer-events: all; }
+    .reveal-photo { height: 240px; width: auto; border-radius: 12px; border: 1px solid rgba(255,215,0,0.3); box-shadow: 0 0 35px rgba(236, 200, 119, 0.35); margin-bottom: 14px; object-fit: cover; }
+    .reveal-title { font-family: var(--font-display); font-size: 2.1rem; color: var(--noir-gold); font-style: italic; line-height: 1.1; }
+    .reveal-subtitle { font-size: 0.85rem; color: #AAA; margin-top: 4px; }
 
-    /* Карточки команды и деталей */
-    .travelers-polaroid-frame {
-      background: var(--bg-polaroid);
-      padding: 14px 14px 20px;
-      border-radius: 8px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
-      border: 1px solid rgba(0,0,0,0.08);
-      margin: 16px auto 26px;
-      max-width: 780px;
-    }
-    .travelers-photo {
-      width: 100%;
-      border-radius: 4px;
-    }
-    .squad-roles-grid {
+    /* Личный кабинет и хранилище документов */
+    .docs-cabinet-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
-      margin-bottom: 24px;
+      margin: 20px 0;
     }
-    .avatar-card {
-      background: #FFFFFF;
+    .doc-card {
+      background: #FFF;
       border: 1px solid var(--border-craft);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .upload-zone {
+      border: 2px dashed var(--terracotta);
+      background: rgba(200, 86, 53, 0.03);
+      padding: 24px;
       border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-    }
-    .avatar-icon { font-size: 1.5rem; margin-bottom: 6px; }
-    .avatar-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 2px; }
-    .avatar-tag { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: var(--script-red); display: block; margin-bottom: 6px; }
-    .avatar-desc { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.4; }
-
-    .step-detail-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-craft);
-      border-radius: 18px;
-      padding: 26px 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-      margin-bottom: 20px;
-    }
-    .step-specs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-      background: var(--bg-paper);
-      padding: 16px;
-      border-radius: 12px;
-      margin: 14px 0;
-    }
-    .baggage-box {
-      border: 1.5px dashed var(--terracotta);
-      background: rgba(200, 86, 53, 0.04);
-      padding: 16px;
-      border-radius: 12px;
-      margin: 16px 0;
-    }
-    .baggage-box h4 {
-      color: var(--terracotta);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 800;
-      margin-bottom: 6px;
+      text-align: center;
+      margin-top: 20px;
     }
 
-    /* Анимации движения */
-    @keyframes pobedaFlightArc {
-      0% { top: 60px; left: 40px; transform: scale(0.65) rotate(18deg); }
-      50% { top: 20px; left: 170px; transform: scale(1.05) rotate(35deg); }
-      100% { top: 165px; left: 270px; transform: scale(0.75) rotate(58deg); opacity: 0; }
-    }
-    @keyframes toyotaDriveArc {
-      0% { left: -140px; transform: scale(0.9) rotateY(-5deg); }
-      50% { transform: scale(1.05) rotateY(-2deg) translateY(-3px); }
-      100% { left: calc(100% + 140px); transform: scale(0.9) rotateY(-5deg); }
-    }
-    @keyframes airArabiaFlightArc {
-      0% { top: 160px; left: 60px; transform: scale(0.7) rotate(-10deg); }
-      50% { top: 70px; left: 180px; transform: scale(1) rotate(15deg); }
-      100% { top: 140px; left: 280px; transform: scale(0.75) rotate(42deg); opacity: 0; }
-    }
-    @keyframes emiratesFlightArc {
-      0% { top: 160px; left: 50px; transform: scale(0.65) rotate(-15deg); }
-      50% { top: 40px; left: 170px; transform: scale(1.05) rotate(18deg); }
-      100% { top: 60px; left: 290px; transform: scale(0.75) rotate(30deg); opacity: 0; }
-    }
+    .travelers-polaroid-frame { background: var(--bg-polaroid); padding: 14px 14px 20px; border-radius: 8px; box-shadow: 0 16px 40px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.08); margin: 16px auto 26px; max-width: 780px; }
+    .travelers-photo { width: 100%; border-radius: 4px; }
+    .squad-roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .avatar-card { background: #FFFFFF; border: 1px solid var(--border-craft); border-radius: 16px; padding: 18px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); }
+    
+    .step-detail-card { background: #FFFFFF; border: 1px solid var(--border-craft); border-radius: 18px; padding: 26px 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); margin-bottom: 20px; }
+    .step-specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; background: var(--bg-paper); padding: 16px; border-radius: 12px; margin: 14px 0; }
+    .baggage-box { border: 1.5px dashed var(--terracotta); background: rgba(200, 86, 53, 0.04); padding: 16px; border-radius: 12px; margin: 16px 0; }
+    .baggage-box h4 { color: var(--terracotta); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; margin-bottom: 6px; }
   </style>
 </head>
 
 <body>
 
-  <!-- Верхняя панель навигатора -->
-  <header class="top-navigator">
-    <div class="brand-title">Девчачий трип<span>’26</span></div>
-    <div class="step-counter" id="stepIndicator">Шаг 1 из 6</div>
-  </header>
-
-  <!-- =============================================================
-       ЭКРАН 1: НАША КОМАНДА
-       ============================================================= -->
-  <section class="screen-stage active" id="screen-team">
-    <div style="text-align:center;">
-      <span style="font-size:0.75rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--olive-sage); font-weight:800; display:block; margin-bottom:8px;">28 октября — 7 ноября 2026</span>
-      <h1 style="font-size:clamp(2.4rem, 6vw, 4.2rem); font-family:var(--font-display); font-weight:400; line-height:1;">Наша банда в сборе ❦</h1>
-      <span style="font-family:var(--font-hand); color:var(--script-red); font-size:1.8rem; display:block; margin-top:4px;">«Три направления. Одно большое приключение»</span>
-    </div>
-
-    <div class="travelers-polaroid-frame">
-      <img 
-        src="travelers.jpg.JPG" 
-        alt="Elena Kurenkova, Elena Kudriashova, Daria Kudriashova, Olga Kosterina" 
-        class="travelers-photo"
-        onerror="this.src='travelers.jpg'"
-      />
-    </div>
-
-    <div class="squad-roles-grid">
-      <div class="avatar-card">
-        <div class="avatar-icon">🥐</div>
-        <div class="avatar-name">Elena Kurenkova</div>
-        <span class="avatar-tag">Главный добытчик провизии</span>
-        <p class="avatar-desc">С ней никто и никогда не останется голодными!</p>
-      </div>
-
-      <div class="avatar-card">
-        <div class="avatar-icon">📁</div>
-        <div class="avatar-name">Elena Kudriashova</div>
-        <span class="avatar-tag">Хранительница безопасности</span>
-        <p class="avatar-desc">Хранительница самого важного — документов, паспортов и спокойствия всей группы.</p>
-      </div>
-
-      <div class="avatar-card">
-        <div class="avatar-icon">🗺️</div>
-        <div class="avatar-name">Daria Kudriashova</div>
-        <span class="avatar-tag">Иностранный представитель</span>
-        <p class="avatar-desc">Ключик ко всем билетам, броням и маршрутам всей группы.</p>
-      </div>
-
-      <div class="avatar-card">
-        <div class="avatar-icon">📸</div>
-        <div class="avatar-name">Olga Kosterina</div>
-        <span class="avatar-tag">Контент-директор & Релакс</span>
-        <p class="avatar-desc">Занимает лучшие лежаки, соберёт коллекцию к чаю и сделает лучший контент!</p>
-      </div>
-    </div>
-
-    <div style="text-align:center;">
-      <button class="btn-main" id="btnStartJourney">ПОГНАЛИ! ➔ ВЗЛЁТ (VKO ➔ DWC)</button>
-    </div>
-  </section>
-
-  <!-- =============================================================
-       УНИВЕРСАЛЬНЫЙ ПОЛНОЭКРАННЫЙ КИНОТЕАТР АНИМАЦИИ
-       ============================================================= -->
-  <div class="cinema-overlay" id="globalCinema">
-    <div class="cinema-header">
-      <span class="cinema-meta-tag" id="cinemaMeta">Flight DP991</span>
-      <h2 class="cinema-main-title" id="cinemaTitle">Москва (VKO) ➔ Dubai (DWC)</h2>
-    </div>
-
-    <div class="cinema-viewport" id="cinemaViewport">
-      <!-- Контент сцены подставляется скриптом -->
-    </div>
-
-    <div style="font-family:monospace; font-size:0.75rem; color:#888;" id="cinemaSub">
-      Interactive Transit Monitor
+  <!-- ЭКРАН АВТОРИЗАЦИИ (ПАРОЛЬ 1234) -->
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-box">
+      <span style="font-size:2rem;">🔒</span>
+      <h2 style="font-family:var(--font-display); font-size:1.8rem; margin-top:8px;">Девчачий трип ’26</h2>
+      <p style="font-size:0.85rem; color:#AAA; margin-top:4px;">Введите общий пароль для доступа</p>
+      
+      <input type="password" id="passInput" class="lock-input" placeholder="••••" maxlength="4" inputmode="numeric">
+      <button class="btn-main" id="btnLogin" style="margin:0; width:100%;">Войти</button>
+      <div class="lock-error" id="lockError"></div>
     </div>
   </div>
 
-  <!-- =============================================================
-       ЭКРАН 2: ПЕРЕЛЁТ 1 (ПОБЕДА DP991)
-       ============================================================= -->
-  <section class="screen-stage" id="screen-flight1">
-    <div class="step-detail-card">
-      <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta); letter-spacing:0.12em;">Перелёт 1 · Победа DP991</span>
-      <h2 style="font-family:var(--font-display); font-size:2rem; margin:6px 0 10px;">Москва (VKO) → Dubai (DWC)</h2>
+  <!-- ЗАЩИЩЕННОЕ ПРИЛОЖЕНИЕ -->
+  <div class="protected-app" id="protectedApp">
 
-      <div class="step-specs-grid">
-        <div><small>Вылет (Внуково)</small><strong>28.10 · 07:45</strong></div>
-        <div><small>Прилёт (Dubai DWC)</small><strong>28.10 · 14:20</strong></div>
-        <div><small>Борт</small><strong>Boeing 737-800</strong></div>
+    <header class="top-navigator">
+      <div class="brand-title">Девчачий трип<span>’26</span></div>
+      <div class="step-counter" id="stepIndicator">Шаг 1 из 7</div>
+    </header>
+
+    <!-- ЭКРАН 1: КОМАНДА -->
+    <section class="screen-stage active" id="screen-team">
+      <div style="text-align:center;">
+        <span style="font-size:0.75rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--olive-sage); font-weight:800; display:block; margin-bottom:8px;">28 октября — 7 ноября 2026</span>
+        <h1 style="font-size:clamp(2.4rem, 6vw, 4.2rem); font-family:var(--font-display); font-weight:400; line-height:1;">Наша банда в сборе ❦</h1>
+        <span style="font-family:var(--font-hand); color:var(--script-red); font-size:1.8rem; display:block; margin-top:4px;">«Три направления. Одно большое приключение»</span>
       </div>
 
-      <div class="baggage-box">
-        <h4>Нормы багажа Победы</h4>
-        <p style="font-size:0.88rem; margin-bottom:4px;"><strong>Ручная кладь:</strong> строго до <strong>36 × 30 × 27 см</strong> (без весового ценза, свободная калибровка).</p>
-        <p style="font-size:0.88rem;"><strong>Багаж:</strong> 1 место <strong>до 20 кг</strong> (по сумме 3 измерений до <strong>203 см</strong>).</p>
+      <div class="travelers-polaroid-frame">
+        <img src="travelers.jpg.JPG" alt="Команда" class="travelers-photo" onerror="this.src='travelers.jpg'">
       </div>
 
-      <a href="https://pobeda.aero" target="_blank" rel="noopener noreferrer" style="display:inline-block; padding:8px 16px; border:1px solid var(--border-craft); border-radius:20px; font-size:0.8rem; font-weight:700;">Сайт Победы ↗</a>
-    </div>
-
-    <div style="text-align:center;">
-      <button class="btn-main" id="btnLaunchTransfer1">Трансфер в Ras Al Khaimah (Toyota) ➔</button>
-    </div>
-  </section>
-
-  <!-- =============================================================
-       ЭКРАН 3: RAS AL KHAIMAH & ОТЕЛЬ ROVE
-       ============================================================= -->
-  <section class="screen-stage" id="screen-rak">
-    <div style="text-align:center; margin-bottom:24px;">
-      <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Островное побережье · 28.10 — 02.11</span>
-      <h2 style="font-size:2.6rem; font-family:var(--font-display); font-weight:400; line-height:1;">Ras Al Khaimah</h2>
-      <span style="font-family:var(--font-hand); color:var(--script-red); font-size:2rem;">«Здесь мы отдыхаем.»</span>
-    </div>
-
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-bottom:24px;">
-      <div style="background:#FFF; padding:10px 10px 18px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); box-shadow:0 8px 24px rgba(0,0,0,0.04);">
-        <img src="rove.jpg.JPG" alt="Отель Rove" style="width:100%; height:220px; object-fit:cover; border-radius:4px;" onerror="this.src='rove.jpg'">
-        <span style="font-family:var(--font-hand); color:var(--script-red); font-size:1.2rem; display:block; text-align:center; margin-top:6px;">Rove Al Marjan 🌴</span>
+      <div class="squad-roles-grid">
+        <div class="avatar-card"><div style="font-size:1.5rem; margin-bottom:6px;">🥐</div><div style="font-family:var(--font-display); font-size:1.3rem; font-weight:700;">Elena Kurenkova</div><span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:var(--script-red);">Добытчик провизии</span><p style="font-size:0.85rem; color:var(--ink-secondary);">С ней никто не останется голодным!</p></div>
+        <div class="avatar-card"><div style="font-size:1.5rem; margin-bottom:6px;">📁</div><div style="font-family:var(--font-display); font-size:1.3rem; font-weight:700;">Elena Kudriashova</div><span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:var(--script-red);">Безопасность</span><p style="font-size:0.85rem; color:var(--ink-secondary);">Хранительница паспортов и документов.</p></div>
+        <div class="avatar-card"><div style="font-size:1.5rem; margin-bottom:6px;">🗺️</div><div style="font-family:var(--font-display); font-size:1.3rem; font-weight:700;">Daria Kudriashova</div><span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:var(--script-red);">Логистика</span><p style="font-size:0.85rem; color:var(--ink-secondary);">Ключик ко всем броням и билетам.</p></div>
+        <div class="avatar-card"><div style="font-size:1.5rem; margin-bottom:6px;">📸</div><div style="font-family:var(--font-display); font-size:1.3rem; font-weight:700;">Olga Kosterina</div><span style="font-size:0.72rem; font-weight:800; text-transform:uppercase; color:var(--script-red);">Контент & Релакс</span><p style="font-size:0.85rem; color:var(--ink-secondary);">Лучшие лежаки и топ-контент.</p></div>
       </div>
 
-      <div style="background:#FFF; padding:10px 10px 18px; border-radius:8px; border:1px solid rgba(0,0,0,0.08); box-shadow:0 8px 24px rgba(0,0,0,0.04);">
-        <img src="camels.jpg.JPG" alt="Верблюды на трассе" style="width:100%; height:220px; object-fit:cover; border-radius:4px;" onerror="this.src='camels.jpg'">
-        <span style="font-family:var(--font-hand); color:var(--script-red); font-size:1.2rem; display:block; text-align:center; margin-top:6px;">Местные жители 🐪</span>
+      <div style="text-align:center;">
+        <button class="btn-main" id="btnStartJourney">ПОГНАЛИ! ➔ ВЗЛЁТ (VKO ➔ DWC)</button>
       </div>
-    </div>
+    </section>
 
-    <!-- Встроенный Spotify Desert Rose -->
-    <div style="background:#FFF; padding:24px; border-radius:16px; border:1px solid var(--border-craft); margin-bottom:24px;">
-      <h3 style="font-size:1.4rem; font-family:var(--font-display); margin-bottom:8px;">Пляжный саундтрек</h3>
-      <iframe 
-        style="border-radius:12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);" 
-        src="https://open.spotify.com/embed/track/5lAoCJrfv9CSyNziWLnWsg?utm_source=generator&theme=0" 
-        width="100%" 
-        height="152" 
-        frameBorder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        loading="lazy">
-      </iframe>
-    </div>
-
-    <div style="text-align:center;">
-      <button class="btn-main" id="btnLaunchAirArabia">Вылет в Куала-Лумпур (Air Arabia) ➔</button>
-    </div>
-  </section>
-
-  <!-- =============================================================
-       ЭКРАН 4: KUALA LUMPUR (АПАРТАМЕНТЫ AGILE)
-       ============================================================= -->
-  <section class="screen-stage" id="screen-kl">
-    <div style="text-align:center; margin-bottom:24px;">
-      <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Золотой треугольник · 02.11 — 06.11</span>
-      <h2 style="font-size:2.6rem; font-family:var(--font-display); font-weight:400; line-height:1;">Kuala Lumpur</h2>
-      <p style="color:var(--ink-secondary); font-size:0.92rem; margin-top:4px;">Agile Bukit Bintang by Avery at KLCC</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:24px;">
-      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);">
-        <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="Бассейн TRX" style="width:100%; height:160px; object-fit:cover;">
+    <!-- УНИВЕРСАЛЬНЫЙ КИНОТЕАТР АНИМАЦИИ -->
+    <div class="cinema-overlay" id="globalCinema">
+      <div class="cinema-header">
+        <span class="cinema-meta-tag" id="cinemaMeta">Flight DP991</span>
+        <h2 class="cinema-main-title" id="cinemaTitle">Москва (VKO) ➔ Dubai (DWC)</h2>
       </div>
-      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Гостиная" style="width:100%; height:160px; object-fit:cover;">
+      <div class="cinema-viewport" id="cinemaViewport"></div>
+      <div style="font-family:monospace; font-size:0.75rem; color:#888;" id="cinemaSub">Interactive Transit Monitor</div>
+    </div>
+
+    <!-- ЭКРАН 2: ПЕРЕЛЁТ 1 -->
+    <section class="screen-stage" id="screen-flight1">
+      <div class="step-detail-card">
+        <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Перелёт 1 · Победа DP991</span>
+        <h2 style="font-family:var(--font-display); font-size:2rem; margin:6px 0 10px;">Москва (VKO) → Dubai (DWC)</h2>
+        <div class="step-specs-grid">
+          <div><small>Вылет</small><strong>28.10 · 07:45</strong></div>
+          <div><small>Прилёт</small><strong>28.10 · 14:20</strong></div>
+          <div><small>Борт</small><strong>Boeing 737-800</strong></div>
+        </div>
+        <div class="baggage-box">
+          <h4>Нормы багажа Победы</h4>
+          <p style="font-size:0.88rem; margin-bottom:4px;"><strong>Ручная кладь:</strong> до 36×30×27 см.</p>
+          <p style="font-size:0.88rem;"><strong>Багаж:</strong> 1 место до 20 кг.</p>
+        </div>
       </div>
-      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);">
-        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Кухня" style="width:100%; height:160px; object-fit:cover;">
+      <div style="text-align:center;">
+        <button class="btn-main" id="btnLaunchTransfer1">Трансфер в Ras Al Khaimah ➔</button>
       </div>
-      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Крыша" style="width:100%; height:160px; object-fit:cover;">
+    </section>
+
+    <!-- ЭКРАН 3: RAK & ROVE -->
+    <section class="screen-stage" id="screen-rak">
+      <div style="text-align:center; margin-bottom:24px;">
+        <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Островное побережье · 28.10 — 02.11</span>
+        <h2 style="font-size:2.6rem; font-family:var(--font-display);">Ras Al Khaimah</h2>
+        <span style="font-family:var(--font-hand); color:var(--script-red); font-size:2rem;">«Здесь мы отдыхаем.»</span>
       </div>
-    </div>
 
-    <div style="text-align:center;">
-      <button class="btn-main" id="btnLaunchMetro">Метро LRT на концерт The Weeknd ➔</button>
-    </div>
-  </section>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-bottom:24px;">
+        <div style="background:#FFF; padding:10px 10px 18px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);"><img src="rove.jpg.JPG" alt="Rove" style="width:100%; height:220px; object-fit:cover; border-radius:4px;" onerror="this.src='rove.jpg'"><span style="font-family:var(--font-hand); color:var(--script-red); font-size:1.2rem; display:block; text-align:center; margin-top:6px;">Rove Al Marjan 🌴</span></div>
+        <div style="background:#FFF; padding:10px 10px 18px; border-radius:8px; border:1px solid rgba(0,0,0,0.08);"><img src="camels.jpg.JPG" alt="Верблюды" style="width:100%; height:220px; object-fit:cover; border-radius:4px;" onerror="this.src='camels.jpg'"><span style="font-family:var(--font-hand); color:var(--script-red); font-size:1.2rem; display:block; text-align:center; margin-top:6px;">Местные жители 🐪</span></div>
+      </div>
 
-  <!-- =============================================================
-       ЭКРАН 5: THE WEEKND AFTER HOURS CONCERT
-       ============================================================= -->
-  <section class="screen-stage" id="screen-weeknd" style="background:var(--noir-bg); color:#FFF; border-radius:20px; padding:34px 20px;">
-    <div style="text-align:center; margin-bottom:24px;">
-      <span style="font-family:monospace; color:var(--noir-red); font-size:0.85rem; letter-spacing:0.3em; text-transform:uppercase; font-weight:700;">
-        04.11.2026 · Stadium Bukit Jalil
-      </span>
-      <h2 style="font-size:clamp(3rem, 8vw, 5.5rem); font-family:var(--font-display); line-height:0.95; text-shadow:0 0 35px rgba(225,29,56,0.5); text-transform:uppercase; margin-top:8px;">
-        THE WEEKND
-      </h2>
-      <p style="font-family:var(--font-display); font-style:italic; color:var(--noir-gold); font-size:1.6rem;">After Hours Til Dawn Tour</p>
-    </div>
+      <div style="background:#FFF; padding:24px; border-radius:16px; border:1px solid var(--border-craft); margin-bottom:24px;">
+        <h3 style="font-size:1.4rem; font-family:var(--font-display); margin-bottom:8px;">Пляжный саундтрек</h3>
+        <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/5lAoCJrfv9CSyNziWLnWsg?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
 
-    <!-- Встроенный Spotify альбом After Hours -->
-    <div style="max-width:600px; margin:0 auto 24px;">
-      <iframe 
-        style="border-radius:12px; box-shadow: 0 10px 30px rgba(225, 29, 56, 0.35);" 
-        src="https://open.spotify.com/embed/album/4yP0hdKOZPNshxUOjY0cZj?utm_source=generator&theme=0" 
-        width="100%" 
-        height="152" 
-        frameBorder="0" 
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-        loading="lazy">
-      </iframe>
-    </div>
+      <div style="text-align:center;">
+        <button class="btn-main" id="btnLaunchAirArabia">Вылет в Куала-Лумпур (Air Arabia) ➔</button>
+      </div>
+    </section>
 
-    <div style="background:var(--noir-card); border:1px solid rgba(236, 200, 119, 0.2); border-radius:14px; padding:20px; margin-bottom:24px;">
-      <h4 style="color:var(--noir-gold); font-size:1.1rem; margin-bottom:6px;">Метро LRT: Станция Hang Tuah ➔ Bukit Jalil</h4>
-      <p style="font-size:0.85rem; color:#AAA;">Прямой маршрут без пробок. Крытый мост со станции ведёт прямо ко входу на стадион.</p>
-    </div>
+    <!-- ЭКРАН 4: KUALA LUMPUR (ВАШИ ЗАГРУЖЕННЫЕ ФОТО) -->
+    <section class="screen-stage" id="screen-kl">
+      <div style="text-align:center; margin-bottom:24px;">
+        <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Золотой треугольник · 02.11 — 06.11</span>
+        <h2 style="font-size:2.6rem; font-family:var(--font-display);">Kuala Lumpur</h2>
+        <p style="color:var(--ink-secondary); font-size:0.92rem; margin-top:4px;">Agile Bukit Bintang by Avery at KLCC</p>
+      </div>
 
-    <div style="text-align:center;">
-      <button class="btn-main" id="btnLaunchEmirates" style="background:#D93829;">Вылет домой: Emirates A380 ➔</button>
-    </div>
-  </section>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:24px;">
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8578.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8581.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8582.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid var(--border-craft);"><img src="IMG_8588.png" alt="Апартаменты" style="width:100%; height:160px; object-fit:cover;"></div>
+      </div>
 
-  <!-- =============================================================
-       ЭКРАН 6: ФИНАЛ — МЫ ДОМА
-       ============================================================= -->
-  <section class="screen-stage" id="screen-home">
-    <div class="step-detail-card" style="text-align:center; padding:40px 20px;">
-      <span style="font-size:0.8rem; font-weight:800; text-transform:uppercase; color:var(--olive-sage); letter-spacing:0.15em;">07 ноября 2026 · Москва (DME)</span>
-      <h2 style="font-family:var(--font-display); font-size:2.8rem; color:var(--terracotta); margin:8px 0 16px; font-style:italic;">
-        «Путешествие завершено. Но воспоминания навсегда!»
-      </h2>
-      <p style="font-size:1rem; color:var(--ink-secondary); max-width:580px; margin:0 auto 20px;">
-        11 незабываемых дней: пляжи Рас-эль-Хаймы, башни Петронас, стадионное шоу The Weeknd и тысячи ярких моментов вчетвером.
-      </p>
-      <div style="font-family:var(--font-hand); color:var(--script-red); font-size:2rem;">Elena · Elena · Daria · Olga ❦</div>
-      <button class="btn-main" id="btnRestartTrip" style="margin-top:30px;">В начало путешествия ↺</button>
-    </div>
-  </section>
+      <div style="text-align:center;">
+        <button class="btn-main" id="btnLaunchMetro">Метро LRT на концерт The Weeknd ➔</button>
+      </div>
+    </section>
 
-  <!-- Скрипт кинематографичных переходов -->
+    <!-- ЭКРАН 5: THE WEEKND -->
+    <section class="screen-stage" id="screen-weeknd" style="background:var(--noir-bg); color:#FFF; border-radius:20px; padding:34px 20px;">
+      <div style="text-align:center; margin-bottom:24px;">
+        <span style="font-family:monospace; color:var(--noir-red); font-size:0.85rem; letter-spacing:0.3em; text-transform:uppercase; font-weight:700;">04.11.2026 · Stadium Bukit Jalil</span>
+        <h2 style="font-size:clamp(3rem, 8vw, 5.5rem); font-family:var(--font-display); line-height:0.95; text-transform:uppercase; margin-top:8px; color:#FFF;">THE WEEKND</h2>
+        <p style="font-family:var(--font-display); font-style:italic; color:var(--noir-gold); font-size:1.6rem;">After Hours Til Dawn Tour</p>
+      </div>
+
+      <div style="max-width:600px; margin:0 auto 24px;">
+        <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/album/4yP0hdKOZPNshxUOjY0cZj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="btn-main" id="btnLaunchEmirates" style="background:#D93829;">Вылет домой: Emirates A380 ➔</button>
+      </div>
+    </section>
+
+    <!-- ЭКРАН 6: ЛИЧНЫЙ КАБИНЕТ С ЛОКАЛЬНЫМ ХРАНИЛИЩЕМ ДОКУМЕНТОВ -->
+    <section class="screen-stage" id="screen-cabinet">
+      <div class="step-detail-card" style="text-align:center;">
+        <span style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--terracotta);">Secure Travel Vault · 100% Конфиденциально</span>
+        <h2 style="font-family:var(--font-display); font-size:2.2rem; margin:6px 0 10px;">Личный кабинет документов</h2>
+        <p style="font-size:0.9rem; color:var(--ink-secondary); margin-bottom:20px;">Ваши сканы и билеты хранятся исключительно в защищенной памяти вашего телефона и никуда не передаются.</p>
+
+        <!-- Зона загрузки файлов с телефона -->
+        <div class="upload-zone">
+          <label style="cursor:pointer; display:block;">
+            <span style="font-size:1.8rem; display:block; margin-bottom:6px;">📎</span>
+            <strong style="color:var(--terracotta); font-size:0.95rem;">Загрузить документ (паспорт, билет, ваучер)</strong>
+            <input type="file" id="fileUpload" style="display:none;" multiple accept="image/*,.pdf">
+          </label>
+        </div>
+
+        <!-- Список сохраненных документов -->
+        <div id="docsList" style="margin-top:20px; text-align:left;"></div>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="btn-main" id="btnGoToHome">Финальный экран ➔</button>
+      </div>
+    </section>
+
+    <!-- ЭКРАН 7: ФИНАЛ -->
+    <section class="screen-stage" id="screen-home">
+      <div class="step-detail-card" style="text-align:center; padding:40px 20px;">
+        <span style="font-size:0.8rem; font-weight:800; text-transform:uppercase; color:var(--olive-sage); letter-spacing:0.15em;">07 ноября 2026 · Москва (DME)</span>
+        <h2 style="font-family:var(--font-display); font-size:2.8rem; color:var(--terracotta); margin:8px 0 16px; font-style:italic;">
+          «Путешествие завершено. Но воспоминания навсегда!»
+        </h2>
+        <div style="font-family:var(--font-hand); color:var(--script-red); font-size:2rem; margin-top:20px;">Elena · Elena · Daria · Olga ❦</div>
+        <button class="btn-main" id="btnRestartTrip" style="margin-top:30px;">В начало путешествия ↺</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container" style="text-align:center; padding:40px 0; color:#888; font-size:0.8rem;">
+        Девчачий трип ’26 · Все данные защищены локально
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Скрипты авторизации, анимаций и локального хранилища документов -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const lockScreen = document.getElementById('lockScreen');
+      const protectedApp = document.getElementById('protectedApp');
+      const passInput = document.getElementById('passInput');
+      const btnLogin = document.getElementById('btnLogin');
+      const lockError = document.getElementById('lockError');
+
+      // Проверка авторизации (пароль 1234)
+      function handleLogin() {
+        if (passInput.value === '1234') {
+          lockScreen.classList.add('unlocked');
+          protectedApp.classList.add('visible');
+          localStorage.setItem('trip26_auth', 'true');
+        } else {
+          lockError.innerText = 'Неверный пароль. Подсказка: 1234';
+          passInput.value = '';
+        }
+      }
+
+      btnLogin.addEventListener('click', handleLogin);
+      passInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleLogin();
+      });
+
+      // Авто-вход, если уже вводили пароль в этом сеансе
+      if (localStorage.getItem('trip26_auth') === 'true') {
+        lockScreen.classList.add('unlocked');
+        protectedApp.classList.add('visible');
+      }
+
+      // Навигация по экранам
       const globalCinema = document.getElementById('globalCinema');
       const cinemaViewport = document.getElementById('cinemaViewport');
       const cinemaMeta = document.getElementById('cinemaMeta');
       const cinemaTitle = document.getElementById('cinemaTitle');
-      const cinemaSub = document.getElementById('cinemaSub');
       const stepIndicator = document.getElementById('stepIndicator');
 
       const screens = {
@@ -625,6 +516,7 @@
         rak: document.getElementById('screen-rak'),
         kl: document.getElementById('screen-kl'),
         weeknd: document.getElementById('screen-weeknd'),
+        cabinet: document.getElementById('screen-cabinet'),
         home: document.getElementById('screen-home')
       };
 
@@ -635,243 +527,100 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      /* 1. ПОЛЁТ 1: ПОБЕДА (VKO -> DWC) */
+      // 1. Полет Победы (VKO -> DWC) с плавной идеальной дугой
       document.getElementById('btnStartJourney').addEventListener('click', () => {
         cinemaMeta.innerText = 'Flight DP991 · Boeing 737-800';
         cinemaTitle.innerText = 'Москва (VKO) ➔ Dubai (DWC)';
-        cinemaSub.innerText = '28.10.2026 · Вылет 07:45 ➔ Прилёт 14:20';
-
         cinemaViewport.innerHTML = `
           <div class="earth-sphere">
             <div class="earth-land"></div>
-            <div class="geo-point" style="top:70px; left:80px; color:#FFF; background:#FFF;"></div>
-            <span class="geo-label" style="top:55px; left:75px;">VKO</span>
-            <div class="geo-point" style="bottom:80px; right:75px; color:#FFE082; background:#FFE082;"></div>
-            <span class="geo-label" style="bottom:65px; right:70px; color:#FFE082;">DWC</span>
+            <div class="geo-point" style="top:70px; left:80px;"></div><span class="geo-label" style="top:55px; left:75px;">VKO</span>
+            <div class="geo-point" style="bottom:80px; right:75px; background:#FFE082;"></div><span class="geo-label" style="bottom:65px; right:70px; color:#FFE082;">DWC</span>
           </div>
-
-          <!-- Векторный Боинг Победы (Фото 1) -->
-          <svg class="cinema-vehicle" style="width:170px; animation: pobedaFlightArc 5.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;" viewBox="0 0 400 150" fill="none">
-            <path d="M 30 75 Q 80 65 340 65 Q 365 65 375 75 Q 365 85 340 85 Q 80 85 30 75 Z" fill="#FFFFFF" stroke="#DDD" stroke-width="1.5"/>
+          <svg class="realistic-plane" viewBox="0 0 400 150" fill="none">
+            <path d="M 30 75 Q 80 65 340 65 Q 375 75 340 85 Q 80 85 30 75 Z" fill="#FFF" stroke="#DDD" stroke-width="1.5"/>
             <path d="M 40 82 Q 180 88 340 85 Z" fill="#0088D6"/>
             <path d="M 320 65 L 375 10 L 395 10 L 365 65 Z" fill="#0088D6"/>
             <circle cx="365" cy="35" r="18" fill="#40B2FF" opacity="0.6"/>
-            <circle cx="375" cy="40" r="14" fill="#80CEFF" opacity="0.6"/>
             <path d="M 150 78 L 225 110 L 245 110 L 195 78 Z" fill="#DCDCDC"/>
             <rect x="160" y="85" width="42" height="18" rx="8" fill="#0088D6"/>
             <text x="75" y="78" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800" fill="#0088D6">победа</text>
           </svg>
-
           <div class="cinema-reveal-modal" id="modalBurj">
             <img src="burj.jpg.JPG" alt="Бурдж Халифа" class="reveal-photo" onerror="this.src='burj.jpg'">
             <div class="reveal-title">«Добро пожаловать в Эмираты!»</div>
-            <div class="reveal-subtitle">Посадка в Dubai World Central (DWC) состоялась</div>
-            <button class="btn-main" id="btnGoToFlight1" style="margin-top:16px;">Посмотреть детали рейса ➔</button>
+            <div class="reveal-subtitle">Посадка в DWC состоялась</div>
+            <button class="btn-main" id="btnGoToFlight1" style="margin-top:16px;">Посмотреть детали ➔</button>
           </div>
         `;
-
         globalCinema.classList.add('active');
         setTimeout(() => {
           document.getElementById('modalBurj').classList.add('show');
           document.getElementById('btnGoToFlight1').addEventListener('click', () => {
             globalCinema.classList.remove('active');
-            switchScreen(screens.flight1, 'Шаг 2 из 6');
+            switchScreen(screens.flight1, 'Шаг 2 из 7');
           });
-        }, 4600);
+        }, 4500);
       });
 
-      /* 2. ТРАНСФЕР 1: БЕЛЫЙ МИНИВЭН TOYOTA (DWC -> ROVE) */
-      document.getElementById('btnLaunchTransfer1').addEventListener('click', () => {
-        cinemaMeta.innerText = 'Private Transfer · Toyota Sienna';
-        cinemaTitle.innerText = 'DWC Airport ➔ Rove Al Marjan';
-        cinemaSub.innerText = 'Дорога через дюны Рас-эль-Хаймы (~1 час 20 минут)';
+      document.getElementById('btnLaunchTransfer1').addEventListener('click', () => switchScreen(screens.rak, 'Шаг 3 из 7'));
+      document.getElementById('btnLaunchAirArabia').addEventListener('click', () => switchScreen(screens.kl, 'Шаг 4 из 7'));
+      document.getElementById('btnLaunchMetro').addEventListener('click', () => switchScreen(screens.weeknd, 'Шаг 5 из 7'));
+      document.getElementById('btnLaunchEmirates').addEventListener('click', () => switchScreen(screens.cabinet, 'Шаг 6 из 7'));
+      document.getElementById('btnGoToHome').addEventListener('click', () => switchScreen(screens.home, 'Шаг 7 из 7'));
+      document.getElementById('btnRestartTrip').addEventListener('click', () => switchScreen(screens.team, 'Шаг 1 из 7'));
 
-        cinemaViewport.innerHTML = `
-          <div style="position:relative; width:100%; height:260px; background:linear-gradient(180deg, #F3DEB8 0%, #D8BE95 100%); border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);">
-            <!-- Дорога -->
-            <div style="position:absolute; bottom:30px; left:0; width:100%; height:40px; background:#4A443B; border-top:2px solid #E8D3A7;"></div>
-            
-            <!-- Белый минивэн Toyota (Фото из запроса) -->
-            <svg class="cinema-vehicle" style="width:160px; bottom:35px; animation: toyotaDriveArc 5.5s linear forwards;" viewBox="0 0 400 180" fill="none">
-              <!-- Кузов минивэна Toyota -->
-              <path d="M 30 110 L 30 65 Q 40 50 65 50 L 260 50 Q 300 50 335 80 L 365 110 Q 375 125 360 135 L 45 135 Q 30 135 30 110 Z" fill="#FFFFFF" stroke="#333" stroke-width="3"/>
-              <!-- Окна с тонировкой -->
-              <path d="M 70 58 L 140 58 L 140 95 L 70 95 Z" fill="#222"/>
-              <path d="M 150 58 L 225 58 L 225 95 L 150 95 Z" fill="#222"/>
-              <path d="M 235 58 L 285 58 L 320 95 L 235 95 Z" fill="#222"/>
-              <!-- Фары Toyota -->
-              <polygon points="335,95 365,100 355,115 328,110" fill="#B0C8DF" stroke="#222"/>
-              <!-- Радиаторная решётка -->
-              <rect x="330" y="112" width="30" height="14" rx="3" fill="#222"/>
-              <!-- Колёса -->
-              <circle cx="95" cy="135" r="24" fill="#1C1A17"/>
-              <circle cx="95" cy="135" r="10" fill="#DDD"/>
-              <circle cx="295" cy="135" r="24" fill="#1C1A17"/>
-              <circle cx="295" cy="135" r="10" fill="#DDD"/>
-            </svg>
-          </div>
+      // -------------------------------------------------------------
+      // Локальное хранилище документов (Secure Travel Vault)
+      // -------------------------------------------------------------
+      const fileUpload = document.getElementById('fileUpload');
+      const docsList = document.getElementById('docsList');
 
-          <div class="cinema-reveal-modal" id="modalRove">
-            <img src="rove.jpg.JPG" alt="Отель Rove" class="reveal-photo" onerror="this.src='rove.jpg'">
-            <div class="reveal-title">«Прибыли в Rove Al Marjan!»</div>
-            <div class="reveal-subtitle">5 дней безмятежного пляжного релакса на море</div>
-            <button class="btn-main" id="btnGoToRak" style="margin-top:16px;">В отель и к морю ➔</button>
-          </div>
-        `;
+      function loadSavedDocs() {
+        const saved = JSON.parse(localStorage.getItem('trip26_docs') || '[]');
+        if (saved.length === 0) {
+          docsList.innerHTML = '<p style="font-size:0.85rem; color:var(--ink-muted); text-align:center;">Пока нет загруженных документов. Выберите файлы выше.</p>';
+          return;
+        }
+        docsList.innerHTML = '<h4 style="font-size:0.85rem; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-secondary);">Сохраненные документы:</h4>';
+        saved.forEach((doc, index) => {
+          const item = document.createElement('div');
+          item.className = 'doc-card';
+          item.innerHTML = `
+            <div><div style="font-weight:700; font-size:0.9rem;">📄 ${doc.name}</div><small style="color:var(--ink-muted);">Локально на устройстве</small></div>
+            <div style="display:flex; gap:8px;">
+              <a href="${doc.data}" download="${doc.name}" style="font-size:0.78rem; font-weight:700; background:var(--bg-paper); padding:6px 10px; border-radius:8px;">Скачать</a>
+              <button onclick="deleteDoc(${index})" style="font-size:0.78rem; font-weight:700; color:var(--noir-red); padding:6px 10px;">Удалить</button>
+            </div>
+          `;
+          docsList.appendChild(item);
+        });
+      }
 
-        globalCinema.classList.add('active');
-        setTimeout(() => {
-          document.getElementById('modalRove').classList.add('show');
-          document.getElementById('btnGoToRak').addEventListener('click', () => {
-            globalCinema.classList.remove('active');
-            switchScreen(screens.rak, 'Шаг 3 из 6');
-          });
-        }, 4600);
+      fileUpload.addEventListener('change', (e) => {
+        const files = e.target.files;
+        if (!files.length) return;
+        const saved = JSON.parse(localStorage.getItem('trip26_docs') || '[]');
+
+        Array.from(files).forEach(file => {
+          const reader = new FileReader();
+          reader.onload = function(uploadEvent) {
+            saved.push({ name: file.name, data: uploadEvent.target.result });
+            localStorage.setItem('trip26_docs', JSON.stringify(saved));
+            loadSavedDocs();
+          };
+          reader.readAsDataURL(file);
+        });
       });
 
-      /* 3. ПОЛЁТ 2: AIR ARABIA (SHJ -> KUL) */
-      document.getElementById('btnLaunchAirArabia').addEventListener('click', () => {
-        cinemaMeta.innerText = 'Flight G9802 · Airbus A320';
-        cinemaTitle.innerText = 'Sharjah (SHJ) ➔ Kuala Lumpur (KUL)';
-        cinemaSub.innerText = 'Ночной перелёт через Индийский океан';
+      window.deleteDoc = function(index) {
+        const saved = JSON.parse(localStorage.getItem('trip26_docs') || '[]');
+        saved.splice(index, 1);
+        localStorage.setItem('trip26_docs', JSON.stringify(saved));
+        loadSavedDocs();
+      };
 
-        cinemaViewport.innerHTML = `
-          <div class="earth-sphere" style="background: radial-gradient(circle at 70% 30%, #1A2744 0%, #080C14 100%);">
-            <div class="earth-land"></div>
-            <div class="geo-point" style="bottom:120px; left:60px; color:#FFE082; background:#FFE082;"></div>
-            <span class="geo-label" style="bottom:105px; left:55px; color:#FFE082;">SHJ</span>
-            <div class="geo-point" style="top:110px; right:60px; color:#8CD5FF; background:#8CD5FF;"></div>
-            <span class="geo-label" style="top:95px; right:55px; color:#8CD5FF;">KUL</span>
-          </div>
-
-          <!-- Векторный Airbus Air Arabia (Фото 2 из запроса) -->
-          <svg class="cinema-vehicle" style="width:180px; animation: airArabiaFlightArc 5.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;" viewBox="0 0 400 160" fill="none">
-            <!-- Фюзеляж Air Arabia -->
-            <path d="M 40 85 Q 100 70 340 70 Q 365 70 375 80 Q 365 90 340 90 Q 100 90 40 85 Z" fill="#EAECEE" stroke="#CCC" stroke-width="1.5"/>
-            <!-- Красный хвост с силуэтом чайки (Gull) -->
-            <path d="M 50 85 L 85 20 L 115 20 L 100 85 Z" fill="#D9272E"/>
-            <path d="M 95 38 Q 90 45 80 48 Q 90 52 102 46 Z" fill="#FFF"/>
-            <!-- Красная изогнутая полоса на борту -->
-            <path d="M 170 88 Q 250 88 335 76 Q 280 84 170 88 Z" fill="#D9272E"/>
-            <!-- Надпись airarabia.com -->
-            <text x="180" y="66" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#D9272E">airarabia.com</text>
-            <!-- Крыло и двигатель с красной чайкой -->
-            <path d="M 180 86 L 255 120 L 275 120 L 225 86 Z" fill="#B0B7BD"/>
-            <rect x="195" y="96" width="44" height="20" rx="9" fill="#EAECEE" stroke="#AAA"/>
-            <circle cx="217" cy="106" r="5" fill="#D9272E"/>
-          </svg>
-
-          <div class="cinema-reveal-modal" id="modalPetronas">
-            <div style="font-size:3.5rem; margin-bottom:10px;">🇲🇾🏙️</div>
-            <div class="reveal-title">«Куала-Лумпур встречает нас!»</div>
-            <div class="reveal-subtitle">Башни Petronas горят ночными огнями · Заселение в Agile 2BR</div>
-            <button class="btn-main" id="btnGoToKl" style="margin-top:16px;">В апартаменты и город ➔</button>
-          </div>
-        `;
-
-        globalCinema.classList.add('active');
-        setTimeout(() => {
-          document.getElementById('modalPetronas').classList.add('show');
-          document.getElementById('btnGoToKl').addEventListener('click', () => {
-            globalCinema.classList.remove('active');
-            switchScreen(screens.kl, 'Шаг 4 из 6');
-          });
-        }, 4600);
-      });
-
-      /* 4. ТРАНСФЕР 2: МЕТРО LRT НА СТАДИОН THE WEEKND */
-      document.getElementById('btnLaunchMetro').addEventListener('click', () => {
-        cinemaMeta.innerText = 'Rapid Rail · LRT Sri Petaling Line';
-        cinemaTitle.innerText = 'Hang Tuah ➔ National Stadium';
-        cinemaSub.innerText = 'Прямой экспресс на арену без пробок';
-
-        cinemaViewport.innerHTML = `
-          <div style="position:relative; width:100%; height:260px; background:linear-gradient(180deg, #1A1324 0%, #0A080D 100%); border-radius:20px; overflow:hidden; border:1px solid rgba(225,29,56,0.3);">
-            <div style="position:absolute; bottom:40px; left:0; width:100%; height:12px; background:#3A324A; border-top:2px solid #ECC877;"></div>
-            
-            <svg class="cinema-vehicle" style="width:170px; bottom:44px; animation: toyotaDriveArc 5s linear forwards;" viewBox="0 0 200 50" fill="none">
-              <path d="M 5 40 L 5 12 Q 8 6 18 6 L 180 6 Q 194 6 198 22 L 198 40 Z" fill="#F0F4F8" stroke="#333" stroke-width="2"/>
-              <path d="M 5 28 L 198 28 L 198 38 L 5 38 Z" fill="#E11D38"/>
-              <rect x="20" y="10" width="22" height="12" rx="2" fill="#1C1A17"/>
-              <rect x="52" y="10" width="22" height="12" rx="2" fill="#1C1A17"/>
-              <rect x="84" y="10" width="22" height="12" rx="2" fill="#1C1A17"/>
-              <rect x="116" y="10" width="22" height="12" rx="2" fill="#1C1A17"/>
-              <circle cx="194" cy="33" r="3" fill="#FFEAA0"/>
-            </svg>
-          </div>
-
-          <div class="cinema-reveal-modal" id="modalWeeknd">
-            <div style="font-size:3.5rem; margin-bottom:8px;">🎤🔥</div>
-            <div class="reveal-title" style="color:var(--noir-red);">THE WEEKND: AFTER HOURS</div>
-            <div class="reveal-subtitle">National Stadium Bukit Jalil · 20:30 Show Time</div>
-            <button class="btn-main" id="btnGoToWeeknd" style="margin-top:16px; background:var(--noir-red);">На концерт ➔</button>
-          </div>
-        `;
-
-        globalCinema.classList.add('active');
-        setTimeout(() => {
-          document.getElementById('modalWeeknd').classList.add('show');
-          document.getElementById('btnGoToWeeknd').addEventListener('click', () => {
-            globalCinema.classList.remove('active');
-            switchScreen(screens.weeknd, 'Шаг 5 из 6');
-          });
-        }, 4400);
-      });
-
-      /* 5. ПОЛЁТ 3: EMIRATES A380 (KUL -> DXB -> DME) */
-      document.getElementById('btnLaunchEmirates').addEventListener('click', () => {
-        cinemaMeta.innerText = 'Flight EK347 / EK133 · Airbus A380';
-        cinemaTitle.innerText = 'Kuala Lumpur ➔ Dubai ➔ Москва';
-        cinemaSub.innerText = '06 — 07 ноября · Флагманский рейс домой';
-
-        cinemaViewport.innerHTML = `
-          <div class="earth-sphere" style="background: radial-gradient(circle at 40% 40%, #5E2648 0%, #1F0D22 60%, #08030C 100%);">
-            <div class="earth-land" style="background:#8F4C68;"></div>
-            <div class="geo-point" style="bottom:100px; right:60px; color:#FFE082; background:#FFE082;"></div>
-            <span class="geo-label" style="bottom:85px; right:55px;">KUL</span>
-            <div class="geo-point" style="top:70px; left:80px; color:#FFF; background:#FFF;"></div>
-            <span class="geo-label" style="top:55px; left:75px;">DME</span>
-          </div>
-
-          <!-- Векторный двухпалубный гигант Emirates A380 (Фото 3 из запроса) -->
-          <svg class="cinema-vehicle" style="width:190px; animation: emiratesFlightArc 5.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;" viewBox="0 0 400 150" fill="none">
-            <!-- Двухпалубный фюзеляж A380 -->
-            <path d="M 30 75 Q 70 55 340 55 Q 370 55 380 68 Q 370 85 340 85 Q 70 85 30 75 Z" fill="#FFFFFF" stroke="#D5D5D5" stroke-width="2"/>
-            <!-- Хвост с флагом ОАЭ (Emirates UAE Flag) -->
-            <path d="M 40 75 L 85 10 L 130 10 L 105 75 Z" fill="#D71921"/>
-            <polygon points="85,10 130,10 120,28 80,28" fill="#00732F"/>
-            <polygon points="80,28 120,28 112,46 75,46" fill="#FFFFFF"/>
-            <polygon points="75,46 112,46 105,64 70,64" fill="#000000"/>
-            <!-- Золотая надпись Emirates -->
-            <text x="160" y="72" font-family="'Cormorant Garamond', serif" font-size="20" font-weight="700" fill="#D4AF37">Emirates</text>
-            <!-- Крыло и двигатели -->
-            <path d="M 180 75 L 260 115 L 285 115 L 230 75 Z" fill="#C8CDD2"/>
-            <rect x="200" y="90" width="35" height="15" rx="7" fill="#FFF" stroke="#AAA"/>
-            <rect x="240" y="100" width="35" height="15" rx="7" fill="#FFF" stroke="#AAA"/>
-          </svg>
-
-          <div class="cinema-reveal-modal" id="modalHome">
-            <div style="font-size:3.5rem; margin-bottom:8px;">🏡❤️</div>
-            <div class="reveal-title">«Приземление в Москве!»</div>
-            <div class="reveal-subtitle">Домодедово (DME) · Мы вернулись домой!</div>
-            <button class="btn-main" id="btnGoToHome" style="margin-top:16px;">Завершить трип ➔</button>
-          </div>
-        `;
-
-        globalCinema.classList.add('active');
-        setTimeout(() => {
-          document.getElementById('modalHome').classList.add('show');
-          document.getElementById('btnGoToHome').addEventListener('click', () => {
-            globalCinema.classList.remove('active');
-            switchScreen(screens.home, 'Шаг 6 из 6');
-          });
-        }, 4600);
-      });
-
-      /* 6. ПЕРЕЗАПУСК */
-      document.getElementById('btnRestartTrip').addEventListener('click', () => {
-        switchScreen(screens.team, 'Шаг 1 из 6');
-      });
+      loadSavedDocs();
     });
 
     if ('serviceWorker' in navigator) {
