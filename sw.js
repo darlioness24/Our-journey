@@ -1,4 +1,4 @@
-const CACHE_NAME = 'daria-journey-v3';
+const CACHE_NAME = 'trip26-v4';
 
 const ASSETS_TO_CACHE = [
   './',
